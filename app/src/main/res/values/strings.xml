@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">UnitedPipeline</string>
+    <string name="app_name">United Pipeline</string>
+    <string name="client">Continue As Client</string>
+    <string name="manager">Continue As Manager</string>
 </resources>
