@@ -5,4 +5,18 @@ package com.example.alextangen.unitedpipeline;
  */
 
 public class Job {
+
+    private Piece[] pieces;
+
+    private double pfHoursTotal;
+    private double lbHoursTotal;
+
+    public Job(int numPieces) {
+        pieces = new Piece[numPieces];
+
+        pfHoursTotal = 0;
+        lbHoursTotal = 0;
+    }
+
+    // public methods to create/store pieces and tally man hours
 }
