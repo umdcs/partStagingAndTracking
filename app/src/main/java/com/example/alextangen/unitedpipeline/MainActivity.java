@@ -13,10 +13,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void continueAsClient(View view) {
-
+        // triggers new activity in the role of a client
     }
 
     public void continueAsManager(View view) {
-
+        // triggers new activity in the role of a manager
     }
 }
