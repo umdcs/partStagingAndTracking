@@ -18,5 +18,5 @@ public class Job {
         lbHoursTotal = 0;
     }
 
-    // public methods to create/store pieces and tally man hours
+    // public methods to create/store/update/access pieces and tally man hours
 }
