@@ -30,5 +30,33 @@ public class Piece {
         lbHours = 0;
     }
 
+    public boolean getMatlRecieved() {
+        return matlRcvd;
+    }
+
+    public boolean getStartFab() {
+        return startFab;
+    }
+
+    public boolean getEndFab() {
+        return endFab;
+    }
+
+    public boolean getXRay() {
+        return xRay;
+    }
+
+    public boolean getStartCoat() {
+        return startCoat;
+    }
+
+    public boolean getEndCoat() {
+        return endCoat;
+    }
+
+    public boolean getShipRdy() {
+        return shipRdy;
+    }
+
     // public methods to update/access progress and man hours
 }
