@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alextangen.unitedpipeline.generalActivity">
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/matRec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Materials Recieved"
+        android:textSize="20sp"
+        android:onClick="materialsReceived"/>
+
+    <Button
+        android:id="@+id/sFab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Started Fab"
+        android:textSize="20sp"
+        android:onClick="startedFab"/>
+
+    <Button
+        android:id="@+id/eFab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finished Fab"
+        android:textSize="20sp"
+        android:onClick="finishedFab"/>
+
+    <Button
+        android:id="@+id/xray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xRay Ready"
+        android:textSize="20sp"
+        android:onClick="xRayReady"/>
+
+    <Button
+        android:id="@+id/scoat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Started Painting/Coating"
+        android:textSize="20sp"
+        android:onClick="startedCoating"/>
+
+    <Button
+        android:id="@+id/ecoat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finshed Coating"
+        android:textSize="20sp"
+        android:onClick="finishedCoating"/>
+
+    <Button
+        android:id="@+id/ship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ready to Ship"
+        android:textSize="20sp"
+        android:onClick="readyToShip"/>
+
+</LinearLayout>

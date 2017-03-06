@@ -54,9 +54,27 @@ public class Piece {
         return endCoat;
     }
 
-    public boolean getShipRdy() {
-        return shipRdy;
-    }
+    public boolean getShipRdy() { return shipRdy; }
+
+    public void setMatlRcvd(boolean what) { matlRcvd = what;}
+
+    public void setStartFab(boolean what) { startFab = what;}
+
+    public void setEndFab(boolean what) { endFab = what;}
+
+    public void setxRay(boolean what) { xRay = what;}
+
+    public void setStartCoat(boolean what) { startCoat = what;}
+
+    public void setEndCoat(boolean what) { endCoat = what;}
+
+    public void setShipRdy(boolean what) { shipRdy = what;}
+
+
+
+
+
+
 
     // public methods to update/access progress and man hours
 }
