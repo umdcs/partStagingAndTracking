@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class generalActivity extends AppCompatActivity {
 
     private Presenter generalPresenter;
     private Job generalJob;
     ProgressBar prg;
+    TextView tracker;
     Button matlReceived;
     Button startedFab;
     Button finishedFab;
@@ -26,6 +28,8 @@ public class generalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
         prg = (ProgressBar) findViewById(R.id.progressBar);
+        prg.setScaleY(3);
+        tracker = (TextView) findViewById(R.id.tracker);
         matlReceived = (Button) findViewById(R.id.matRec);
         startedFab = (Button) findViewById(R.id.sFab);
         finishedFab = (Button) findViewById(R.id.eFab);
@@ -39,6 +43,7 @@ public class generalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prg.setProgress(10);
+                tracker.setText("Materials have been Received");
             }
         });
 
@@ -46,6 +51,7 @@ public class generalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prg.setProgress(20);
+                tracker.setText("Fabrication Started");
             }
         });
 
@@ -53,6 +59,7 @@ public class generalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prg.setProgress(40);
+                tracker.setText("Fabrication Complete");
             }
         });
 
@@ -60,6 +67,7 @@ public class generalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prg.setProgress(50);
+                tracker.setText("X-Ray Ready");
             }
         });
 
@@ -67,6 +75,7 @@ public class generalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prg.setProgress(60);
+                tracker.setText("Started Painting/Coating");
             }
         });
 
@@ -74,6 +83,7 @@ public class generalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prg.setProgress(80);
+                tracker.setText("Painting/Coating Complete");
             }
         });
 
@@ -81,6 +91,7 @@ public class generalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 prg.setProgress(100);
+                tracker.setText("Ready to Ship!");
             }
         });
 

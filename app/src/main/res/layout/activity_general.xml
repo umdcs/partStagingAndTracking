@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -62,10 +63,27 @@
         android:onClick="readyToShip"/>
 
     <ProgressBar
+        android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:paddingTop="50dp"
-        android:id="@+id/progressBar"/>
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:maxHeight="75dp"
+        android:minHeight="50dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:progressTint="@android:color/holo_green_light"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tracker"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="25dp"
+        android:textSize="24sp"/>
 
 </LinearLayout>
