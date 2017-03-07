@@ -30,7 +30,7 @@ public class Piece {
         lbHours = 0;
     }
 
-    public boolean getMatlRecieved() {
+    public boolean getMatlReceived() {
         return matlRcvd;
     }
 
@@ -56,7 +56,7 @@ public class Piece {
 
     public boolean getShipRdy() { return shipRdy; }
 
-    public void setMatlRcvd(boolean what) { matlRcvd = what;}
+    public void setMatlRcvd(boolean what) { matlRcvd = what; System.out.println("Made it to setMatlRcvd, should be true now:" + matlRcvd );}
 
     public void setStartFab(boolean what) { startFab = what;}
 

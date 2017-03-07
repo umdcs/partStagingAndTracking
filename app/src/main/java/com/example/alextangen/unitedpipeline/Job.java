@@ -15,7 +15,7 @@ public class Job {
         pieces = new Piece[numPieces]; //pieces is the array of all pieces, within each is another array of 7
         for(int i=0; i<numPieces; i++) {
             pieces[i] = new Piece();
-            System.out.println("Material received = " + pieces[i].getMatlRecieved());
+            System.out.println("Material received = " + pieces[i].getMatlReceived());
             System.out.println("Start Fabrication = " + pieces[i].getStartFab());
             System.out.println("End Fabrication = " + pieces[i].getEndFab());
             System.out.println("xRay = " + pieces[i].getXRay());
@@ -30,58 +30,62 @@ public class Job {
     }
 
     public void setMaterialsReceived() {
-        if(pieces[1].getMatlRecieved() == false) {
-            pieces[1].setMatlRcvd(true);
+        if(pieces[0].getMatlReceived() == false) {
+            System.out.println("Material Received was false");
+            pieces[0].setMatlRcvd(true);
         }
-        else pieces[1].setMatlRcvd(false);
+        else {
+            pieces[0].setMatlRcvd(false);
+            System.out.println("Material Received was true");
+        }
     }
 
     public void setStartedFab() {
-        if(pieces[1].getStartFab() == false) {
-            pieces[1].setStartFab(true);
+        if(pieces[0].getStartFab() == false) {
+            pieces[0].setStartFab(true);
         }
-        else pieces[1].setStartFab(false);
+        else pieces[0].setStartFab(false);
     }
 
     public void setFinishedFab() {
-        if(pieces[1].getEndFab() == false) {
-            pieces[1].setEndFab(true);
+        if(pieces[0].getEndFab() == false) {
+            pieces[0].setEndFab(true);
         }
-        else pieces[1].setEndFab(false);
+        else pieces[0].setEndFab(false);
     }
 
     public void setXRayReady() {
-        if(pieces[1].getXRay() == false) {
-            pieces[1].setxRay(true);
+        if(pieces[0].getXRay() == false) {
+            pieces[0].setxRay(true);
         }
-        else pieces[1].setxRay(false);
+        else pieces[0].setxRay(false);
     }
 
     public void setStartedCoating() {
-        if(pieces[1].getStartCoat() == false) {
-            pieces[1].setStartCoat(true);
+        if(pieces[0].getStartCoat() == false) {
+            pieces[0].setStartCoat(true);
         }
-        else pieces[1].setStartCoat(false);
+        else pieces[0].setStartCoat(false);
     }
 
     public void setFinishedCoating() {
-        if(pieces[1].getEndCoat() == false) {
-            pieces[1].setEndCoat(true);
+        if(pieces[0].getEndCoat() == false) {
+            pieces[0].setEndCoat(true);
         }
-        else pieces[1].setEndCoat(false);
+        else pieces[0].setEndCoat(false);
     }
 
     public void setReadyToShip() {
-        if(pieces[1].getShipRdy() == false) {
-            pieces[1].setShipRdy(true);
+        if(pieces[0].getShipRdy() == false) {
+            pieces[0].setShipRdy(true);
         }
-        else pieces[1].setShipRdy(false);
+        else pieces[0].setShipRdy(false);
     }
 
     public Piece[] getPieces() {
         for(int i=0; i<1; i++) {
-            pieces[i] = new Piece();
-            System.out.println("Material received = " + pieces[i].getMatlRecieved());
+            //pieces[i] = new Piece();
+            System.out.println("Material received = " + pieces[i].getMatlReceived());
             System.out.println("Start Fabrication = " + pieces[i].getStartFab());
             System.out.println("End Fabrication = " + pieces[i].getEndFab());
             System.out.println("xRay = " + pieces[i].getXRay());
