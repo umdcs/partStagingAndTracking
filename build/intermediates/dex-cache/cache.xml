@@ -115,7 +115,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f26c4de940284e143ec35e1779edca3b90cc4e11">
+        sha1="3bb8deef7720dda12cdbe203ed165cb0032cca41">
         <dex dex="/Users/alextangen/repos/github/united_pipeline/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_7eb040c2376677fbe53e2b120c5cd87dba0656de/classes.dex" />
     </item>
     <item
