@@ -1,17 +1,22 @@
 package com.example.alextangen.unitedpipeline;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-public class generalActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private Presenter generalPresenter;
+public class NextScreenManager extends AppCompatActivity {
+
     private Job generalJob;
     ProgressBar prg;
+    Spinner spins;
     TextView tracker;
     Button matlReceived;
     Button startedFab;
@@ -20,6 +25,8 @@ public class generalActivity extends AppCompatActivity {
     Button startCoat;
     Button finishedCoat;
     Button readyShip;
+    String name;
+    String pieceCount;
 
 
 
@@ -27,6 +34,28 @@ public class generalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
+
+        /*
+        Intent intent = getIntent();
+        ArrayList list = new ArrayList();
+        name = intent.getStringExtra("who");
+        generalJob.setName(name);
+        pieceCount= intent.getStringExtra("howMany");
+        generalJob = new Job(Integer.parseInt(pieceCount));
+
+        /*
+        for(int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
+            list.add("Piece #" + i);
+        }
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item,list);
+        spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
+
+        spins = (Spinner) findViewById(R.id.spins);
+        spins.setAdapter(spinnerArrayAdapter);
+        */
+
+        generalJob = new Job(1);
         prg = (ProgressBar) findViewById(R.id.progressBar);
         prg.setScaleY(3);
         tracker = (TextView) findViewById(R.id.tracker);
@@ -37,7 +66,6 @@ public class generalActivity extends AppCompatActivity {
         startCoat = (Button) findViewById(R.id.scoat);
         finishedCoat = (Button) findViewById(R.id.ecoat);
         readyShip = (Button) findViewById(R.id.ship);
-        generalJob = new Job(1);
 
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,4 +139,3 @@ public class generalActivity extends AppCompatActivity {
 
     }
 }
-

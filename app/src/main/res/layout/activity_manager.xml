@@ -9,12 +9,14 @@
 
     <EditText
         android:id="@+id/who"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Who is this job for: "/>
 
     <EditText
         android:id="@+id/howMany"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/who"

@@ -8,6 +8,7 @@ public class Job {
 
     private Piece[] pieces;
 
+    private String Name;
     private double pfHoursTotal;
     private double lbHoursTotal;
 
@@ -94,6 +95,14 @@ public class Job {
             System.out.println("Ship Ready = " + pieces[i].getShipRdy());
         }
         return pieces;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getName() {
+        return Name;
     }
 
     // public methods to create/store/update/access pieces and tally man hours

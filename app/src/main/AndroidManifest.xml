@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".generalActivity" />
-        <activity android:name=".ManagerActivity"></activity>
+        <activity android:name=".ManagerActivity" />
+        <activity android:name=".NextScreenManager"></activity>
     </application>
 
 </manifest>
