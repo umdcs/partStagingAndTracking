@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // triggers new activity in no role just to make sure pieces work
 
         Intent generalIntent = new Intent(this, generalActivity.class);
+        generalIntent.putExtra("Presenter", presenter);
 
         startActivity(generalIntent);
     }

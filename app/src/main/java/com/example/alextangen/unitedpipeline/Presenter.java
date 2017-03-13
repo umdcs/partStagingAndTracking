@@ -1,10 +1,12 @@
 package com.example.alextangen.unitedpipeline;
 
+import java.io.Serializable;
+
 /**
  * Created by Katia on 3/3/2017.
  */
 
-public class Presenter {
+public class Presenter implements Serializable {
 
     private MainActivity view;
     private Model model;
