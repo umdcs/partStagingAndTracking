@@ -19,6 +19,10 @@ public class Presenter implements Serializable {
         model = new Model();
     }
 
+    public void addJob(Job job) {
+        model.addJob(job);
+    }
+
     public void matlRcvd(Job job, ProgressBar prog, TextView tracker) {
         job.setMaterialsReceived();
         job.getPieces();

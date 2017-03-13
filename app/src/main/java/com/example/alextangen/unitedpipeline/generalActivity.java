@@ -47,6 +47,8 @@ public class generalActivity extends AppCompatActivity {
 
         generalJob = new Job(1);
 
+        presenter.addJob(generalJob);
+
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { presenter.matlRcvd(generalJob, prg, tracker); }
