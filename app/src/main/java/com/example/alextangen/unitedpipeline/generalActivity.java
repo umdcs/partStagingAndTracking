@@ -49,72 +49,37 @@ public class generalActivity extends AppCompatActivity {
 
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                generalJob.setMaterialsReceived();
-                generalJob.getPieces();
-                prg.setProgress(10);
-                tracker.setText("Materials have been Received");
-            }
+            public void onClick(View view) { presenter.matlRcvd(generalJob, prg, tracker); }
         });
 
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                generalJob.setStartedFab();
-                generalJob.getPieces();
-                prg.setProgress(20);
-                tracker.setText("Fabrication Started");
-            }
+            public void onClick(View view) { presenter.startFab(generalJob, prg, tracker); }
         });
 
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                generalJob.setFinishedFab();
-                generalJob.getPieces();
-                prg.setProgress(40);
-                tracker.setText("Fabrication Complete");
-            }
+            public void onClick(View view) { presenter.endFab(generalJob, prg, tracker); }
         });
 
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                generalJob.setXRayReady();
-                generalJob.getPieces();
-                prg.setProgress(50);
-                tracker.setText("X-Ray Ready");
-            }
+            public void onClick(View view) { presenter.xRay(generalJob, prg, tracker); }
         });
 
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                generalJob.setStartedCoating();
-                generalJob.getPieces();
-                prg.setProgress(60);
-                tracker.setText("Started Painting/Coating");
-            }
+            public void onClick(View view) { presenter.startCoat(generalJob, prg, tracker); }
         });
 
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                generalJob.setFinishedCoating();
-                generalJob.getPieces();
-                prg.setProgress(80);
-                tracker.setText("Painting/Coating Complete");
-            }
+            public void onClick(View view) { presenter.endCoat(generalJob, prg, tracker); }
         });
 
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                generalJob.setReadyToShip();
-                generalJob.getPieces();
-                prg.setProgress(100);
-                tracker.setText("Ready to Ship!");
-            }
+            public void onClick(View view) { presenter.shipRdy(generalJob, prg, tracker); }
         });
 
     }
