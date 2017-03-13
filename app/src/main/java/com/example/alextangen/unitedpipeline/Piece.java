@@ -33,48 +33,36 @@ public class Piece {
     public boolean getMatlReceived() {
         return matlRcvd;
     }
-
     public boolean getStartFab() {
         return startFab;
     }
-
     public boolean getEndFab() {
         return endFab;
     }
-
     public boolean getXRay() {
         return xRay;
     }
-
-    public boolean getStartCoat() {
-        return startCoat;
-    }
-
+    public boolean getStartCoat() { return startCoat; }
     public boolean getEndCoat() {
         return endCoat;
     }
-
     public boolean getShipRdy() { return shipRdy; }
 
+    public double getPfHours() { return pfHours; }
+    public double getLbHours() { return lbHours; }
+
     public void setMatlRcvd(boolean what) { matlRcvd = what; System.out.println("Made it to setMatlRcvd, should be true now:" + matlRcvd );}
-
     public void setStartFab(boolean what) { startFab = what;}
-
     public void setEndFab(boolean what) { endFab = what;}
-
     public void setxRay(boolean what) { xRay = what;}
-
     public void setStartCoat(boolean what) { startCoat = what;}
-
     public void setEndCoat(boolean what) { endCoat = what;}
-
     public void setShipRdy(boolean what) { shipRdy = what;}
 
+    public void setPfHours(double hours) { pfHours = hours; }
+    public void setLbHours(double hours) { lbHours = hours; }
 
+    public void addPfHours(double hours) { pfHours += hours; }
+    public void addLbHours(double hours) { lbHours += hours; }
 
-
-
-
-
-    // public methods to update/access progress and man hours
 }
