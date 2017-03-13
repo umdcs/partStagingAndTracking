@@ -12,6 +12,7 @@ public class generalActivity extends AppCompatActivity {
 
     private Presenter presenter;
     private Job generalJob;
+    private int jobNum;
     ProgressBar prg;
     TextView tracker;
     Button matlReceived;
@@ -46,42 +47,42 @@ public class generalActivity extends AppCompatActivity {
         presenter = (Presenter) intent.getSerializableExtra("Presenter");
 
         generalJob = new Job(1);
-
+        jobNum = 0;
         presenter.addJob(generalJob);
 
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.matlRcvd(generalJob, prg, tracker); }
+            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker); }
         });
 
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startFab(generalJob, prg, tracker); }
+            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker); }
         });
 
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endFab(generalJob, prg, tracker); }
+            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker); }
         });
 
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.xRay(generalJob, prg, tracker); }
+            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker); }
         });
 
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startCoat(generalJob, prg, tracker); }
+            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker); }
         });
 
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endCoat(generalJob, prg, tracker); }
+            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker); }
         });
 
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.shipRdy(generalJob, prg, tracker); }
+            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker); }
         });
 
     }
