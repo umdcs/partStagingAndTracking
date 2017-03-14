@@ -14,7 +14,9 @@ import java.util.ArrayList;
 
 public class NextScreenManager extends AppCompatActivity {
 
-    private Job[] jobs;
+    private Job generalJob;
+    int jobNum;
+    Presenter presenter;
     ProgressBar prg;
     Spinner spins;
     TextView tracker;
@@ -27,7 +29,6 @@ public class NextScreenManager extends AppCompatActivity {
     Button readyShip;
     String name;
     String pieceCount;
-    int pieceCountInt;
 
 
 
@@ -36,38 +37,34 @@ public class NextScreenManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
 
-
+        /*
         Intent intent = getIntent();
-        jobs = new Job[1];
         ArrayList list = new ArrayList();
         name = intent.getStringExtra("who");
-        System.out.println("Name = " + name);
-        //generalJob.setName(name);
-        //jobs[0].setName(name);
+        generalJob.setName(name);
         pieceCount= intent.getStringExtra("howMany");
-        pieceCountInt = Integer.parseInt(pieceCount);
-        System.out.println("pieceCount = " + pieceCountInt);
-        //jobs = new Job[pieceCountInt];
-
-        jobs[0] = new Job(pieceCountInt);
-        //jobs[0] = new Job(1);
-        //generalJob = new Job(Integer.parseInt(pieceCount));
+        generalJob = new Job(Integer.parseInt(pieceCount));
 
         /*
         for(int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece #" + i);
         }
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_item,list);
         spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
 
         spins = (Spinner) findViewById(R.id.spins);
-        //spins = new Spinner();
         spins.setAdapter(spinnerArrayAdapter);
         */
 
 
-        //jobs[0] = new Job(1);
+        Intent intent = getIntent();
+        presenter = (Presenter) intent.getSerializableExtra("Presenter");
+
+        generalJob = new Job(1);
+        jobNum = 0;
+        presenter.addJob(generalJob);
+
         prg = (ProgressBar) findViewById(R.id.progressBar);
         prg.setScaleY(3);
         tracker = (TextView) findViewById(R.id.tracker);
@@ -81,72 +78,37 @@ public class NextScreenManager extends AppCompatActivity {
 
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                jobs[0].setMaterialsReceived();
-                jobs[0].getPieces();
-                prg.setProgress(10);
-                tracker.setText("Materials have been Received");
-            }
+            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker); }
         });
 
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                jobs[0].setStartedFab();
-                jobs[0].getPieces();
-                prg.setProgress(20);
-                tracker.setText("Fabrication Started");
-            }
+            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker); }
         });
 
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                jobs[0].setFinishedFab();
-                jobs[0].getPieces();
-                prg.setProgress(40);
-                tracker.setText("Fabrication Complete");
-            }
+            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker); }
         });
 
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                jobs[0].setXRayReady();
-                jobs[0].getPieces();
-                prg.setProgress(50);
-                tracker.setText("X-Ray Ready");
-            }
+            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker); }
         });
 
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                jobs[0].setStartedCoating();
-                jobs[0].getPieces();
-                prg.setProgress(60);
-                tracker.setText("Started Painting/Coating");
-            }
+            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker); }
         });
 
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                jobs[0].setFinishedCoating();
-                jobs[0].getPieces();
-                prg.setProgress(80);
-                tracker.setText("Painting/Coating Complete");
-            }
+            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker); }
         });
 
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                jobs[0].setReadyToShip();
-                jobs[0].getPieces();
-                prg.setProgress(100);
-                tracker.setText("Ready to Ship!");
-            }
+            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker); }
         });
 
     }

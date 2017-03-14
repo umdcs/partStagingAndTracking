@@ -21,8 +21,10 @@ public class Model {
 
     // public methods to create/store/update/access jobs;
     public void addJob(Job job) {
-        jobs[numJobs] = job;
-        numJobs++;
+        if (numJobs < MAX_JOBS) {
+            jobs[numJobs] = job;
+            numJobs++;
+        }
     }
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker) {
