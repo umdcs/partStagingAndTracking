@@ -9,7 +9,9 @@
     <Spinner
         android:id="@+id/spins"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="35dp"
+        android:spinnerMode="dropdown" />
+
 
 
     <Button

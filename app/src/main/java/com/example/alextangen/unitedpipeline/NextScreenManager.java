@@ -38,37 +38,35 @@ public class NextScreenManager extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general);
+        setContentView(R.layout.activity_next_screen_manager);
 
 
         Intent intent = getIntent();
         jobsArray = new Job[100];
-        //ArrayList list = new ArrayList();
+        ArrayList list = new ArrayList();
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount= intent.getStringExtra("howMany");
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
 
-        Job tempJob = new Job(pieceCountInt);
-        //currentJob = new Job(pieceCountInt);
-        tempJob.setName(name);
-        jobNumber = tempJob.getJob(tempJob, name);
-        if (jobNumber <= 0) {
+        //Job tempJob = new Job(pieceCountInt);
+        System.out.println("Current Job");
+        currentJob = new Job(pieceCountInt);
+        //tempJob.setName(name);
+        jobNumber = currentJob.getJob(name);
+        if (jobNumber >= 0) {
             currentJob = jobsArray[jobNumber];
         }
         else {
+            System.out.println("Else loop current job");
             jobsArray[whichJob] = new Job(pieceCountInt);
             jobsArray[whichJob].setName(name);
             currentJob = jobsArray[whichJob];
             whichJob++;
         }
 
-
-        //jobs[0] = new Job(1);
-        //generalJob = new Job(Integer.parseInt(pieceCount));
-
-        /*
+        //
         for(int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece #" + i);
         }
@@ -79,10 +77,8 @@ public class NextScreenManager extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         //spins = new Spinner();
         spins.setAdapter(spinnerArrayAdapter);
-        */
+        //
 
-
-        //jobs[0] = new Job(1);
         prg = (ProgressBar) findViewById(R.id.progressBar);
         prg.setScaleY(3);
         tracker = (TextView) findViewById(R.id.tracker);
@@ -97,6 +93,7 @@ public class NextScreenManager extends AppCompatActivity {
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("Made it to the matlReceived listener");
                 currentJob.setMaterialsReceived(selection);
                 currentJob.getPieces();
                 prg.setProgress(10);

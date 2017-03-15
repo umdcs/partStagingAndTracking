@@ -89,7 +89,7 @@ public class Job {
     public Piece[] getPieces() {
         for(int i=0; i<1; i++) {
             //pieces[i] = new Piece();
-            /*
+
             System.out.println("Now in getPieces() function");
             System.out.println("Material received on piece[" + i + "] = " + pieces[i].getMatlReceived());
             System.out.println("Start Fabrication on piece[" + i + "] = " + pieces[i].getStartFab());
@@ -98,7 +98,7 @@ public class Job {
             System.out.println("Start Painting/Coating on piece[" + i + "] = " + pieces[i].getStartCoat());
             System.out.println("End Painting/Coating on piece[" + i + "] = " + pieces[i].getEndCoat());
             System.out.println("Ship Ready on piece[" + i + "] = " + pieces[i].getShipRdy());
-            */
+
         }
         return pieces;
     }
@@ -112,9 +112,9 @@ public class Job {
         return Names[whichJob];
     }
 
-    public int getJob(Job job, String name) {
+    public int getJob(String name) {
         for (int j = 0; j < i; j++) {
-            if (name == job.getName(j)) {
+            if(name == this.getName(j)) {
                 return j;
             }
         }
