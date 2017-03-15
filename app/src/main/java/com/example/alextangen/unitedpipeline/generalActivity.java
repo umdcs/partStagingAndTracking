@@ -22,6 +22,7 @@ public class generalActivity extends AppCompatActivity {
     Button startCoat;
     Button finishedCoat;
     Button readyShip;
+    int selection;
 
 
 
@@ -53,37 +54,37 @@ public class generalActivity extends AppCompatActivity {
 
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker, selection); }
         });
 
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker, selection); }
         });
 
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker, selection); }
         });
 
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker, selection); }
         });
 
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker, selection); }
         });
 
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker, selection); }
         });
 
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker, selection); }
         });
 
     }

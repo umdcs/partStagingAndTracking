@@ -32,6 +32,7 @@ public class NextScreenManager extends AppCompatActivity {
     int pieceCountInt;
     int jobNumber;
     int whichJob = 0;
+    int jobNum;
     int selection = 0;
 
 
@@ -68,8 +69,7 @@ public class NextScreenManager extends AppCompatActivity {
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece # " + i);
         }
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, list);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spins = (Spinner) findViewById(R.id.spins);
@@ -99,33 +99,40 @@ public class NextScreenManager extends AppCompatActivity {
         finishedCoat = (Button) findViewById(R.id.ecoat);
         readyShip = (Button) findViewById(R.id.ship);
 
-    public void onClick(View view) {
-        presenter.matlRcvd(jobNum, prg, tracker, spins.getSelectedItemPosition());
-    }
+        matlReceived.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker, spins.getSelectedItemPosition()); }
+        });
 
-    public void onClick(View view) {
-        presenter.startFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
-    }
+        startedFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker, spins.getSelectedItemPosition()); }
+        });
 
-    public void onClick(View view) {
-        presenter.endFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
-    }
+        finishedFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker, spins.getSelectedItemPosition()); }
+        });
 
-    public void onClick(View view) {
-        presenter.xRay(jobNum, prg, tracker, spins.getSelectedItemPosition());
-    }
+        xRay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker, spins.getSelectedItemPosition()); }
+        });
 
-    public void onClick(View view) {
-        presenter.startCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
-    }
+        startCoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker, spins.getSelectedItemPosition()); }
+        });
 
-    public void onClick(View view) {
-        presenter.endCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
-    }
+        finishedCoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker, spins.getSelectedItemPosition()); }
+        });
 
-    public void onClick(View view) {
-        presenter.shipRdy(jobNum, prg, tracker, spins.getSelectedItemPosition());
-    }
+        readyShip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker, spins.getSelectedItemPosition()); }
+        });
 }
 
 }
