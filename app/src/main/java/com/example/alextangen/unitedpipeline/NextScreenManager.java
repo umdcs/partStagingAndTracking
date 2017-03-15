@@ -43,7 +43,7 @@ public class NextScreenManager extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        jobsArray = new Job[100];
+        jobsArray = new Job[10];
         ArrayList list = new ArrayList();
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
@@ -51,10 +51,10 @@ public class NextScreenManager extends AppCompatActivity {
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
 
-        //Job tempJob = new Job(pieceCountInt);
         System.out.println("Current Job");
         currentJob = new Job(pieceCountInt);
         jobNumber = currentJob.getJob(name);
+
         if (jobNumber >= 0) {
             currentJob = jobsArray[jobNumber];
         } else {
@@ -65,7 +65,7 @@ public class NextScreenManager extends AppCompatActivity {
             whichJob++;
         }
 
-        //
+
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece # " + i);
         }
@@ -75,14 +75,8 @@ public class NextScreenManager extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        //selection = spins.getSelectedItem();
         selection = spins.getSelectedItemPosition();
-        //spins.setOnItemSelectedListener(new );
-        //
 
-
-        //Intent intent = getIntent();
-        //presenter = (Presenter) intent.getParcelableExtra("Presenter");
         presenter = new Presenter(this);
 
         jobNum = 0;
