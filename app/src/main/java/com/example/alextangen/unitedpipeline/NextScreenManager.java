@@ -31,6 +31,7 @@ public class NextScreenManager extends AppCompatActivity {
     int pieceCountInt;
     int jobNumber;
     int whichJob = 0;
+    int selection = 0;
 
 
 
@@ -50,6 +51,7 @@ public class NextScreenManager extends AppCompatActivity {
         System.out.println("pieceCount = " + pieceCountInt);
 
         Job tempJob = new Job(pieceCountInt);
+        //currentJob = new Job(pieceCountInt);
         tempJob.setName(name);
         jobNumber = tempJob.getJob(tempJob, name);
         if (jobNumber <= 0) {
@@ -95,7 +97,7 @@ public class NextScreenManager extends AppCompatActivity {
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentJob.setMaterialsReceived();
+                currentJob.setMaterialsReceived(selection);
                 currentJob.getPieces();
                 prg.setProgress(10);
                 tracker.setText("Materials have been Received");
@@ -106,7 +108,7 @@ public class NextScreenManager extends AppCompatActivity {
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentJob.setStartedFab();
+                currentJob.setStartedFab(selection);
                 currentJob.getPieces();
                 prg.setProgress(20);
                 tracker.setText("Fabrication Started");
@@ -116,7 +118,7 @@ public class NextScreenManager extends AppCompatActivity {
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentJob.setFinishedFab();
+                currentJob.setFinishedFab(selection);
                 currentJob.getPieces();
                 prg.setProgress(40);
                 tracker.setText("Fabrication Complete");
@@ -126,7 +128,7 @@ public class NextScreenManager extends AppCompatActivity {
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentJob.setXRayReady();
+                currentJob.setXRayReady(selection);
                 currentJob.getPieces();
                 prg.setProgress(50);
                 tracker.setText("X-Ray Ready");
@@ -136,7 +138,7 @@ public class NextScreenManager extends AppCompatActivity {
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentJob.setStartedCoating();
+                currentJob.setStartedCoating(selection);
                 currentJob.getPieces();
                 prg.setProgress(60);
                 tracker.setText("Started Painting/Coating");
@@ -146,7 +148,7 @@ public class NextScreenManager extends AppCompatActivity {
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentJob.setFinishedCoating();
+                currentJob.setFinishedCoating(selection);
                 currentJob.getPieces();
                 prg.setProgress(80);
                 tracker.setText("Painting/Coating Complete");
@@ -156,7 +158,7 @@ public class NextScreenManager extends AppCompatActivity {
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentJob.setReadyToShip();
+                currentJob.setReadyToShip(selection);
                 currentJob.getPieces();
                 prg.setProgress(100);
                 tracker.setText("Ready to Ship!");

@@ -51,7 +51,7 @@ public class Piece {
     public double getPfHours() { return pfHours; }
     public double getLbHours() { return lbHours; }
 
-    public void setMatlRcvd(boolean what) { matlRcvd = what; System.out.println("Made it to setMatlRcvd, should be true now:" + matlRcvd );}
+    public void setMatlRcvd(boolean what) { matlRcvd = what;}
     public void setStartFab(boolean what) { startFab = what;}
     public void setEndFab(boolean what) { endFab = what;}
     public void setxRay(boolean what) { xRay = what;}

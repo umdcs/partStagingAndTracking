@@ -13,6 +13,7 @@ public class Model {
 
     private Job[] jobs;
     private int numJobs;
+    int pieceNum = 0;
 
     public Model() {
         jobs = new Job[MAX_JOBS];
@@ -27,7 +28,7 @@ public class Model {
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker) {
         Job job = jobs[jobNum];
-        job.setMaterialsReceived();
+        job.setMaterialsReceived(pieceNum);
         job.getPieces();
         prog.setProgress(10);
         tracker.setText("Materials have been Received");
@@ -35,7 +36,7 @@ public class Model {
 
     public void startFab(int jobNum, ProgressBar prog, TextView tracker) {
         Job job = jobs[jobNum];
-        job.setStartedFab();
+        job.setStartedFab(pieceNum);
         job.getPieces();
         prog.setProgress(20);
         tracker.setText("Fabrication Started");
@@ -43,7 +44,7 @@ public class Model {
 
     public void endFab(int jobNum, ProgressBar prog, TextView tracker) {
         Job job = jobs[jobNum];
-        job.setFinishedFab();
+        job.setFinishedFab(pieceNum);
         job.getPieces();
         prog.setProgress(40);
         tracker.setText("Fabrication Complete");
@@ -51,7 +52,7 @@ public class Model {
 
     public void xRay(int jobNum, ProgressBar prog, TextView tracker) {
         Job job = jobs[jobNum];
-        job.setXRayReady();
+        job.setXRayReady(pieceNum);
         job.getPieces();
         prog.setProgress(50);
         tracker.setText("X-Ray Ready");
@@ -59,7 +60,7 @@ public class Model {
 
     public void startCoat(int jobNum, ProgressBar prog, TextView tracker) {
         Job job = jobs[jobNum];
-        job.setStartedCoating();
+        job.setStartedCoating(pieceNum);
         job.getPieces();
         prog.setProgress(60);
         tracker.setText("Started Painting/Coating");
@@ -67,7 +68,7 @@ public class Model {
 
     public void endCoat(int jobNum, ProgressBar prog, TextView tracker) {
         Job job = jobs[jobNum];
-        job.setFinishedCoating();
+        job.setFinishedCoating(pieceNum);
         job.getPieces();
         prog.setProgress(80);
         tracker.setText("Painting/Coating Complete");
@@ -75,7 +76,7 @@ public class Model {
 
     public void shipRdy(int jobNum, ProgressBar prog, TextView tracker) {
         Job job = jobs[jobNum];
-        job.setReadyToShip();
+        job.setReadyToShip(pieceNum);
         job.getPieces();
         prog.setProgress(20);
         tracker.setText("Ready to Ship!");
