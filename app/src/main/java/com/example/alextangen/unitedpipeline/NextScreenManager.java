@@ -53,7 +53,6 @@ public class NextScreenManager extends AppCompatActivity {
         //Job tempJob = new Job(pieceCountInt);
         System.out.println("Current Job");
         currentJob = new Job(pieceCountInt);
-        //tempJob.setName(name);
         jobNumber = currentJob.getJob(name);
         if (jobNumber >= 0) {
             currentJob = jobsArray[jobNumber];
@@ -68,7 +67,7 @@ public class NextScreenManager extends AppCompatActivity {
 
         //
         for(int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
-            list.add("Piece #" + i);
+            list.add("Piece # " + i);
         }
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item,list);
@@ -77,6 +76,10 @@ public class NextScreenManager extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         //spins = new Spinner();
         spins.setAdapter(spinnerArrayAdapter);
+
+        //selection = spins.getSelectedItem();
+        selection = spins.getSelectedItemPosition();
+        //spins.setOnItemSelectedListener(new );
         //
 
         prg = (ProgressBar) findViewById(R.id.progressBar);
@@ -93,7 +96,7 @@ public class NextScreenManager extends AppCompatActivity {
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Made it to the matlReceived listener");
+                selection = spins.getSelectedItemPosition();
                 currentJob.setMaterialsReceived(selection);
                 currentJob.getPieces();
                 prg.setProgress(10);
@@ -105,6 +108,7 @@ public class NextScreenManager extends AppCompatActivity {
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                selection = spins.getSelectedItemPosition();
                 currentJob.setStartedFab(selection);
                 currentJob.getPieces();
                 prg.setProgress(20);
@@ -115,6 +119,7 @@ public class NextScreenManager extends AppCompatActivity {
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                selection = spins.getSelectedItemPosition();
                 currentJob.setFinishedFab(selection);
                 currentJob.getPieces();
                 prg.setProgress(40);
@@ -125,6 +130,7 @@ public class NextScreenManager extends AppCompatActivity {
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                selection = spins.getSelectedItemPosition();
                 currentJob.setXRayReady(selection);
                 currentJob.getPieces();
                 prg.setProgress(50);
@@ -135,6 +141,7 @@ public class NextScreenManager extends AppCompatActivity {
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                selection = spins.getSelectedItemPosition();
                 currentJob.setStartedCoating(selection);
                 currentJob.getPieces();
                 prg.setProgress(60);
@@ -145,6 +152,7 @@ public class NextScreenManager extends AppCompatActivity {
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                selection = spins.getSelectedItemPosition();
                 currentJob.setFinishedCoating(selection);
                 currentJob.getPieces();
                 prg.setProgress(80);
@@ -155,6 +163,7 @@ public class NextScreenManager extends AppCompatActivity {
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                selection = spins.getSelectedItemPosition();
                 currentJob.setReadyToShip(selection);
                 currentJob.getPieces();
                 prg.setProgress(100);

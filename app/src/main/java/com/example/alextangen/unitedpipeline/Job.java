@@ -87,17 +87,17 @@ public class Job {
     }
 
     public Piece[] getPieces() {
-        for(int i=0; i<1; i++) {
+        for(int j=0; j<pieces.length; j++) {
             //pieces[i] = new Piece();
 
             System.out.println("Now in getPieces() function");
-            System.out.println("Material received on piece[" + i + "] = " + pieces[i].getMatlReceived());
-            System.out.println("Start Fabrication on piece[" + i + "] = " + pieces[i].getStartFab());
-            System.out.println("End Fabrication on piece[" + i + "] = " + pieces[i].getEndFab());
-            System.out.println("xRay on piece[" + i + "] = "+ pieces[i].getXRay());
-            System.out.println("Start Painting/Coating on piece[" + i + "] = " + pieces[i].getStartCoat());
-            System.out.println("End Painting/Coating on piece[" + i + "] = " + pieces[i].getEndCoat());
-            System.out.println("Ship Ready on piece[" + i + "] = " + pieces[i].getShipRdy());
+            System.out.println("Material received on piece[" + j + "] = " + pieces[j].getMatlReceived());
+            System.out.println("Start Fabrication on piece[" + j + "] = " + pieces[j].getStartFab());
+            System.out.println("End Fabrication on piece[" + j + "] = " + pieces[j].getEndFab());
+            System.out.println("xRay on piece[" + j + "] = "+ pieces[j].getXRay());
+            System.out.println("Start Painting/Coating on piece[" + j + "] = " + pieces[j].getStartCoat());
+            System.out.println("End Painting/Coating on piece[" + j + "] = " + pieces[j].getEndCoat());
+            System.out.println("Ship Ready on piece[" + j + "] = " + pieces[j].getShipRdy());
 
         }
         return pieces;
