@@ -1,5 +1,11 @@
 //Basic Node Server for UPI Project
 
+//Variables:
+
+var jobsArray = [];
+
+//End Variables
+
 var express = require('express');
 
 var bodyParser = require('body-parser');
@@ -36,6 +42,11 @@ app.use(bodyParser.urlencoded({ // support encoded bodies
  });
 
  app.post('/addJob', function(request, response) {
+   if(!request.body) return res.sendStatus(400);
+
+   var aJob = request.body.job;
+   jobsArray.push(aJob);
+
    console.log('Received a post request for adding a job!');
    response.end();
  });
