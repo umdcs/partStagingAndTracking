@@ -13,6 +13,7 @@
   "author": "Ethan Swenson, Luke DiDomenico, Katia Nartovich, and Alex Tangen",
   "license": "",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2"
   }
 }
