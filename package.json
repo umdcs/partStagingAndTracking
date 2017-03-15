@@ -1,0 +1,18 @@
+{
+  "name": "united_pipeline_node_server",
+  "version": "0.0.1",
+  "description": "Used to interact with Android Devices at UPI",
+  "main": "UPI_node_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.umn.edu:narto004/united_pipeline_node_server.git"
+  },
+  "author": "Ethan Swenson, Luke DiDomenico, Katia Nartovich, and Alex Tangen",
+  "license": "",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
