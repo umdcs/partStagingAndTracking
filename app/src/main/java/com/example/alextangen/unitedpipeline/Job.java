@@ -8,7 +8,8 @@ public class Job {
 
     private Piece[] pieces;
 
-    private String Name;
+    private String[] Names = new String[100];
+    int i = 0;
     private double pfHoursTotal;
     private double lbHoursTotal;
 
@@ -98,11 +99,21 @@ public class Job {
     }
 
     public void setName(String name) {
-        Name = name;
+        Names[i] = name;
+        i++;
     }
 
-    public String getName() {
-        return Name;
+    public String getName(int whichJob) {
+        return Names[whichJob];
+    }
+
+    public int getJob(Job job, String name) {
+        for (int j = 0; j < i; j++) {
+            if (name == job.getName(j)) {
+                return j;
+            }
+        }
+        return -1;
     }
 
     // public methods to create/store/update/access pieces and tally man hours

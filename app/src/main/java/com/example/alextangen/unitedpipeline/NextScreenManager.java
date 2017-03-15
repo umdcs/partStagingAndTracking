@@ -14,7 +14,8 @@ import java.util.ArrayList;
 
 public class NextScreenManager extends AppCompatActivity {
 
-    private Job[] jobs;
+    private Job[] jobsArray;
+    Job currentJob;
     ProgressBar prg;
     Spinner spins;
     TextView tracker;
@@ -28,6 +29,8 @@ public class NextScreenManager extends AppCompatActivity {
     String name;
     String pieceCount;
     int pieceCountInt;
+    int jobNumber;
+    int whichJob = 0;
 
 
 
@@ -38,18 +41,28 @@ public class NextScreenManager extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        jobs = new Job[1];
-        ArrayList list = new ArrayList();
+        jobsArray = new Job[100];
+        //ArrayList list = new ArrayList();
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
-        //generalJob.setName(name);
-        //jobs[0].setName(name);
         pieceCount= intent.getStringExtra("howMany");
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
-        //jobs = new Job[pieceCountInt];
 
-        jobs[0] = new Job(pieceCountInt);
+        Job tempJob = new Job(pieceCountInt);
+        tempJob.setName(name);
+        jobNumber = tempJob.getJob(tempJob, name);
+        if (jobNumber <= 0) {
+            currentJob = jobsArray[jobNumber];
+        }
+        else {
+            jobsArray[whichJob] = new Job(pieceCountInt);
+            jobsArray[whichJob].setName(name);
+            currentJob = jobsArray[whichJob];
+            whichJob++;
+        }
+
+
         //jobs[0] = new Job(1);
         //generalJob = new Job(Integer.parseInt(pieceCount));
 
@@ -82,18 +95,19 @@ public class NextScreenManager extends AppCompatActivity {
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jobs[0].setMaterialsReceived();
-                jobs[0].getPieces();
+                currentJob.setMaterialsReceived();
+                currentJob.getPieces();
                 prg.setProgress(10);
                 tracker.setText("Materials have been Received");
             }
         });
 
+
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jobs[0].setStartedFab();
-                jobs[0].getPieces();
+                currentJob.setStartedFab();
+                currentJob.getPieces();
                 prg.setProgress(20);
                 tracker.setText("Fabrication Started");
             }
@@ -102,8 +116,8 @@ public class NextScreenManager extends AppCompatActivity {
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jobs[0].setFinishedFab();
-                jobs[0].getPieces();
+                currentJob.setFinishedFab();
+                currentJob.getPieces();
                 prg.setProgress(40);
                 tracker.setText("Fabrication Complete");
             }
@@ -112,8 +126,8 @@ public class NextScreenManager extends AppCompatActivity {
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jobs[0].setXRayReady();
-                jobs[0].getPieces();
+                currentJob.setXRayReady();
+                currentJob.getPieces();
                 prg.setProgress(50);
                 tracker.setText("X-Ray Ready");
             }
@@ -122,8 +136,8 @@ public class NextScreenManager extends AppCompatActivity {
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jobs[0].setStartedCoating();
-                jobs[0].getPieces();
+                currentJob.setStartedCoating();
+                currentJob.getPieces();
                 prg.setProgress(60);
                 tracker.setText("Started Painting/Coating");
             }
@@ -132,8 +146,8 @@ public class NextScreenManager extends AppCompatActivity {
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jobs[0].setFinishedCoating();
-                jobs[0].getPieces();
+                currentJob.setFinishedCoating();
+                currentJob.getPieces();
                 prg.setProgress(80);
                 tracker.setText("Painting/Coating Complete");
             }
@@ -142,8 +156,8 @@ public class NextScreenManager extends AppCompatActivity {
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jobs[0].setReadyToShip();
-                jobs[0].getPieces();
+                currentJob.setReadyToShip();
+                currentJob.getPieces();
                 prg.setProgress(100);
                 tracker.setText("Ready to Ship!");
             }
