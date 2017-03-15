@@ -11,16 +11,25 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/espresso_core_2_2_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/espresso_idling_resource_2_2_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/exposed_instrumentation_api_publish_0_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/rules_0_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/runner_0_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_compat_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_compat_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_ui_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_core_utils_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_fragment_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_media_compat_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_25_2_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_25_2_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/ManagerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/ManagerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Model.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/NextScreenManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/NextScreenManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Presenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Presenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/generalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/generalActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="united_pipeline.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,7 +76,7 @@
       <file leaf-file-name="Presenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Presenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-359">
+            <state relative-caret-position="352">
               <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Model.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="565">
@@ -111,7 +120,7 @@
       <file leaf-file-name="ManagerActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/ManagerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
+            <state relative-caret-position="594">
               <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
               <folding />
             </state>
@@ -121,9 +130,20 @@
       <file leaf-file-name="Piece.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Piece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
+            <state relative-caret-position="726">
               <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-              <folding />
+              <folding>
+                <element signature="e#656#657#0" expanded="false" />
+                <element signature="e#687#688#0" expanded="false" />
+                <element signature="e#722#723#0" expanded="false" />
+                <element signature="e#753#754#0" expanded="false" />
+                <element signature="e#786#787#0" expanded="false" />
+                <element signature="e#815#816#0" expanded="false" />
+                <element signature="e#846#847#0" expanded="false" />
+                <element signature="e#873#874#0" expanded="false" />
+                <element signature="e#963#964#0" expanded="false" />
+                <element signature="e#993#994#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -159,22 +179,31 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="902">
               <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-              <folding>
-                <element signature="e#1611#1760#0" expanded="true" />
-                <element signature="e#1759#1760#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NextScreenManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NextScreenManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/NextScreenManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1012">
-              <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+            <state relative-caret-position="88">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
+                <element signature="e#2516#2665#0" expanded="true" />
+                <element signature="e#2664#2665#0" expanded="true" />
                 <element signature="e#2707#2856#0" expanded="true" />
                 <element signature="e#2855#2856#0" expanded="true" />
+                <element signature="e#2899#3046#0" expanded="true" />
+                <element signature="e#3045#3046#0" expanded="true" />
+                <element signature="e#3082#3227#0" expanded="true" />
+                <element signature="e#3226#3227#0" expanded="true" />
+                <element signature="e#3268#3418#0" expanded="true" />
+                <element signature="e#3417#3418#0" expanded="true" />
+                <element signature="e#3462#3610#0" expanded="true" />
+                <element signature="e#3609#3610#0" expanded="true" />
+                <element signature="e#3651#3799#0" expanded="true" />
+                <element signature="e#3798#3799#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1988,10 +2017,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Piece.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/generalActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Presenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/NextScreenManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/ManagerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Model.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/NextScreenManager.java" />
       </list>
     </option>
   </component>
@@ -2029,13 +2058,20 @@
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane />
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="united_pipeline" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
     </panes>
   </component>
@@ -2483,7 +2519,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16971" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16971" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2536,7 +2572,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1364">
           <caret line="62" column="60" selection-start-line="62" selection-start-column="60" selection-end-line="62" selection-end-column="60" />
-          <folding />
+          <folding>
+            <element signature="e#656#657#0" expanded="false" />
+            <element signature="e#687#688#0" expanded="false" />
+            <element signature="e#722#723#0" expanded="false" />
+            <element signature="e#753#754#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#815#816#0" expanded="false" />
+            <element signature="e#846#847#0" expanded="false" />
+            <element signature="e#873#874#0" expanded="false" />
+            <element signature="e#963#964#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2630,7 +2677,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#656#657#0" expanded="false" />
+            <element signature="e#687#688#0" expanded="false" />
+            <element signature="e#722#723#0" expanded="false" />
+            <element signature="e#753#754#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#815#816#0" expanded="false" />
+            <element signature="e#846#847#0" expanded="false" />
+            <element signature="e#873#874#0" expanded="false" />
+            <element signature="e#963#964#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2713,7 +2771,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#656#657#0" expanded="false" />
+            <element signature="e#687#688#0" expanded="false" />
+            <element signature="e#722#723#0" expanded="false" />
+            <element signature="e#753#754#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#815#816#0" expanded="false" />
+            <element signature="e#846#847#0" expanded="false" />
+            <element signature="e#873#874#0" expanded="false" />
+            <element signature="e#963#964#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2796,7 +2865,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#656#657#0" expanded="false" />
+            <element signature="e#687#688#0" expanded="false" />
+            <element signature="e#722#723#0" expanded="false" />
+            <element signature="e#753#754#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#815#816#0" expanded="false" />
+            <element signature="e#846#847#0" expanded="false" />
+            <element signature="e#873#874#0" expanded="false" />
+            <element signature="e#963#964#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2982,9 +3062,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Piece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
+        <state relative-caret-position="726">
           <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#656#657#0" expanded="false" />
+            <element signature="e#687#688#0" expanded="false" />
+            <element signature="e#722#723#0" expanded="false" />
+            <element signature="e#753#754#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#815#816#0" expanded="false" />
+            <element signature="e#846#847#0" expanded="false" />
+            <element signature="e#873#874#0" expanded="false" />
+            <element signature="e#963#964#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2992,16 +3083,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
           <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-          <folding>
-            <element signature="e#1611#1760#0" expanded="true" />
-            <element signature="e#1759#1760#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/ManagerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
+        <state relative-caret-position="594">
           <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
           <folding />
         </state>
@@ -3017,20 +3105,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/NextScreenManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
-          <folding>
-            <element signature="e#2707#2856#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/Presenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-359">
+        <state relative-caret-position="352">
           <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3054,6 +3131,29 @@
           <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/alextangen/unitedpipeline/NextScreenManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#2516#2665#0" expanded="true" />
+            <element signature="e#2664#2665#0" expanded="true" />
+            <element signature="e#2707#2856#0" expanded="true" />
+            <element signature="e#2855#2856#0" expanded="true" />
+            <element signature="e#2899#3046#0" expanded="true" />
+            <element signature="e#3045#3046#0" expanded="true" />
+            <element signature="e#3082#3227#0" expanded="true" />
+            <element signature="e#3226#3227#0" expanded="true" />
+            <element signature="e#3268#3418#0" expanded="true" />
+            <element signature="e#3417#3418#0" expanded="true" />
+            <element signature="e#3462#3610#0" expanded="true" />
+            <element signature="e#3609#3610#0" expanded="true" />
+            <element signature="e#3651#3799#0" expanded="true" />
+            <element signature="e#3798#3799#0" expanded="true" />
           </folding>
         </state>
       </provider>
