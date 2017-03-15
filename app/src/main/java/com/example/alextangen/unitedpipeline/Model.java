@@ -79,7 +79,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setReadyToShip();
         job.getPieces();
-        prog.setProgress(20);
+        prog.setProgress(100);
         tracker.setText("Ready to Ship!");
     }
 }

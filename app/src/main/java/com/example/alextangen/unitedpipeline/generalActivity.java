@@ -43,8 +43,9 @@ public class generalActivity extends AppCompatActivity {
         finishedCoat = (Button) findViewById(R.id.ecoat);
         readyShip = (Button) findViewById(R.id.ship);
 
-        Intent intent = getIntent();
-        presenter = (Presenter) intent.getSerializableExtra("Presenter");
+        //Intent intent = getIntent();
+        //presenter = (Presenter) intent.getParcelableExtra("Presenter");
+        presenter = new Presenter(this);
 
         generalJob = new Job(1);
         jobNum = 0;

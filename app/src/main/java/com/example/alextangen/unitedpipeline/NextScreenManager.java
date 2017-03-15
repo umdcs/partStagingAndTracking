@@ -58,8 +58,9 @@ public class NextScreenManager extends AppCompatActivity {
         */
 
 
-        Intent intent = getIntent();
-        presenter = (Presenter) intent.getSerializableExtra("Presenter");
+        //Intent intent = getIntent();
+        //presenter = (Presenter) intent.getParcelableExtra("Presenter");
+        presenter = new Presenter(this);
 
         generalJob = new Job(1);
         jobNum = 0;
