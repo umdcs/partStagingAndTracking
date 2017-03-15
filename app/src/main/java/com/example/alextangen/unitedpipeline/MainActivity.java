@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // triggers new activity in the role of a manager
 
         Intent managerIntent = new Intent(this, ManagerActivity.class);
+        //managerIntent.putExtra("Presenter", presenter);
 
         startActivity(managerIntent);
     }

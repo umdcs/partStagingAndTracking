@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 public class ManagerActivity extends AppCompatActivity {
 
+    Presenter presenter;
     EditText whoFor;
     EditText howMany;
     Button carryOn;
@@ -18,6 +19,9 @@ public class ManagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
 
+        //Intent intent = getIntent();
+        //presenter = (Presenter) intent.getParcelableExtra("Presenter");
+
         whoFor = (EditText) findViewById(R.id.who);
         howMany = (EditText) findViewById(R.id.howMany);
         carryOn = (Button) findViewById(R.id.carryOn);
@@ -26,6 +30,7 @@ public class ManagerActivity extends AppCompatActivity {
     public void nextActivity(View view) {
         Intent intent = new Intent(this, NextScreenManager.class);
 
+        //intent.putExtra("Presenter", presenter);
         intent.putExtra("who", whoFor.getText().toString());
         intent.putExtra("howMany", howMany.getText().toString());
 

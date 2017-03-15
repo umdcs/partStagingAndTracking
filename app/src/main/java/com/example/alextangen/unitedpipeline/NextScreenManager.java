@@ -16,6 +16,7 @@ public class NextScreenManager extends AppCompatActivity {
 
     private Job[] jobsArray;
     Job currentJob;
+    Presenter presenter;
     ProgressBar prg;
     Spinner spins;
     TextView tracker;
@@ -34,7 +35,6 @@ public class NextScreenManager extends AppCompatActivity {
     int selection = 0;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ public class NextScreenManager extends AppCompatActivity {
         ArrayList list = new ArrayList();
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
-        pieceCount= intent.getStringExtra("howMany");
+        pieceCount = intent.getStringExtra("howMany");
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
 
@@ -56,8 +56,7 @@ public class NextScreenManager extends AppCompatActivity {
         jobNumber = currentJob.getJob(name);
         if (jobNumber >= 0) {
             currentJob = jobsArray[jobNumber];
-        }
-        else {
+        } else {
             System.out.println("Else loop current job");
             jobsArray[whichJob] = new Job(pieceCountInt);
             jobsArray[whichJob].setName(name);
@@ -66,21 +65,28 @@ public class NextScreenManager extends AppCompatActivity {
         }
 
         //
-        for(int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
+        for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece # " + i);
         }
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item,list);
-        spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, list);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spins = (Spinner) findViewById(R.id.spins);
-        //spins = new Spinner();
         spins.setAdapter(spinnerArrayAdapter);
 
         //selection = spins.getSelectedItem();
         selection = spins.getSelectedItemPosition();
         //spins.setOnItemSelectedListener(new );
         //
+
+
+        //Intent intent = getIntent();
+        //presenter = (Presenter) intent.getParcelableExtra("Presenter");
+        presenter = new Presenter(this);
+
+        jobNum = 0;
+        presenter.addJob(currentJob);
 
         prg = (ProgressBar) findViewById(R.id.progressBar);
         prg.setScaleY(3);
@@ -93,83 +99,33 @@ public class NextScreenManager extends AppCompatActivity {
         finishedCoat = (Button) findViewById(R.id.ecoat);
         readyShip = (Button) findViewById(R.id.ship);
 
-        matlReceived.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selection = spins.getSelectedItemPosition();
-                currentJob.setMaterialsReceived(selection);
-                currentJob.getPieces();
-                prg.setProgress(10);
-                tracker.setText("Materials have been Received");
-            }
-        });
-
-
-        startedFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selection = spins.getSelectedItemPosition();
-                currentJob.setStartedFab(selection);
-                currentJob.getPieces();
-                prg.setProgress(20);
-                tracker.setText("Fabrication Started");
-            }
-        });
-
-        finishedFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selection = spins.getSelectedItemPosition();
-                currentJob.setFinishedFab(selection);
-                currentJob.getPieces();
-                prg.setProgress(40);
-                tracker.setText("Fabrication Complete");
-            }
-        });
-
-        xRay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selection = spins.getSelectedItemPosition();
-                currentJob.setXRayReady(selection);
-                currentJob.getPieces();
-                prg.setProgress(50);
-                tracker.setText("X-Ray Ready");
-            }
-        });
-
-        startCoat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selection = spins.getSelectedItemPosition();
-                currentJob.setStartedCoating(selection);
-                currentJob.getPieces();
-                prg.setProgress(60);
-                tracker.setText("Started Painting/Coating");
-            }
-        });
-
-        finishedCoat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selection = spins.getSelectedItemPosition();
-                currentJob.setFinishedCoating(selection);
-                currentJob.getPieces();
-                prg.setProgress(80);
-                tracker.setText("Painting/Coating Complete");
-            }
-        });
-
-        readyShip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selection = spins.getSelectedItemPosition();
-                currentJob.setReadyToShip(selection);
-                currentJob.getPieces();
-                prg.setProgress(100);
-                tracker.setText("Ready to Ship!");
-            }
-        });
-
+    public void onClick(View view) {
+        presenter.matlRcvd(jobNum, prg, tracker, spins.getSelectedItemPosition());
     }
+
+    public void onClick(View view) {
+        presenter.startFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
+    }
+
+    public void onClick(View view) {
+        presenter.endFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
+    }
+
+    public void onClick(View view) {
+        presenter.xRay(jobNum, prg, tracker, spins.getSelectedItemPosition());
+    }
+
+    public void onClick(View view) {
+        presenter.startCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
+    }
+
+    public void onClick(View view) {
+        presenter.endCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
+    }
+
+    public void onClick(View view) {
+        presenter.shipRdy(jobNum, prg, tracker, spins.getSelectedItemPosition());
+    }
+}
+
 }
