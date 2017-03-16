@@ -1,0 +1,49 @@
+/*
+//I really have no idea if this will work or not, but it's an idea.    
+            public static String POST(String url, Person person){
+            InputStream inputStream = null;
+            String result = "";
+            try {
+            HttpClient httpClient = new DefaultHttpClient();
+
+            HttpPost httpPost = new HttpPost(url);
+            
+            String json = "";
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.accumulate("Job Name", currentJob.getName());
+            jsonObject.accumulate("Pieces", currentJob.getPieces());
+
+            json = jsonObject.toString();
+
+            // We could try this too
+            // ObjectMapper mapper = new ObjectMapper();
+            //json = mapper.writeValueAsString(person);
+
+            //Set json to StringEntity
+            StringEntity se = new StringEntity(json);
+
+            //set http post entity
+            httpPost.setEntity(se);
+
+            //Set some headers to inform server about the type of the content   
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            
+            //Execute POST request to the given URL
+            HttpResponse httpResponse = httpclient.execute(httpPost);
+
+            //receive response as inputStream
+            inputStream = httpResponse.getEntity().getContent();
+ 
+            //convert inputstream to string
+            if(inputStream != null)
+                result = convertInputStreamToString(inputStream);
+            else
+                result = "Did not work!";
+ 
+            } catch (Exception e) {
+                Log.d("InputStream", e.getLocalizedMessage());
+            }
+ 
+*/
