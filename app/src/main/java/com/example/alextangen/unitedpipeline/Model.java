@@ -32,7 +32,7 @@ public class Model {
         job.setMaterialsReceived(selection);
         job.getPieces();
         //prog.setProgress(job.getPieceProgress(selection));
-        tracker.setText("Materials have been Received");
+        //tracker.setText("Materials have been Received");
     }
 
     public void startFab(int jobNum, ProgressBar prog, TextView tracker, int selection) {
@@ -40,7 +40,7 @@ public class Model {
         job.setStartedFab(selection);
         job.getPieces();
         //prog.setProgress(job.getPieceProgress(selection));
-        tracker.setText("Fabrication Started");
+        //tracker.setText("Fabrication Started");
     }
 
     public void endFab(int jobNum, ProgressBar prog, TextView tracker, int selection) {
@@ -48,7 +48,7 @@ public class Model {
         job.setFinishedFab(selection);
         job.getPieces();
         //prog.setProgress(job.getPieceProgress(selection));
-        tracker.setText("Fabrication Complete");
+        //tracker.setText("Fabrication Complete");
     }
 
     public void xRay(int jobNum, ProgressBar prog, TextView tracker, int selection) {
@@ -56,7 +56,7 @@ public class Model {
         job.setXRayReady(selection);
         job.getPieces();
         //prog.setProgress(job.getPieceProgress(selection));
-        tracker.setText("X-Ray Ready");
+        //tracker.setText("X-Ray Ready");
     }
 
     public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int selection) {
@@ -64,7 +64,7 @@ public class Model {
         job.setStartedCoating(selection);
         job.getPieces();
         //prog.setProgress(job.getPieceProgress(selection));
-        tracker.setText("Started Painting/Coating");
+        //tracker.setText("Started Painting/Coating");
     }
 
     public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int selection) {
@@ -72,7 +72,7 @@ public class Model {
         job.setFinishedCoating(selection);
         job.getPieces();
         //prog.setProgress(job.getPieceProgress(selection));
-        tracker.setText("Painting/Coating Complete");
+        //tracker.setText("Painting/Coating Complete");
     }
 
     public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int selection) {
@@ -80,6 +80,6 @@ public class Model {
         job.setReadyToShip(selection);
         job.getPieces();
         //prog.setProgress(job.getPieceProgress(selection));
-        tracker.setText("Ready to Ship!");
+        //tracker.setText("Ready to Ship!");
     }
 }

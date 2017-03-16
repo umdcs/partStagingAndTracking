@@ -87,7 +87,12 @@ public class NextScreenManager extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        //selection = spins.getSelectedItemPosition();
+        presenter = new Presenter(this);
+
+        jobNum = 0;
+        presenter.addJob(currentJob);
+
+        prg.setProgress(currentJob.getPieceProgress(selection));
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -102,26 +107,6 @@ public class NextScreenManager extends AppCompatActivity {
                 tracker.setText("");
             }
         });
-
-        presenter = new Presenter(this);
-
-        jobNum = 0;
-        presenter.addJob(currentJob);
-
-        /*
-        prg = (ProgressBar) findViewById(R.id.progressBar);
-        prg.setScaleY(3);
-        tracker = (TextView) findViewById(R.id.tracker);
-        matlReceived = (Button) findViewById(R.id.matRec);
-        startedFab = (Button) findViewById(R.id.sFab);
-        finishedFab = (Button) findViewById(R.id.eFab);
-        xRay = (Button) findViewById(R.id.xray);
-        startCoat = (Button) findViewById(R.id.scoat);
-        finishedCoat = (Button) findViewById(R.id.ecoat);
-        readyShip = (Button) findViewById(R.id.ship);
-        */
-
-        prg.setProgress(currentJob.getPieceProgress(selection));
 
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
