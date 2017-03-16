@@ -32,11 +32,15 @@ app.use(bodyParser.urlencoded({ // support encoded bodies
  });
 
  app.get('/getAllJobs', function(request, response) {
+   response.send(jobsArray);
    console.log('Received a get request for all jobs!');
    response.end();
  });
 
  app.get('/getJobByID', function(request, response) {
+   //An ID should be sent up with request, so a specific job can be grabbed
+   //Then send back the job corresponding to the ID
+   response.send(jobsArray[0]); //0 for now, will search for job ID later
    console.log('Received a get request for a job by ID!');
    response.end();
  });
