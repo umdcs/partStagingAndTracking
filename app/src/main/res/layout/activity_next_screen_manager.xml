@@ -86,6 +86,6 @@
         android:paddingRight="50dp"
         android:paddingLeft="50dp"
         android:paddingTop="25dp"
-        android:textSize="24sp"/>
+        android:textSize="16sp"/>
 
 </LinearLayout>

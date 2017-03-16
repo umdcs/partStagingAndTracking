@@ -35,7 +35,6 @@ public class Job {
     public void setMaterialsReceived(int number) {
         // all of these if statements need to be called by jobs, not by the pieces array
         if(pieces[number].getMatlReceived() == false) {
-            System.out.println("Material Received was false");
             pieces[number].setMatlRcvd(true);
         }
         else {
@@ -119,6 +118,18 @@ public class Job {
             }
         }
         return -1;
+    }
+
+    public int getPieceProgress(int number) {
+        int thisProgress;
+        thisProgress = pieces[number].getProgress();
+        return thisProgress;
+    }
+
+    public String getPieceString(int number) {
+        String newString;
+        newString = pieces[number].getThisString();
+        return newString;
     }
 
     // public methods to create/store/update/access pieces and tally man hours

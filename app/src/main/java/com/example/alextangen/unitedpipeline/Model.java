@@ -10,7 +10,6 @@ import android.widget.TextView;
 public class Model {
 
     private static final int MAX_JOBS = 10; // just a placeholder for now
-
     private Job[] jobs;
     private int numJobs;
     int pieceNum = 0;
@@ -32,7 +31,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setMaterialsReceived(selection);
         job.getPieces();
-        prog.setProgress(10);
+        //prog.setProgress(job.getPieceProgress(selection));
         tracker.setText("Materials have been Received");
     }
 
@@ -40,7 +39,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setStartedFab(selection);
         job.getPieces();
-        prog.setProgress(20);
+        //prog.setProgress(job.getPieceProgress(selection));
         tracker.setText("Fabrication Started");
     }
 
@@ -48,7 +47,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setFinishedFab(selection);
         job.getPieces();
-        prog.setProgress(40);
+        //prog.setProgress(job.getPieceProgress(selection));
         tracker.setText("Fabrication Complete");
     }
 
@@ -56,7 +55,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setXRayReady(selection);
         job.getPieces();
-        prog.setProgress(50);
+        //prog.setProgress(job.getPieceProgress(selection));
         tracker.setText("X-Ray Ready");
     }
 
@@ -64,7 +63,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setStartedCoating(selection);
         job.getPieces();
-        prog.setProgress(60);
+        //prog.setProgress(job.getPieceProgress(selection));
         tracker.setText("Started Painting/Coating");
     }
 
@@ -72,7 +71,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setFinishedCoating(selection);
         job.getPieces();
-        prog.setProgress(80);
+        //prog.setProgress(job.getPieceProgress(selection));
         tracker.setText("Painting/Coating Complete");
     }
 
@@ -80,7 +79,7 @@ public class Model {
         Job job = jobs[jobNum];
         job.setReadyToShip(selection);
         job.getPieces();
-        prog.setProgress(100);
+        //prog.setProgress(job.getPieceProgress(selection));
         tracker.setText("Ready to Ship!");
     }
 }
