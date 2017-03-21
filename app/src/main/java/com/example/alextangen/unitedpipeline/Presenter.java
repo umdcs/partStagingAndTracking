@@ -25,13 +25,13 @@ public class Presenter implements Parcelable {
 
     public void addJob(Job job) { model.addJob(job); }
 
-    public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker) { model.matlRcvd(jobNum, prog, tracker); }
-    public void startFab(int jobNum, ProgressBar prog, TextView tracker) { model.startFab(jobNum, prog, tracker); }
-    public void endFab(int jobNum, ProgressBar prog, TextView tracker) { model.endFab(jobNum, prog, tracker); }
-    public void xRay(int jobNum, ProgressBar prog, TextView tracker) { model.xRay(jobNum, prog, tracker); }
-    public void startCoat(int jobNum, ProgressBar prog, TextView tracker) { model.startCoat(jobNum, prog, tracker); }
-    public void endCoat(int jobNum, ProgressBar prog, TextView tracker) { model.endCoat(jobNum, prog, tracker); }
-    public void shipRdy(int jobNum, ProgressBar prog, TextView tracker) { model.shipRdy(jobNum, prog, tracker); }
+    public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.matlRcvd(jobNum, prog, tracker, Selection); }
+    public void startFab(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startFab(jobNum, prog, tracker, Selection); }
+    public void endFab(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.endFab(jobNum, prog, tracker, Selection); }
+    public void xRay(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.xRay(jobNum, prog, tracker, Selection); }
+    public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startCoat(jobNum, prog, tracker, Selection); }
+    public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.endCoat(jobNum, prog, tracker, Selection); }
+    public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.shipRdy(jobNum, prog, tracker, Selection); }
 
     // required for implementing Parcelable
     @Override
