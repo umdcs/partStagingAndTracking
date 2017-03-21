@@ -17,15 +17,6 @@ public class MainActivity extends AppCompatActivity {
         presenter = new Presenter(this);
     }
 
-    public void continueInGeneral(View view) {
-        // triggers new activity in no role just to make sure pieces work
-
-        Intent generalIntent = new Intent(this, generalActivity.class);
-        generalIntent.putExtra("Presenter", presenter);
-
-        startActivity(generalIntent);
-    }
-
     public void continueAsClient(View view) {
         // triggers new activity in the role of a client
 
