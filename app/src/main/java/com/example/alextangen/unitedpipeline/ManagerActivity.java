@@ -28,11 +28,12 @@ public class ManagerActivity extends AppCompatActivity {
     }
 
     public void nextActivity(View view) {
-        Intent intent = new Intent(this, NextScreenManager.class);
+        Intent intent = new Intent(this, JobMenu.class);
 
         //intent.putExtra("Presenter", presenter);
         intent.putExtra("who", whoFor.getText().toString());
         intent.putExtra("howMany", howMany.getText().toString());
+
 
         startActivity(intent);
     }

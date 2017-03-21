@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class NextScreenManager extends AppCompatActivity {
 
-    private Job[] jobsArray;
+    private Job[] jobsArray = new Job[10];
     Job currentJob;
     Presenter presenter;
     ProgressBar prg;
@@ -55,8 +55,8 @@ public class NextScreenManager extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        jobsArray = new Job[10];
         ArrayList list = new ArrayList();
+
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount = intent.getStringExtra("howMany");
@@ -76,6 +76,9 @@ public class NextScreenManager extends AppCompatActivity {
             currentJob = jobsArray[whichJob];
             whichJob++;
         }
+
+
+
 
 
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
