@@ -112,6 +112,7 @@ public class NextScreenManager extends AppCompatActivity {
             @Override
             public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
             }
         });
 
@@ -119,6 +120,7 @@ public class NextScreenManager extends AppCompatActivity {
             @Override
             public void onClick(View view) { presenter.startFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
             }
         });
 
@@ -126,6 +128,7 @@ public class NextScreenManager extends AppCompatActivity {
             @Override
             public void onClick(View view) { presenter.endFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
             }
         });
 
@@ -133,6 +136,7 @@ public class NextScreenManager extends AppCompatActivity {
             @Override
             public void onClick(View view) { presenter.xRay(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
             }
         });
 
@@ -140,6 +144,7 @@ public class NextScreenManager extends AppCompatActivity {
             @Override
             public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
             }
         });
 
@@ -147,6 +152,7 @@ public class NextScreenManager extends AppCompatActivity {
             @Override
             public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
             }
         });
 
@@ -154,6 +160,7 @@ public class NextScreenManager extends AppCompatActivity {
             @Override
             public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
             }
         });
 }
