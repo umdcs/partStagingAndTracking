@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class NextScreenManager extends AppCompatActivity {
+public class JobProgress extends AppCompatActivity {
 
     private Job[] jobsArray;
     Job currentJob;

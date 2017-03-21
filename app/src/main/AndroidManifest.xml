@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewJob" />
-        <activity android:name=".NextScreenManager"></activity>
+        <activity android:name=".JobProgress"></activity>
     </application>
 
 </manifest>
