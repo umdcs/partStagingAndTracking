@@ -15,9 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".generalActivity" />
-        <activity android:name=".ManagerActivity" />
-        <activity android:name=".NextScreenManager"></activity>
+        <activity android:name=".NewJob" />
+        <activity android:name=".JobProgress"></activity>
     </application>
 
 </manifest>
