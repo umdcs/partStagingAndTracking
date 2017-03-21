@@ -3,6 +3,7 @@ package com.example.alextangen.unitedpipeline;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class NextScreenManager extends AppCompatActivity {
 
     private Job[] jobsArray = new Job[10];
+    Bundle bn;
     Job currentJob;
     Presenter presenter;
     ProgressBar prg;
@@ -57,6 +59,15 @@ public class NextScreenManager extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
+        //try {
+        //    bn = new Bundle();
+        //    bn = getIntent().getExtras();
+        //    currentJob = bn.getParcelable("CurrentJob");
+        //}
+        //catch (Exception e) {
+        //    Log.e("Err", e.getMessage());
+        //}
+
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount = intent.getStringExtra("howMany");
@@ -95,7 +106,7 @@ public class NextScreenManager extends AppCompatActivity {
         jobNum = 0;
         presenter.addJob(currentJob);
 
-        prg.setProgress(currentJob.getPieceProgress(selection));
+        //prg.setProgress(currentJob.getPieceProgress(selection));
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -1,6 +1,9 @@
 package com.example.alextangen.unitedpipeline;
 
 import android.content.Intent;
+import android.os.Parcelable;
+import android.provider.ContactsContract;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +46,10 @@ public class JobMenu extends AppCompatActivity {
 
     public void JobProgress(View view) {
         Intent intent = new Intent(this, NextScreenManager.class);
+
+        Bundle b = new Bundle();
+        b.putParcelable("CurrentJob", currentJob);
+        intent.putExtras(b);
 
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);

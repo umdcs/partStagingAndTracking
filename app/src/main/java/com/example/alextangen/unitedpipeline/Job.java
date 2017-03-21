@@ -1,10 +1,15 @@
 package com.example.alextangen.unitedpipeline;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by Katia on 3/3/2017.
  */
 
-public class Job {
+public class Job implements Parcelable{
 
     private Piece[] pieces;
 
@@ -31,6 +36,38 @@ public class Job {
         pfHoursTotal = 0;
         lbHoursTotal = 0;
     }
+
+    protected Job(Parcel in) {
+        Names = in.createStringArray();
+        i = in.readInt();
+        pfHoursTotal = in.readDouble();
+        lbHoursTotal = in.readDouble();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringArray(Names);
+        dest.writeInt(i);
+        dest.writeDouble(pfHoursTotal);
+        dest.writeDouble(lbHoursTotal);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Job> CREATOR = new Creator<Job>() {
+        @Override
+        public Job createFromParcel(Parcel in) {
+            return new Job(in);
+        }
+
+        @Override
+        public Job[] newArray(int size) {
+            return new Job[size];
+        }
+    };
 
     public void setMaterialsReceived(int number) {
         // all of these if statements need to be called by jobs, not by the pieces array
