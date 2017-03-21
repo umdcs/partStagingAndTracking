@@ -10,9 +10,9 @@ import android.widget.TextView;
 public class Model {
 
     private static final int MAX_JOBS = 10; // just a placeholder for now
-
     private Job[] jobs;
     private int numJobs;
+    int pieceNum = 0;
 
     public Model() {
         jobs = new Job[MAX_JOBS];
@@ -27,59 +27,59 @@ public class Model {
         }
     }
 
-    public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker) {
+    public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
-        job.setMaterialsReceived();
+        job.setMaterialsReceived(selection);
         job.getPieces();
-        prog.setProgress(10);
-        tracker.setText("Materials have been Received");
+        //prog.setProgress(job.getPieceProgress(selection));
+        //tracker.setText("Materials have been Received");
     }
 
-    public void startFab(int jobNum, ProgressBar prog, TextView tracker) {
+    public void startFab(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
-        job.setStartedFab();
+        job.setStartedFab(selection);
         job.getPieces();
-        prog.setProgress(20);
-        tracker.setText("Fabrication Started");
+        //prog.setProgress(job.getPieceProgress(selection));
+        //tracker.setText("Fabrication Started");
     }
 
-    public void endFab(int jobNum, ProgressBar prog, TextView tracker) {
+    public void endFab(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
-        job.setFinishedFab();
+        job.setFinishedFab(selection);
         job.getPieces();
-        prog.setProgress(40);
-        tracker.setText("Fabrication Complete");
+        //prog.setProgress(job.getPieceProgress(selection));
+        //tracker.setText("Fabrication Complete");
     }
 
-    public void xRay(int jobNum, ProgressBar prog, TextView tracker) {
+    public void xRay(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
-        job.setXRayReady();
+        job.setXRayReady(selection);
         job.getPieces();
-        prog.setProgress(50);
-        tracker.setText("X-Ray Ready");
+        //prog.setProgress(job.getPieceProgress(selection));
+        //tracker.setText("X-Ray Ready");
     }
 
-    public void startCoat(int jobNum, ProgressBar prog, TextView tracker) {
+    public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
-        job.setStartedCoating();
+        job.setStartedCoating(selection);
         job.getPieces();
-        prog.setProgress(60);
-        tracker.setText("Started Painting/Coating");
+        //prog.setProgress(job.getPieceProgress(selection));
+        //tracker.setText("Started Painting/Coating");
     }
 
-    public void endCoat(int jobNum, ProgressBar prog, TextView tracker) {
+    public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
-        job.setFinishedCoating();
+        job.setFinishedCoating(selection);
         job.getPieces();
-        prog.setProgress(80);
-        tracker.setText("Painting/Coating Complete");
+        //prog.setProgress(job.getPieceProgress(selection));
+        //tracker.setText("Painting/Coating Complete");
     }
 
-    public void shipRdy(int jobNum, ProgressBar prog, TextView tracker) {
+    public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
-        job.setReadyToShip();
+        job.setReadyToShip(selection);
         job.getPieces();
-        prog.setProgress(100);
-        tracker.setText("Ready to Ship!");
+        //prog.setProgress(job.getPieceProgress(selection));
+        //tracker.setText("Ready to Ship!");
     }
 }
