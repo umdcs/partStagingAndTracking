@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public void continueAsManager(View view) {
         // triggers new activity in the role of a manager
 
-        Intent managerIntent = new Intent(this, ManagerActivity.class);
+        Intent managerIntent = new Intent(this, NewJob.class);
         startActivity(managerIntent);
     }
 }
