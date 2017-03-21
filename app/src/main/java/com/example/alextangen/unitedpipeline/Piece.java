@@ -13,6 +13,8 @@ public class Piece {
     private boolean startCoat;
     private boolean endCoat;
     private boolean shipRdy;
+    private int progress;
+    private String thisString;
 
     private double pfHours;
     private double lbHours;
@@ -48,16 +50,52 @@ public class Piece {
     }
     public boolean getShipRdy() { return shipRdy; }
 
+    public int getProgress() {
+        return progress;
+    }
+
+    public String getThisString() {
+        return thisString;
+    }
+
     public double getPfHours() { return pfHours; }
     public double getLbHours() { return lbHours; }
 
-    public void setMatlRcvd(boolean what) { matlRcvd = what; System.out.println("Made it to setMatlRcvd, should be true now:" + matlRcvd );}
-    public void setStartFab(boolean what) { startFab = what;}
-    public void setEndFab(boolean what) { endFab = what;}
-    public void setxRay(boolean what) { xRay = what;}
-    public void setStartCoat(boolean what) { startCoat = what;}
-    public void setEndCoat(boolean what) { endCoat = what;}
-    public void setShipRdy(boolean what) { shipRdy = what;}
+    public void setMatlRcvd(boolean what) {
+        matlRcvd = what;
+        progress = 10;
+        thisString = "Materials Received";
+    }
+    public void setStartFab(boolean what) {
+        startFab = what;
+        progress = 20;
+        thisString = "Fabrication Started";
+    }
+    public void setEndFab(boolean what) {
+        endFab = what;
+        progress = 40;
+        thisString = "Fabrication Complete";
+    }
+    public void setxRay(boolean what) {
+        xRay = what;
+        progress = 50;
+        thisString = "X-Ray Ready";
+    }
+    public void setStartCoat(boolean what) {
+        startCoat = what;
+        progress = 60;
+        thisString = "Coating Started";
+    }
+    public void setEndCoat(boolean what) {
+        endCoat = what;
+        progress = 80;
+        thisString = "Coating Complete";
+    }
+    public void setShipRdy(boolean what) {
+        shipRdy = what;
+        progress = 100;
+        thisString = "Ready to Ship!";
+    }
 
     public void setPfHours(double hours) { pfHours = hours; }
     public void setLbHours(double hours) { lbHours = hours; }

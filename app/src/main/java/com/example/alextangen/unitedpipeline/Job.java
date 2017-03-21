@@ -8,21 +8,23 @@ public class Job {
 
     private Piece[] pieces;
 
-    private String Name;
+    private String[] Names = new String[10];
+    private int i = 0;
     private double pfHoursTotal;
     private double lbHoursTotal;
 
     public Job(int numPieces) {
-        pieces = new Piece[numPieces]; //pieces is the array of all pieces, within each is another array of 7
+        pieces = new Piece[numPieces]; //pieces is the array of all pieces for this job
         for(int i=0; i<numPieces; i++) {
-            pieces[i] = new Piece();
-            System.out.println("Material received = " + pieces[i].getMatlReceived());
-            System.out.println("Start Fabrication = " + pieces[i].getStartFab());
-            System.out.println("End Fabrication = " + pieces[i].getEndFab());
-            System.out.println("xRay = " + pieces[i].getXRay());
-            System.out.println("Start Painting/Coating = " + pieces[i].getStartCoat());
-            System.out.println("End Painting/Coating = " + pieces[i].getEndCoat());
-            System.out.println("Ship Ready = " + pieces[i].getShipRdy());
+            pieces[i] = new Piece(); //initialize the desired number of pieces
+            System.out.println("Now in Job constructor");
+            System.out.println("Material received on piece[" + i + "] = " + pieces[i].getMatlReceived());
+            System.out.println("Start Fabrication on piece[" + i + "] = " + pieces[i].getStartFab());
+            System.out.println("End Fabrication on piece[" + i + "] = " + pieces[i].getEndFab());
+            System.out.println("xRay on piece[" + i + "] = "+ pieces[i].getXRay());
+            System.out.println("Start Painting/Coating on piece[" + i + "] = " + pieces[i].getStartCoat());
+            System.out.println("End Painting/Coating on piece[" + i + "] = " + pieces[i].getEndCoat());
+            System.out.println("Ship Ready on piece[" + i + "] = " + pieces[i].getShipRdy());
         }
 
 
@@ -30,79 +32,104 @@ public class Job {
         lbHoursTotal = 0;
     }
 
-    public void setMaterialsReceived() {
-        if(pieces[0].getMatlReceived() == false) {
-            System.out.println("Material Received was false");
-            pieces[0].setMatlRcvd(true);
+    public void setMaterialsReceived(int number) {
+        // all of these if statements need to be called by jobs, not by the pieces array
+        if(pieces[number].getMatlReceived() == false) {
+            pieces[number].setMatlRcvd(true);
         }
         else {
-            pieces[0].setMatlRcvd(false);
+            pieces[number].setMatlRcvd(false);
             System.out.println("Material Received was true");
         }
     }
 
-    public void setStartedFab() {
-        if(pieces[0].getStartFab() == false) {
-            pieces[0].setStartFab(true);
+    public void setStartedFab(int number) {
+        if(pieces[number].getStartFab() == false) {
+            pieces[number].setStartFab(true);
         }
-        else pieces[0].setStartFab(false);
+        else pieces[number].setStartFab(false);
     }
 
-    public void setFinishedFab() {
-        if(pieces[0].getEndFab() == false) {
-            pieces[0].setEndFab(true);
+    public void setFinishedFab(int number) {
+        if(pieces[number].getEndFab() == false) {
+            pieces[number].setEndFab(true);
         }
-        else pieces[0].setEndFab(false);
+        else pieces[number].setEndFab(false);
     }
 
-    public void setXRayReady() {
-        if(pieces[0].getXRay() == false) {
-            pieces[0].setxRay(true);
+    public void setXRayReady(int number) {
+        if(pieces[number].getXRay() == false) {
+            pieces[number].setxRay(true);
         }
-        else pieces[0].setxRay(false);
+        else pieces[number].setxRay(false);
     }
 
-    public void setStartedCoating() {
-        if(pieces[0].getStartCoat() == false) {
-            pieces[0].setStartCoat(true);
+    public void setStartedCoating(int number) {
+        if(pieces[number].getStartCoat() == false) {
+            pieces[number].setStartCoat(true);
         }
-        else pieces[0].setStartCoat(false);
+        else pieces[number].setStartCoat(false);
     }
 
-    public void setFinishedCoating() {
-        if(pieces[0].getEndCoat() == false) {
-            pieces[0].setEndCoat(true);
+    public void setFinishedCoating(int number) {
+        if(pieces[number].getEndCoat() == false) {
+            pieces[number].setEndCoat(true);
         }
-        else pieces[0].setEndCoat(false);
+        else pieces[number].setEndCoat(false);
     }
 
-    public void setReadyToShip() {
-        if(pieces[0].getShipRdy() == false) {
-            pieces[0].setShipRdy(true);
+    public void setReadyToShip(int number) {
+        if(pieces[number].getShipRdy() == false) {
+            pieces[number].setShipRdy(true);
         }
-        else pieces[0].setShipRdy(false);
+        else pieces[number].setShipRdy(false);
     }
 
     public Piece[] getPieces() {
-        for(int i=0; i<1; i++) {
+        for(int j=0; j<pieces.length; j++) {
             //pieces[i] = new Piece();
-            System.out.println("Material received = " + pieces[i].getMatlReceived());
-            System.out.println("Start Fabrication = " + pieces[i].getStartFab());
-            System.out.println("End Fabrication = " + pieces[i].getEndFab());
-            System.out.println("xRay = " + pieces[i].getXRay());
-            System.out.println("Start Painting/Coating = " + pieces[i].getStartCoat());
-            System.out.println("End Painting/Coating = " + pieces[i].getEndCoat());
-            System.out.println("Ship Ready = " + pieces[i].getShipRdy());
+
+            System.out.println("Now in getPieces() function");
+            System.out.println("Material received on piece[" + j + "] = " + pieces[j].getMatlReceived());
+            System.out.println("Start Fabrication on piece[" + j + "] = " + pieces[j].getStartFab());
+            System.out.println("End Fabrication on piece[" + j + "] = " + pieces[j].getEndFab());
+            System.out.println("xRay on piece[" + j + "] = "+ pieces[j].getXRay());
+            System.out.println("Start Painting/Coating on piece[" + j + "] = " + pieces[j].getStartCoat());
+            System.out.println("End Painting/Coating on piece[" + j + "] = " + pieces[j].getEndCoat());
+            System.out.println("Ship Ready on piece[" + j + "] = " + pieces[j].getShipRdy());
+
         }
         return pieces;
     }
 
     public void setName(String name) {
-        Name = name;
+        Names[i] = name;
+        i++;
     }
 
-    public String getName() {
-        return Name;
+    public String getName(int whichJob) {
+        return Names[whichJob];
+    }
+
+    public int getJob(String name) {
+        for (int j = 0; j < i; j++) {
+            if(name == this.getName(j)) {
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    public int getPieceProgress(int number) {
+        int thisProgress;
+        thisProgress = pieces[number].getProgress();
+        return thisProgress;
+    }
+
+    public String getPieceString(int number) {
+        String newString;
+        newString = pieces[number].getThisString();
+        return newString;
     }
 
     // public methods to create/store/update/access pieces and tally man hours

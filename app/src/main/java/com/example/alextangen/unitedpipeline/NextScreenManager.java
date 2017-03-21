@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 
 public class NextScreenManager extends AppCompatActivity {
 
-    private Job generalJob;
-    int jobNum;
+    private Job[] jobsArray;
+    Job currentJob;
     Presenter presenter;
     ProgressBar prg;
     Spinner spins;
@@ -29,42 +30,17 @@ public class NextScreenManager extends AppCompatActivity {
     Button readyShip;
     String name;
     String pieceCount;
-
+    int pieceCountInt;
+    int jobNumber;
+    int whichJob = 0;
+    int jobNum;
+    int selection = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general);
-
-        /*
-        Intent intent = getIntent();
-        ArrayList list = new ArrayList();
-        name = intent.getStringExtra("who");
-        generalJob.setName(name);
-        pieceCount= intent.getStringExtra("howMany");
-        generalJob = new Job(Integer.parseInt(pieceCount));
-
-        /*
-        for(int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
-            list.add("Piece #" + i);
-        }
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item,list);
-        spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-
-        spins = (Spinner) findViewById(R.id.spins);
-        spins.setAdapter(spinnerArrayAdapter);
-        */
-
-
-        //Intent intent = getIntent();
-        //presenter = (Presenter) intent.getParcelableExtra("Presenter");
-        presenter = new Presenter(this);
-
-        generalJob = new Job(1);
-        jobNum = 0;
-        presenter.addJob(generalJob);
+        setContentView(R.layout.activity_next_screen_manager);
 
         prg = (ProgressBar) findViewById(R.id.progressBar);
         prg.setScaleY(3);
@@ -77,40 +53,109 @@ public class NextScreenManager extends AppCompatActivity {
         finishedCoat = (Button) findViewById(R.id.ecoat);
         readyShip = (Button) findViewById(R.id.ship);
 
+
+        Intent intent = getIntent();
+        jobsArray = new Job[10];
+        ArrayList list = new ArrayList();
+        name = intent.getStringExtra("who");
+        System.out.println("Name = " + name);
+        pieceCount = intent.getStringExtra("howMany");
+        pieceCountInt = Integer.parseInt(pieceCount);
+        System.out.println("pieceCount = " + pieceCountInt);
+
+        System.out.println("Current Job");
+        currentJob = new Job(pieceCountInt);
+        jobNumber = currentJob.getJob(name);
+
+        if (jobNumber >= 0) {
+            currentJob = jobsArray[jobNumber];
+        } else {
+            System.out.println("Else loop current job");
+            jobsArray[whichJob] = new Job(pieceCountInt);
+            jobsArray[whichJob].setName(name);
+            currentJob = jobsArray[whichJob];
+            whichJob++;
+        }
+
+
+        for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
+            list.add("Piece # " + i);
+        }
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spins = (Spinner) findViewById(R.id.spins);
+        spins.setAdapter(spinnerArrayAdapter);
+
+        presenter = new Presenter(this);
+
+        jobNum = 0;
+        presenter.addJob(currentJob);
+
+        prg.setProgress(currentJob.getPieceProgress(selection));
+
+        spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int what, long longer) {
+                selection = spins.getSelectedItemPosition();
+                prg.setProgress(0);
+                tracker.setText(currentJob.getPieceString(selection));
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+                prg.setProgress(0);
+                tracker.setText("");
+            }
+        });
+
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker, spins.getSelectedItemPosition());
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
         });
 
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
         });
 
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
         });
 
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker, spins.getSelectedItemPosition());
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
         });
 
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
         });
 
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
         });
 
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker); }
+            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker, spins.getSelectedItemPosition());
+                prg.setProgress(currentJob.getPieceProgress(selection));
+            }
         });
+}
 
-    }
 }
