@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="69f52f11b442bdf528b78cf38654dc009517e69e">
+        sha1="157ce3d11de11b367c5b6a1c8979cbf2ebea3e4c">
         <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9d3605c03ecd7d1e1f81414b8a631314e11a76b6/classes.dex" />
     </item>
 

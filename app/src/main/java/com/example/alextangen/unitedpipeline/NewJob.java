@@ -25,7 +25,7 @@ public class NewJob extends AppCompatActivity {
     }
 
     public void nextActivity(View view) {
-        Intent intent = new Intent(this, JobProgress.class);
+        Intent intent = new Intent(this, JobMenu.class);
 
         intent.putExtra("who", whoFor.getText().toString());
         intent.putExtra("howMany", howMany.getText().toString());
