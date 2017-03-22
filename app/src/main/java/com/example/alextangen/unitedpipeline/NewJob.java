@@ -17,7 +17,7 @@ public class NewJob extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manager);
+        setContentView(R.layout.activity_new_job);
 
         whoFor = (EditText) findViewById(R.id.who);
         howMany = (EditText) findViewById(R.id.howMany);
