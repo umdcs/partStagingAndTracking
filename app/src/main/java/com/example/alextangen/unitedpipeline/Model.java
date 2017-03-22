@@ -12,17 +12,20 @@ public class Model {
     private static final int MAX_JOBS = 10; // just a placeholder for now
     private Job[] jobs;
     private int numJobs;
+    private RequestManager reqMan;
     int pieceNum = 0;
 
     public Model() {
         jobs = new Job[MAX_JOBS];
         numJobs = 0;
+        reqMan = new RequestManager();
     }
 
     // public methods to create/store/update/access jobs;
     public void addJob(Job job) {
         if (numJobs < MAX_JOBS) {
             jobs[numJobs] = job;
+            reqMan.addJob(job);
             numJobs++;
         }
     }
