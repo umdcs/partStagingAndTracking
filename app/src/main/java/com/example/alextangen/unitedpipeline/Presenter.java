@@ -12,7 +12,7 @@ import java.io.Serializable;
  * Created by Katia on 3/3/2017.
  */
 
-public class Presenter implements Parcelable {
+public class Presenter {
 
     private AppCompatActivity view;
     private Model model;
@@ -32,31 +32,5 @@ public class Presenter implements Parcelable {
     public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startCoat(jobNum, prog, tracker, Selection); }
     public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.endCoat(jobNum, prog, tracker, Selection); }
     public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.shipRdy(jobNum, prog, tracker, Selection); }
-
-    // required for implementing Parcelable
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
-        out.writeInt(mData);
-    }
-
-    public static final Parcelable.Creator<Presenter> CREATOR
-            = new Parcelable.Creator<Presenter>() {
-        public Presenter createFromParcel(Parcel in) {
-            return new Presenter(in);
-        }
-
-        public Presenter[] newArray(int size) {
-            return new Presenter[size];
-        }
-    };
-
-    private Presenter(Parcel in) {
-        mData = in.readInt();
-    }
 
 }
