@@ -40,7 +40,7 @@ public class JobProgress extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_next_screen_manager);
+        setContentView(R.layout.activity_job_progress);
 
         prg = (ProgressBar) findViewById(R.id.progressBar);
         prg.setScaleY(3);
