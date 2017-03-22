@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public void continueAsClient(View view) {
         // triggers new activity in the role of a client
 
-        //Intent managerIntent = new Intent(this, ManagerActivity.class);
+        //Intent managerIntent = new Intent(this, NewJob.class);
 
         //startActivity(managerIntent);
     }
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     public void continueAsManager(View view) {
         // triggers new activity in the role of a manager
 
-        Intent managerIntent = new Intent(this, ManagerActivity.class);
+        Intent managerIntent = new Intent(this, NewJob.class);
         //managerIntent.putExtra("Presenter", presenter);
 
         startActivity(managerIntent);
