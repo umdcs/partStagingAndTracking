@@ -19,21 +19,16 @@ public class NewJob extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_job);
 
-        //Intent intent = getIntent();
-        //presenter = (Presenter) intent.getParcelableExtra("Presenter");
-
         whoFor = (EditText) findViewById(R.id.who);
         howMany = (EditText) findViewById(R.id.howMany);
         carryOn = (Button) findViewById(R.id.carryOn);
     }
 
     public void nextActivity(View view) {
-        Intent intent = new Intent(this, JobMenu.class);
+        Intent intent = new Intent(this, JobProgress.class);
 
-        //intent.putExtra("Presenter", presenter);
         intent.putExtra("who", whoFor.getText().toString());
         intent.putExtra("howMany", howMany.getText().toString());
-
 
         startActivity(intent);
     }
