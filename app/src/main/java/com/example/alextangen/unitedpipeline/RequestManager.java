@@ -40,7 +40,7 @@ public class RequestManager {
         JSONObject jsonJob = null;
         try {
             jsonJob = new JSONObject();
-            jsonJob.put("Job Name", job.getName());
+            jsonJob.put("Job Name", job.getName(0));
             // convert Job object to JSON object
         } catch (JSONException e) {
             e.printStackTrace();

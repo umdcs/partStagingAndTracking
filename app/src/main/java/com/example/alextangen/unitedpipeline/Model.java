@@ -25,7 +25,7 @@ public class Model {
     public void addJob(Job job) {
         if (numJobs < MAX_JOBS) {
             jobs[numJobs] = job;
-            reqMan.addJob(job);
+            //reqMan.addJob(job);
             numJobs++;
         }
     }
