@@ -41,7 +41,7 @@ public class JobHours extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job_progress);
+        setContentView(R.layout.activity_job_hours);
 
         //tracker = (TextView) findViewById(R.id.tracker);
         pipers = (EditText) findViewById(R.id.Pipes);
@@ -50,7 +50,7 @@ public class JobHours extends AppCompatActivity {
         carryOn = (Button) findViewById(R.id.allDone);
 
         Intent intent = getIntent();
-        ArrayList list = new ArrayList();
+        //ArrayList list = new ArrayList();
 
         //try {
         //    bn = new Bundle();
@@ -81,7 +81,7 @@ public class JobHours extends AppCompatActivity {
             whichJob++;
         }
 
-
+        /*
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece # " + i);
         }
@@ -106,7 +106,9 @@ public class JobHours extends AppCompatActivity {
 
             }
         });
+        */
 
+        /*
         carryOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,9 +120,15 @@ public class JobHours extends AppCompatActivity {
                 presenter.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
             }
         });
+        */
+    }
+        public void carryThisOn(View view) {
+        pipeString = pipers.getText().toString();
+        pfHours = Double.parseDouble(pipeString);
+        lbString = laborers.getText().toString();
+        lbHours = Double.parseDouble(lbString);
+        //presenter.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
+        //presenter.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
+        }
     }
 
-
-
-
-}
