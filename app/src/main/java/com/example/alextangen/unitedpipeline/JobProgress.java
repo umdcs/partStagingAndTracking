@@ -88,9 +88,6 @@ public class JobProgress extends AppCompatActivity {
         }
 
 
-
-
-
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece # " + i);
         }

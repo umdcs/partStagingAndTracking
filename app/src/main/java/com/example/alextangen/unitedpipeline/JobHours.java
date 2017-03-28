@@ -50,7 +50,7 @@ public class JobHours extends AppCompatActivity {
         carryOn = (Button) findViewById(R.id.allDone);
 
         Intent intent = getIntent();
-        //ArrayList list = new ArrayList();
+        ArrayList list = new ArrayList();
 
         //try {
         //    bn = new Bundle();
@@ -81,11 +81,11 @@ public class JobHours extends AppCompatActivity {
             whichJob++;
         }
 
-        /*
+
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
             list.add("Piece # " + i);
         }
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spins = (Spinner) findViewById(R.id.spins);
@@ -106,7 +106,6 @@ public class JobHours extends AppCompatActivity {
 
             }
         });
-        */
 
         /*
         carryOn.setOnClickListener(new View.OnClickListener() {
@@ -122,13 +121,16 @@ public class JobHours extends AppCompatActivity {
         });
         */
     }
-        public void carryThisOn(View view) {
+    public void carryThisOn(View view) {
         pipeString = pipers.getText().toString();
         pfHours = Double.parseDouble(pipeString);
         lbString = laborers.getText().toString();
         lbHours = Double.parseDouble(lbString);
-        //presenter.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
-        //presenter.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
-        }
+        presenter.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
+        presenter.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
+        System.out.println("pipefitter hours on piece #" + spins.getSelectedItemPosition() + " = " + presenter.getPfHours(jobNum, spins.getSelectedItemPosition()));
+        System.out.println("laborer hours on piece #" + spins.getSelectedItemPosition() + " = " + presenter.getLbHours(jobNum, spins.getSelectedItemPosition()));
+
     }
+}
 

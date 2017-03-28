@@ -27,6 +27,9 @@ public class Presenter {
 
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}
     public void lbHours(int jobNum, int Selection, double hours) {model.lbHours(jobNum, Selection, hours);}
+    public double getPfHours(int jobNum, int Selection) {return model.getPfHours(jobNum, Selection);}
+    public double getLbHours(int jobNum, int Selection) {return model.getLbHours(jobNum, Selection);}
+
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.matlRcvd(jobNum, prog, tracker, Selection); }
     public void startFab(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startFab(jobNum, prog, tracker, Selection); }
