@@ -169,5 +169,23 @@ public class Job implements Parcelable{
         return newString;
     }
 
+    public void setPfHoursTotal(int piece, double hours) {
+        pieces[piece].addPfHours(hours);
+    }
+
+    public void setLbHoursTotal(int piece, double hours) {
+        pieces[piece].addLbHours(hours);
+    }
+
+    public double getPfHoursTotal(int piece) {
+        pfHoursTotal = pieces[piece].getPfHours();
+        return pfHoursTotal;
+    }
+
+    public double getLbHoursTotal(int piece) {
+        lbHoursTotal = pieces[piece].getLbHours();
+        return lbHoursTotal;
+    }
+
     // public methods to create/store/update/access pieces and tally man hours
 }

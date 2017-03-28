@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alextangen.unitedpipeline.JobMenu">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Pipes"
+        android:inputType="numberDecimal"
+        android:hint="Enter Pipe Fitter Hours: "/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LBS"
+        android:inputType="numberDecimal"
+        android:hint="Enter Laborer Hours: "
+        android:layout_below="@id/Pipes"/>
+
+    <Button
+        android:id="@+id/allDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_below="@id/LBS"/>
+
+</RelativeLayout>
