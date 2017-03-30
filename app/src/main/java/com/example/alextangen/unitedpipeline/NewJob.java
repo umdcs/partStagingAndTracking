@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 public class NewJob extends AppCompatActivity {
 
-    Presenter presenter;
     GlobalPresenter globs;
     EditText whoFor;
     EditText howMany;

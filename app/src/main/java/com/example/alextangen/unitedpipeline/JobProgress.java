@@ -16,9 +16,7 @@ import java.util.ArrayList;
 public class JobProgress extends AppCompatActivity {
 
     private Job[] jobsArray = new Job[10];
-    Bundle bn;
     Job currentJob;
-    //Presenter presenter;
     ProgressBar prg;
     Spinner spins;
     TextView tracker;
@@ -62,15 +60,6 @@ public class JobProgress extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
-        //try {
-        //    bn = new Bundle();
-        //    bn = getIntent().getExtras();
-        //    currentJob = bn.getParcelable("CurrentJob");
-        //}
-        //catch (Exception e) {
-        //    Log.e("Err", e.getMessage());
-        //}
-
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount = intent.getStringExtra("howMany");
@@ -103,12 +92,7 @@ public class JobProgress extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        //presenter = new Presenter(this);
-
         jobNum = 0;
-        //presenter.addJob(currentJob);
-
-        //prg.setProgress(currentJob.getPieceProgress(selection));
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

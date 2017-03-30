@@ -48,13 +48,8 @@ public class JobMenu extends AppCompatActivity {
     public void JobProgress(View view) {
         Intent intent = new Intent(this, JobProgress.class);
 
-        //Bundle b = new Bundle();
-        //b.putParcelable("CurrentJob", currentJob);
-        //intent.putExtras(b);
-
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);
-        //intent.putExtra("thisJob", currentJob);
 
         startActivity(intent);
     }
@@ -62,9 +57,6 @@ public class JobMenu extends AppCompatActivity {
     public void JobHours(View view) {
         Intent intent = new Intent(this, JobHours.class);
 
-        //Bundle b = new Bundle();
-        //b.putParcelable("CurrentJob", currentJob);
-        //intent.putExtras(b);
 
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);

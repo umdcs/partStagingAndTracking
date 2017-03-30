@@ -44,7 +44,6 @@ public class JobHours extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_hours);
 
-        //tracker = (TextView) findViewById(R.id.tracker);
         pipers = (EditText) findViewById(R.id.Pipes);
         laborers = (EditText) findViewById(R.id.LBS);
 
@@ -55,36 +54,11 @@ public class JobHours extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
-        //try {
-        //    bn = new Bundle();
-        //    bn = getIntent().getExtras();
-        //    currentJob = bn.getParcelable("CurrentJob");
-        //}
-        //catch (Exception e) {
-        //    Log.e("Err", e.getMessage());
-        //}
-
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount = intent.getStringExtra("howMany");
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
-
-        /*
-        System.out.println("Current Job");
-        currentJob = new Job(pieceCountInt);
-        jobNumber = currentJob.getJob(name);
-
-        if (jobNumber >= 0) {
-            currentJob = jobsArray[jobNumber];
-        } else {
-            System.out.println("Else loop current job");
-            jobsArray[whichJob] = new Job(pieceCountInt);
-            jobsArray[whichJob].setName(name);
-            currentJob = jobsArray[whichJob];
-            whichJob++;
-        }
-        */
 
 
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
@@ -96,10 +70,7 @@ public class JobHours extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        //presenter = new Presenter(this);
-
         jobNum = 0;
-        //presenter.addJob(currentJob);
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -112,19 +83,6 @@ public class JobHours extends AppCompatActivity {
             }
         });
 
-        /*
-        carryOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pipeString = pipers.getText().toString();
-                pfHours = Double.parseDouble(pipeString);
-                lbString = laborers.getText().toString();
-                lbHours = Double.parseDouble(lbString);
-                presenter.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
-                presenter.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
-            }
-        });
-        */
     }
     public void carryThisOn(View view) {
         pipeString = pipers.getText().toString();
