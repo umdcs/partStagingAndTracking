@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class JobProgress extends AppCompatActivity {
 
-    private Job[] jobsArray = new Job[10];
+    //private Job[] jobsArray = new Job[10];
     Job currentJob;
     ProgressBar prg;
     Spinner spins;
@@ -65,22 +65,6 @@ public class JobProgress extends AppCompatActivity {
         pieceCount = intent.getStringExtra("howMany");
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
-
-        /*
-        System.out.println("Current Job");
-        currentJob = new Job(pieceCountInt);
-        jobNumber = currentJob.getJob(name);
-
-        if (jobNumber >= 0) {
-            currentJob = jobsArray[jobNumber];
-        } else {
-            System.out.println("Else loop current job");
-            jobsArray[whichJob] = new Job(pieceCountInt);
-            jobsArray[whichJob].setName(name);
-            currentJob = jobsArray[whichJob];
-            whichJob++;
-        }
-        */
 
 
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class JobHours extends AppCompatActivity {
-    private Job[] jobsArray = new Job[10];
+    //private Job[] jobsArray = new Job[10];
     Bundle bn;
     Job currentJob;
     //Presenter presenter;

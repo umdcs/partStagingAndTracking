@@ -29,13 +29,18 @@ public class JobMenu extends AppCompatActivity {
 
         System.out.println("Current Job");
         currentJob = new Job(pieceCountInt);
-        jobNumber = currentJob.getJob(name);
+        //jobNumber = currentJob.getJob(name);
 
         globs = globs.getInstance();
+        //add job to jobs array in the model
+        globs.addJob(currentJob);
 
+        /*
         if (jobNumber >= 0) {
+            //If job name already exists, get that job and use it
             currentJob = jobsArray[jobNumber];
         } else {
+            //If job name does not already exist, add it to the jobs array
             System.out.println("Else loop current job");
             jobsArray[whichJob] = currentJob;
             jobsArray[whichJob].setName(name);
@@ -43,6 +48,7 @@ public class JobMenu extends AppCompatActivity {
             whichJob++;
             globs.addJob(currentJob);
         }
+        */
     }
 
     public void JobProgress(View view) {
