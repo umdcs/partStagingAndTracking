@@ -11,7 +11,7 @@ public class Model {
 
     private static final int MAX_JOBS = 10; // just a placeholder for now
     private Job[] jobs;
-    private String[] Names = new String[10];
+    //private String[] Names = new String[10];
     int i;
     private int numJobs;
     int pieceNum = 0;
@@ -22,17 +22,22 @@ public class Model {
     }
 
     // public methods to create/store/update/access jobs;
-    public int addJob(Job job) {
+    public void addJob(Job job) {
         if (numJobs < MAX_JOBS) {
             jobs[numJobs] = job;
             numJobs++;
         }
+        //return numJobs;
+    }
+
+    public int getNumJobs() {
         return numJobs;
     }
 
     public Job getJob(int whichJob) {
         return jobs[whichJob];
     }
+    /*
 
     public void setName(String name, int i) {
         Names[i] = name;
@@ -51,6 +56,7 @@ public class Model {
         }
         return -1;
     }
+    */
 
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int selection) {

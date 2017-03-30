@@ -31,7 +31,8 @@ public class JobProgress extends AppCompatActivity {
     String pieceCount;
     int pieceCountInt;
     int jobNumber;
-    int whichJob = 0;
+    String whichJob;
+    int whichJobNumber;
     int jobNum;
     int selection = 0;
     GlobalPresenter globs;
@@ -54,12 +55,15 @@ public class JobProgress extends AppCompatActivity {
         readyShip = (Button) findViewById(R.id.ship);
 
         globs = GlobalPresenter.getInstance();
-        currentJob = globs.getJob(0);
+        //currentJob = globs.getJob(0);
 
 
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
+        whichJob = intent.getStringExtra("whichJob");
+        System.out.println("Job number = " + whichJob);
+        whichJobNumber = Integer.parseInt(whichJob);
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount = intent.getStringExtra("howMany");
@@ -76,15 +80,16 @@ public class JobProgress extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        jobNum = 0;
+        jobNum = whichJobNumber;
+        currentJob = globs.getJob(jobNum);
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int what, long longer) {
                 selection = spins.getSelectedItemPosition();
                 prg.setProgress(0);
-                tracker.setText(currentJob.getPieceString(selection));
-                prg.setProgress(currentJob.getPieceProgress(selection));
+//                tracker.setText(currentJob.getPieceString(selection));
+//                prg.setProgress(currentJob.getPieceProgress(selection));
             }
             public void onNothingSelected(AdapterView<?> parent) {
                 prg.setProgress(0);

@@ -35,6 +35,8 @@ public class JobHours extends AppCompatActivity {
     int pieceCountInt;
     int jobNumber;
     int whichJob = 0;
+    String whichJobString;
+    int whichJobNumber;
     int jobNum;
     int selection = 0;
 
@@ -54,6 +56,8 @@ public class JobHours extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
+        whichJobString = intent.getStringExtra("whichJob");
+        whichJobNumber = Integer.parseInt(whichJobString);
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount = intent.getStringExtra("howMany");
@@ -70,7 +74,7 @@ public class JobHours extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        jobNum = 0;
+        jobNum = whichJobNumber;
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -85,6 +89,7 @@ public class JobHours extends AppCompatActivity {
 
     }
     public void carryThisOn(View view) {
+        Intent intent = new Intent(this, JobMenu.class);
         pipeString = pipers.getText().toString();
         pfHours = Double.parseDouble(pipeString);
         lbString = laborers.getText().toString();
@@ -93,6 +98,11 @@ public class JobHours extends AppCompatActivity {
         globs.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
         System.out.println("pipefitter hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getPfHours(jobNum, spins.getSelectedItemPosition()));
         System.out.println("laborer hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getLbHours(jobNum, spins.getSelectedItemPosition()));
+
+        intent.putExtra("who", name);
+        intent.putExtra("howMany", pieceCount);
+
+        startActivity(intent);
 
     }
 }

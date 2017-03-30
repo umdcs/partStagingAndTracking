@@ -13,7 +13,9 @@ public class JobMenu extends AppCompatActivity {
     Job currentJob;
     int jobNumber;
     Job[] jobsArray = new Job[10];
-    int whichJob;
+    Integer whichJob;
+    String whichJobString;
+    int whichJobNumber;
     GlobalPresenter globs;
 
     @Override
@@ -21,30 +23,36 @@ public class JobMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_menu);
         Intent intent = getIntent();
+
+        //whichJobString = intent.getStringExtra("whichJob");
+        //whichJobNumber = Integer.parseInt(whichJobString);
         name = intent.getStringExtra("who");
         System.out.println("Name = " + name);
         pieceCount = intent.getStringExtra("howMany");
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
 
-        //System.out.println("Current Job");
-        //currentJob = new Job(pieceCountInt);
-        //currentJob.setName(name);
-        //jobNumber = currentJob.getJob(name);
-
         globs = globs.getInstance();
-        //add job to jobs array in the model
-        //globs.addJob(currentJob);
+
         whichJob = globs.getJobNumber(name);
+        System.out.println("Job Number = " + whichJob);
 
         if(whichJob >=0) {
+            System.out.println("Job already existed");
             currentJob = globs.getJob(whichJob);
         }
         else {
+            System.out.println("New Job");
             currentJob = new Job(pieceCountInt);
-            jobNumber = globs.addJob(currentJob);
-            globs.setName(name, jobNumber);
+            globs.addJob(currentJob);
+            //jobNumber = globs.getJobNumber(name);
+            whichJob = globs.getNumJobs() - 1;
+            globs.setName(name, whichJob);
+            //whichJob = globs.getJobNumber(name);
         }
+
+        whichJobString = whichJob.toString();
+
 
         /*
         if (jobNumber >= 0) {
@@ -65,6 +73,7 @@ public class JobMenu extends AppCompatActivity {
     public void JobProgress(View view) {
         Intent intent = new Intent(this, JobProgress.class);
 
+        intent.putExtra("whichJob", whichJobString);
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);
 
@@ -74,7 +83,7 @@ public class JobMenu extends AppCompatActivity {
     public void JobHours(View view) {
         Intent intent = new Intent(this, JobHours.class);
 
-
+        intent.putExtra("whichJob", whichJobString);
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);
 

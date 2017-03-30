@@ -13,6 +13,10 @@ class GlobalPresenter {
     //private final AppCompatActivity View;
     private Model model;
 
+    String[] Names = new String[10];
+
+    int i;
+
     static GlobalPresenter getInstance() {
         return ourInstance;
     }
@@ -29,12 +33,35 @@ class GlobalPresenter {
 
         //this.View = view;
         model = new Model();
+
+        i = 0;
     }
 
-    public int addJob(Job job) { return model.addJob(job); }
-    public int getJobNumber(String name) {return model.getJobNumber(name);}
+    public void addJob(Job job) { model.addJob(job); }
+    //public int getJobNumber(String name) {return model.getJobNumber(name);}
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
-    public void setName(String name, int whichJob) { model.setName(name, whichJob);}
+    //public void setName(String name, int whichJob) { model.setName(name, whichJob);}
+
+
+    public void setName(String name, int i) {
+        Names[i] = name;
+        i++;
+    }
+
+    public String getName(int whichJob) {
+        return Names[whichJob];
+    }
+
+    public int getJobNumber(String name) {
+        for (int j = 0; j < i; j++) {
+            if(name == Names[j]) {
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    public int getNumJobs() {return model.getNumJobs();}
 
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}
     public void lbHours(int jobNum, int Selection, double hours) {model.lbHours(jobNum, Selection, hours);}
