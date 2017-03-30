@@ -25,6 +25,10 @@ public class NewJob extends AppCompatActivity {
     }
 
     public void nextActivity(View view) {
+
+        RequestManager reqMan = new RequestManager();
+        reqMan.addJob(new Job(1));
+
         Intent intent = new Intent(this, JobProgress.class);
 
         intent.putExtra("who", whoFor.getText().toString());

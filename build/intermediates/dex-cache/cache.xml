@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Katia\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.8.0_d6e2864472caab06c2f7170ff72172fb5465a811\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
