@@ -13,7 +13,7 @@ public class JobMenu extends AppCompatActivity {
     Job currentJob;
     int jobNumber;
     Job[] jobsArray = new Job[10];
-    int whichJob = 0;
+    int whichJob;
     GlobalPresenter globs;
 
     @Override
@@ -27,13 +27,24 @@ public class JobMenu extends AppCompatActivity {
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
 
-        System.out.println("Current Job");
-        currentJob = new Job(pieceCountInt);
+        //System.out.println("Current Job");
+        //currentJob = new Job(pieceCountInt);
+        //currentJob.setName(name);
         //jobNumber = currentJob.getJob(name);
 
         globs = globs.getInstance();
         //add job to jobs array in the model
-        globs.addJob(currentJob);
+        //globs.addJob(currentJob);
+        whichJob = globs.getJobNumber(name);
+
+        if(whichJob >=0) {
+            currentJob = globs.getJob(whichJob);
+        }
+        else {
+            currentJob = new Job(pieceCountInt);
+            jobNumber = globs.addJob(currentJob);
+            globs.setName(name, jobNumber);
+        }
 
         /*
         if (jobNumber >= 0) {

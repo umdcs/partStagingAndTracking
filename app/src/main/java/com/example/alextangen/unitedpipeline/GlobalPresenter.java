@@ -31,8 +31,10 @@ class GlobalPresenter {
         model = new Model();
     }
 
-    public void addJob(Job job) { model.addJob(job); }
+    public int addJob(Job job) { return model.addJob(job); }
+    public int getJobNumber(String name) {return model.getJobNumber(name);}
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
+    public void setName(String name, int whichJob) { model.setName(name, whichJob);}
 
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}
     public void lbHours(int jobNum, int Selection, double hours) {model.lbHours(jobNum, Selection, hours);}

@@ -107,6 +107,8 @@ public class Job{
         return pieces;
     }
 
+    /*
+
     public void setName(String name) {
         Names[i] = name;
         i++;
@@ -124,6 +126,8 @@ public class Job{
         }
         return -1;
     }
+
+    */
 
     public int getPieceProgress(int number) {
         int thisProgress;
