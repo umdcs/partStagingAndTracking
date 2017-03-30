@@ -2,6 +2,8 @@ package com.example.alextangen.unitedpipeline;
 
 import android.os.AsyncTask;
 
+import com.google.gson.Gson;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,10 +40,11 @@ public class RequestManager {
 
     public void addJob(Job job) {
         JSONObject jsonJob = null;
+        Gson gson = new Gson();
+        String jobString = gson.toJson(job);
         try {
             jsonJob = new JSONObject();
-            jsonJob.put("Job Name", job.getName(0));
-            // convert Job object to JSON object
+            jsonJob.put("Job", jobString);
         } catch (JSONException e) {
             e.printStackTrace();
         }
