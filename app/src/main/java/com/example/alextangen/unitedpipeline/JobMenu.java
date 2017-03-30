@@ -14,6 +14,7 @@ public class JobMenu extends AppCompatActivity {
     int jobNumber;
     Job[] jobsArray = new Job[10];
     int whichJob = 0;
+    GlobalPresenter globs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +31,26 @@ public class JobMenu extends AppCompatActivity {
         currentJob = new Job(pieceCountInt);
         jobNumber = currentJob.getJob(name);
 
+        globs = globs.getInstance();
+
         if (jobNumber >= 0) {
             currentJob = jobsArray[jobNumber];
         } else {
             System.out.println("Else loop current job");
-            jobsArray[whichJob] = new Job(pieceCountInt);
+            jobsArray[whichJob] = currentJob;
             jobsArray[whichJob].setName(name);
             currentJob = jobsArray[whichJob];
             whichJob++;
+            globs.addJob(currentJob);
         }
     }
 
     public void JobProgress(View view) {
         Intent intent = new Intent(this, JobProgress.class);
 
-        Bundle b = new Bundle();
-        b.putParcelable("CurrentJob", currentJob);
-        intent.putExtras(b);
+        //Bundle b = new Bundle();
+        //b.putParcelable("CurrentJob", currentJob);
+        //intent.putExtras(b);
 
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);
@@ -58,9 +62,9 @@ public class JobMenu extends AppCompatActivity {
     public void JobHours(View view) {
         Intent intent = new Intent(this, JobHours.class);
 
-        Bundle b = new Bundle();
-        b.putParcelable("CurrentJob", currentJob);
-        intent.putExtras(b);
+        //Bundle b = new Bundle();
+        //b.putParcelable("CurrentJob", currentJob);
+        //intent.putExtras(b);
 
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);

@@ -10,6 +10,7 @@ import android.widget.EditText;
 public class NewJob extends AppCompatActivity {
 
     Presenter presenter;
+    GlobalPresenter globs;
     EditText whoFor;
     EditText howMany;
     Button carryOn;
@@ -18,6 +19,8 @@ public class NewJob extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_job);
+
+        globs = globs.getInstance();
 
         whoFor = (EditText) findViewById(R.id.who);
         howMany = (EditText) findViewById(R.id.howMany);

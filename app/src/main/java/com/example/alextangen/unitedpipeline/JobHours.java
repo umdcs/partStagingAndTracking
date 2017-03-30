@@ -18,7 +18,8 @@ public class JobHours extends AppCompatActivity {
     private Job[] jobsArray = new Job[10];
     Bundle bn;
     Job currentJob;
-    Presenter presenter;
+    //Presenter presenter;
+    GlobalPresenter globs;
     //ProgressBar prg;
     Spinner spins;
     //TextView tracker;
@@ -49,6 +50,8 @@ public class JobHours extends AppCompatActivity {
 
         carryOn = (Button) findViewById(R.id.allDone);
 
+        globs = globs.getInstance();
+
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
@@ -67,6 +70,7 @@ public class JobHours extends AppCompatActivity {
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
 
+        /*
         System.out.println("Current Job");
         currentJob = new Job(pieceCountInt);
         jobNumber = currentJob.getJob(name);
@@ -80,6 +84,7 @@ public class JobHours extends AppCompatActivity {
             currentJob = jobsArray[whichJob];
             whichJob++;
         }
+        */
 
 
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
@@ -91,10 +96,10 @@ public class JobHours extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        presenter = new Presenter(this);
+        //presenter = new Presenter(this);
 
         jobNum = 0;
-        presenter.addJob(currentJob);
+        //presenter.addJob(currentJob);
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -126,10 +131,10 @@ public class JobHours extends AppCompatActivity {
         pfHours = Double.parseDouble(pipeString);
         lbString = laborers.getText().toString();
         lbHours = Double.parseDouble(lbString);
-        presenter.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
-        presenter.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
-        System.out.println("pipefitter hours on piece #" + spins.getSelectedItemPosition() + " = " + presenter.getPfHours(jobNum, spins.getSelectedItemPosition()));
-        System.out.println("laborer hours on piece #" + spins.getSelectedItemPosition() + " = " + presenter.getLbHours(jobNum, spins.getSelectedItemPosition()));
+        globs.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
+        globs.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
+        System.out.println("pipefitter hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getPfHours(jobNum, spins.getSelectedItemPosition()));
+        System.out.println("laborer hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getLbHours(jobNum, spins.getSelectedItemPosition()));
 
     }
 }

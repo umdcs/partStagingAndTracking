@@ -18,7 +18,7 @@ public class JobProgress extends AppCompatActivity {
     private Job[] jobsArray = new Job[10];
     Bundle bn;
     Job currentJob;
-    Presenter presenter;
+    //Presenter presenter;
     ProgressBar prg;
     Spinner spins;
     TextView tracker;
@@ -36,6 +36,7 @@ public class JobProgress extends AppCompatActivity {
     int whichJob = 0;
     int jobNum;
     int selection = 0;
+    GlobalPresenter globs;
 
 
     @Override
@@ -53,6 +54,9 @@ public class JobProgress extends AppCompatActivity {
         startCoat = (Button) findViewById(R.id.scoat);
         finishedCoat = (Button) findViewById(R.id.ecoat);
         readyShip = (Button) findViewById(R.id.ship);
+
+        globs = GlobalPresenter.getInstance();
+        currentJob = globs.getJob(0);
 
 
         Intent intent = getIntent();
@@ -73,6 +77,7 @@ public class JobProgress extends AppCompatActivity {
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
 
+        /*
         System.out.println("Current Job");
         currentJob = new Job(pieceCountInt);
         jobNumber = currentJob.getJob(name);
@@ -86,6 +91,7 @@ public class JobProgress extends AppCompatActivity {
             currentJob = jobsArray[whichJob];
             whichJob++;
         }
+        */
 
 
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
@@ -97,10 +103,10 @@ public class JobProgress extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        presenter = new Presenter(this);
+        //presenter = new Presenter(this);
 
         jobNum = 0;
-        presenter.addJob(currentJob);
+        //presenter.addJob(currentJob);
 
         //prg.setProgress(currentJob.getPieceProgress(selection));
 
@@ -120,7 +126,7 @@ public class JobProgress extends AppCompatActivity {
 
         matlReceived.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.matlRcvd(jobNum, prg, tracker, spins.getSelectedItemPosition());
+            public void onClick(View view) { globs.matlRcvd(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
                 tracker.setText(currentJob.getPieceString(selection));
             }
@@ -128,7 +134,7 @@ public class JobProgress extends AppCompatActivity {
 
         startedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
+            public void onClick(View view) { globs.startFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
                 tracker.setText(currentJob.getPieceString(selection));
             }
@@ -136,7 +142,7 @@ public class JobProgress extends AppCompatActivity {
 
         finishedFab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
+            public void onClick(View view) { globs.endFab(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
                 tracker.setText(currentJob.getPieceString(selection));
             }
@@ -144,7 +150,7 @@ public class JobProgress extends AppCompatActivity {
 
         xRay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.xRay(jobNum, prg, tracker, spins.getSelectedItemPosition());
+            public void onClick(View view) { globs.xRay(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
                 tracker.setText(currentJob.getPieceString(selection));
             }
@@ -152,7 +158,7 @@ public class JobProgress extends AppCompatActivity {
 
         startCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.startCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
+            public void onClick(View view) { globs.startCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
                 tracker.setText(currentJob.getPieceString(selection));
             }
@@ -160,7 +166,7 @@ public class JobProgress extends AppCompatActivity {
 
         finishedCoat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.endCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
+            public void onClick(View view) { globs.endCoat(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
                 tracker.setText(currentJob.getPieceString(selection));
             }
@@ -168,7 +174,7 @@ public class JobProgress extends AppCompatActivity {
 
         readyShip.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { presenter.shipRdy(jobNum, prg, tracker, spins.getSelectedItemPosition());
+            public void onClick(View view) { globs.shipRdy(jobNum, prg, tracker, spins.getSelectedItemPosition());
                 prg.setProgress(currentJob.getPieceProgress(selection));
                 tracker.setText(currentJob.getPieceString(selection));
             }

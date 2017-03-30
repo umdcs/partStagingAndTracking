@@ -27,6 +27,10 @@ public class Model {
         }
     }
 
+    public Job getJob(int whichJob) {
+        return jobs[whichJob];
+    }
+
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         Job job = jobs[jobNum];
         job.setMaterialsReceived(selection);
