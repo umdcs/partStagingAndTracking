@@ -88,8 +88,8 @@ public class JobProgress extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int what, long longer) {
                 selection = spins.getSelectedItemPosition();
                 prg.setProgress(0);
-//                tracker.setText(currentJob.getPieceString(selection));
-//                prg.setProgress(currentJob.getPieceProgress(selection));
+                tracker.setText(currentJob.getPieceString(selection));
+                prg.setProgress(currentJob.getPieceProgress(selection));
             }
             public void onNothingSelected(AdapterView<?> parent) {
                 prg.setProgress(0);

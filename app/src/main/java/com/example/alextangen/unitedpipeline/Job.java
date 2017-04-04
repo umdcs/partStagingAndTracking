@@ -12,11 +12,14 @@ import java.io.Serializable;
 public class Job{
 
     private Piece[] pieces;
+    Boolean goodToGo;
+    int whatItWas;
 
     private String[] Names = new String[10];
     private int i = 0;
     private double pfHoursTotal;
     private double lbHoursTotal;
+    public String newString;
 
     public Job(int numPieces) {
         pieces = new Piece[numPieces]; //pieces is the array of all pieces for this job
@@ -41,53 +44,78 @@ public class Job{
         // all of these if statements need to be called by jobs, not by the pieces array
         if(pieces[number].getMatlReceived() == false) {
             pieces[number].setMatlRcvd(true);
+            goodToGo = true;
         }
         else {
             pieces[number].setMatlRcvd(false);
-            System.out.println("Material Received was true");
+            goodToGo = false;
         }
     }
 
     public void setStartedFab(int number) {
-        if(pieces[number].getStartFab() == false) {
+        if((pieces[number].getStartFab() == false) && pieces[number].getMatlReceived() == true) {
             pieces[number].setStartFab(true);
+            goodToGo = true;
         }
-        else pieces[number].setStartFab(false);
+        else {
+            pieces[number].setStartFab(false);
+            goodToGo = false;
+        }
     }
 
     public void setFinishedFab(int number) {
-        if(pieces[number].getEndFab() == false) {
+        if((pieces[number].getEndFab() == false) && pieces[number].getStartFab() == true) {
             pieces[number].setEndFab(true);
+            goodToGo = true;
         }
-        else pieces[number].setEndFab(false);
+        else {
+            pieces[number].setEndFab(false);
+            goodToGo = false;
+        }
     }
 
     public void setXRayReady(int number) {
-        if(pieces[number].getXRay() == false) {
+        if((pieces[number].getXRay() == false) && pieces[number].getEndFab() == true) {
             pieces[number].setxRay(true);
+            goodToGo = true;
         }
-        else pieces[number].setxRay(false);
+        else {
+            pieces[number].setxRay(false);
+            goodToGo = false;
+        }
     }
 
     public void setStartedCoating(int number) {
-        if(pieces[number].getStartCoat() == false) {
+        if((pieces[number].getStartCoat() == false) && pieces[number].getXRay() == true) {
             pieces[number].setStartCoat(true);
+            goodToGo = true;
         }
-        else pieces[number].setStartCoat(false);
+        else {
+            pieces[number].setStartCoat(false);
+            goodToGo = false;
+        }
     }
 
     public void setFinishedCoating(int number) {
-        if(pieces[number].getEndCoat() == false) {
+        if((pieces[number].getEndCoat() == false) && pieces[number].getStartCoat() == true) {
             pieces[number].setEndCoat(true);
+            goodToGo = true;
         }
-        else pieces[number].setEndCoat(false);
+        else {
+            pieces[number].setEndCoat(false);
+            goodToGo = false;
+        }
     }
 
     public void setReadyToShip(int number) {
-        if(pieces[number].getShipRdy() == false) {
+        if((pieces[number].getShipRdy() == false) && pieces[number].getEndCoat() == true) {
             pieces[number].setShipRdy(true);
+            goodToGo = true;
         }
-        else pieces[number].setShipRdy(false);
+        else {
+            pieces[number].setShipRdy(false);
+            goodToGo = false;
+        }
     }
 
     public Piece[] getPieces() {
@@ -131,12 +159,12 @@ public class Job{
 
     public int getPieceProgress(int number) {
         int thisProgress;
-        thisProgress = pieces[number].getProgress();
-        return thisProgress;
+            thisProgress = pieces[number].getProgress();
+            return thisProgress;
     }
 
     public String getPieceString(int number) {
-        String newString;
+        //String newString;
         newString = pieces[number].getThisString();
         return newString;
     }

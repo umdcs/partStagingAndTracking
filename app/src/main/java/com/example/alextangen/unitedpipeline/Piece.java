@@ -63,38 +63,197 @@ public class Piece {
 
     public void setMatlRcvd(boolean what) {
         matlRcvd = what;
-        progress = 10;
-        thisString = "Materials Received";
+        if (matlRcvd == true) {
+            thisString = "Materials Received";
+            progress = 10;
+        }
+        else {
+            thisString = "";
+            progress = 0;
+            startFab = false;
+            endFab = false;
+            xRay = false;
+            startCoat = false;
+            endCoat = false;
+            shipRdy = false;
+        }
     }
     public void setStartFab(boolean what) {
         startFab = what;
-        progress = 20;
-        thisString = "Fabrication Started";
+        if (startFab == true) {
+            thisString = "Fabrication Started";
+            progress = 20;
+        }
+        else {
+            if (matlRcvd == true) {
+                progress = 10;
+                thisString = "Materials Received";
+            }
+            else {
+                progress = 0;
+                thisString = "";
+            }
+            endFab = false;
+            xRay = false;
+            startCoat = false;
+            endCoat = false;
+            shipRdy = false;
+        }
     }
     public void setEndFab(boolean what) {
         endFab = what;
-        progress = 40;
-        thisString = "Fabrication Complete";
+        if (endFab == true) {
+            thisString = "Fabrication Complete";
+            progress = 40;
+        }
+        else {
+            if (startFab == true) {
+                progress = 20;
+                thisString = "Fabrication Started";
+            }
+            else if (matlRcvd == true) {
+                progress = 10;
+                thisString = "Materials Received";
+            }
+            else {
+                progress = 0;
+                thisString = "";
+            }
+            xRay = false;
+            startCoat = false;
+            endCoat = false;
+            shipRdy = false;
+        }
     }
     public void setxRay(boolean what) {
         xRay = what;
-        progress = 50;
-        thisString = "X-Ray Ready";
+        if (xRay == true) {
+            thisString = "X-Ray Ready";
+            progress = 50;
+        }
+        else {
+            if (endFab == true) {
+                progress = 40;
+                thisString = "Fabrication Complete";
+            }
+            else if (startFab == true) {
+                progress = 20;
+                thisString = "Fabrication Started";
+            }
+            else if (matlRcvd == true) {
+                progress = 10;
+                thisString = "Materials Received";
+            }
+            else {
+                progress = 0;
+                thisString = "";
+            }
+            startCoat = false;
+            endCoat = false;
+            shipRdy = false;
+        }
     }
     public void setStartCoat(boolean what) {
         startCoat = what;
-        progress = 60;
-        thisString = "Coating Started";
+        if (startCoat == true) {
+            thisString = "Coating Started";
+            progress = 60;
+        }
+        else {
+            if (xRay == true) {
+                progress = 50;
+                thisString = "X-Ray Ready";
+            }
+            else if (endFab == true) {
+                progress = 40;
+                thisString = "Fabrication Complete";
+            }
+            else if (startFab == true) {
+                progress = 20;
+                thisString = "Fabrication Started";
+            }
+            else if (matlRcvd == true) {
+                progress = 10;
+                thisString = "Materials Received";
+            }
+            else {
+                progress = 0;
+                thisString = "";
+            }
+            endCoat = false;
+            shipRdy = false;
+        }
     }
     public void setEndCoat(boolean what) {
         endCoat = what;
-        progress = 80;
-        thisString = "Coating Complete";
+        if (endCoat == true) {
+            thisString = "Coating Complete";
+            progress = 80;
+        }
+        else {
+            if (startCoat == true) {
+                progress = 60;
+                thisString = "Coating Started";
+            }
+            else if (xRay == true) {
+                progress = 50;
+                thisString = "X-Ray Ready";
+            }
+            else if (endFab == true) {
+                progress = 40;
+                thisString = "Fabrication Complete";
+            }
+            else if (startFab == true) {
+                progress = 20;
+                thisString = "Fabrication Started";
+            }
+            else if (matlRcvd == true) {
+                progress = 10;
+                thisString = "Materials Received";
+            }
+            else {
+                progress = 0;
+                thisString = "";
+            }
+            shipRdy = false;
+        }
+
     }
     public void setShipRdy(boolean what) {
         shipRdy = what;
-        progress = 100;
-        thisString = "Ready to Ship!";
+        if (shipRdy == true) {
+            thisString = "Ready to Ship!";
+            progress = 100;
+        }
+        else {
+            if (endCoat == true) {
+                progress = 80;
+                thisString = "Coating Complete";
+            }
+            else if ((endCoat == false) && (startCoat == true)) {
+                progress = 60;
+                thisString = "Coating Started";
+            }
+            else if ((endCoat == false) && (startCoat == false) && (xRay == true)) {
+                progress = 50;
+                thisString = "X-Ray Ready";
+            }
+            else if ((endCoat == false) && (startCoat == false) && (xRay == false) && (endFab == true)) {
+                progress = 40;
+                thisString = "Fabrication Complete";
+            }
+            else if ((endCoat == false) && (startCoat == false) && (xRay == false) && (endFab == false) && (startFab == true)) {
+                progress = 20;
+                thisString = "Fabrication Started";
+            }
+            else if ((endCoat == false) && (startCoat == false) && (xRay == false) && (endFab == false) && (startFab == false) && (matlRcvd == true)) {
+                progress = 10;
+                thisString = "Materials Received";
+            }
+            else {
+                progress = 0;
+            }
+        }
     }
 
     public void setPfHours(double hours) { pfHours = hours; }
