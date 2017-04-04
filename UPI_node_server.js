@@ -4,6 +4,7 @@
 
 var jobsArray = [];
 
+var jobHours = [];
 //End Variables
 
 var express = require('express');
@@ -25,7 +26,7 @@ app.use(bodyParser.urlencoded({ // support encoded bodies
 
    response.write('<!DOCTYPE html><head><title>Basic Manager Dashboard</title></head><body>');
    response.write('<H1>Manager Dashboard</H1>');
-
+   response.write('')
    response.end();
 
    console.log('Received dashboard request!');
@@ -55,6 +56,13 @@ app.use(bodyParser.urlencoded({ // support encoded bodies
    response.end();
  });
 
+//To be manager only  
+app.get('/getJobHours', function(request, response) {
+  response.send(jobHours[0]); //0 is placeholder for jobID;
+  console.log('Recieved a get request for man hours!');
+  response.end();
+});
+
  app.use(function(req, res, next) {
    res.status(404).send("Sorry can't find that!");
  });
@@ -66,4 +74,4 @@ app.use(bodyParser.urlencoded({ // support encoded bodies
 
 app.listen(app.get("port"), function () {
 	console.log('UPI Node Server: Node app listening on port: ', app.get("port"));
-    });
+});
