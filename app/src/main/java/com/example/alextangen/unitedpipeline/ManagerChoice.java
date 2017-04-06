@@ -50,7 +50,7 @@ public class ManagerChoice extends AppCompatActivity {
     }
 
     public void existingJob(View view) {
-        Intent editJob = new Intent(this, EditJob.class);
+        Intent editJob = new Intent(this, EditJobMenu.class);
         editJob.putExtra("whichJob", whichJob);
 
         startActivity(editJob);

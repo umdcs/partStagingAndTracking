@@ -18,11 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewJob" />
-        <activity android:name=".JobMenu" />
+        <activity android:name=".NewJobMenu" />
         <activity android:name=".JobProgress" />
         <activity android:name=".JobHours" />
         <activity android:name=".ManagerChoice" />
-        <activity android:name=".EditJob"></activity>
+        <activity android:name=".EditJobMenu"></activity>
     </application>
 
 </manifest>

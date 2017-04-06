@@ -13,6 +13,11 @@ public class NewJob extends AppCompatActivity {
     EditText whoFor;
     EditText howMany;
     Button carryOn;
+    Integer whichJobNumber;
+    String name;
+    int pieceCountInt;
+    Job currentJob;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +32,29 @@ public class NewJob extends AppCompatActivity {
     }
 
     public void nextActivity(View view) {
-        Intent intent = new Intent(this, JobMenu.class);
+        Intent intent = new Intent(this, NewJobMenu.class);
 
-        intent.putExtra("who", whoFor.getText().toString());
-        intent.putExtra("howMany", howMany.getText().toString());
+        //intent.putExtra("who", whoFor.getText().toString());
+        //intent.putExtra("howMany", howMany.getText().toString());
+
+        //whichJobNumber = globs.getNumJobs();
+
+        pieceCountInt = Integer.parseInt(howMany.getText().toString());
+        name = whoFor.getText().toString();
+
+        currentJob = new Job(pieceCountInt);
+        globs.addJob(currentJob);
+        whichJobNumber = globs.getNumJobs() - 1;
+        System.out.println("New Job");
+        System.out.println("At location number: " + whichJobNumber);
+        globs.setName(name, whichJobNumber);
+        globs.setNumPieces(pieceCountInt, whichJobNumber);
+        //currentJob = new Job(pieceCountInt);
+
+
+
+
+        intent.putExtra("whichJob", whichJobNumber.toString());
 
         startActivity(intent);
     }

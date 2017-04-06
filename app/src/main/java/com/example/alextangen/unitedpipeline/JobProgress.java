@@ -60,17 +60,18 @@ public class JobProgress extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
-        whichJob = intent.getStringExtra("whichJob");
-        System.out.println("Job number = " + whichJob);
-        whichJobNumber = Integer.parseInt(whichJob);
-        name = intent.getStringExtra("who");
-        System.out.println("Name = " + name);
-        pieceCount = intent.getStringExtra("howMany");
-        pieceCountInt = Integer.parseInt(pieceCount);
-        System.out.println("pieceCount = " + pieceCountInt);
+        //whichJob = intent.getStringExtra("whichJob");
+        //System.out.println("Job number = " + whichJob);
+        //whichJobNumber = Integer.parseInt(whichJob);
+        whichJobNumber = globs.getNumJobs() - 1;
+        //name = intent.getStringExtra("who");
+        //System.out.println("Name = " + name);
+        //pieceCount = intent.getStringExtra("howMany");
+        //pieceCountInt = Integer.parseInt(pieceCount);
+        //System.out.println("pieceCount = " + pieceCountInt);
 
-
-        for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
+        //globs.getJob(whichJobNumber).getNumPieces();
+        for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
             list.add("Piece # " + i);
         }
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);

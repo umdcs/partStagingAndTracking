@@ -103,4 +103,9 @@ public class Model {
         Job job = jobs[jobNum];
         return job.getLbHoursTotal(Selection);
     }
+
+    public int getNumPieces(int jobNum) {
+        Job job = jobs[jobNum];
+        return job.getNumPieces();
+    }
 }

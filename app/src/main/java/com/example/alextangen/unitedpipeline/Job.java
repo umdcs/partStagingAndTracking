@@ -156,5 +156,9 @@ public class Job{
         return lbHoursTotal;
     }
 
+    public int getNumPieces() {
+        return pieces.length;
+    }
+
     // public methods to create/store/update/access pieces and tally man hours
 }
