@@ -54,7 +54,7 @@ app.get('/getJobByID', function(request, response) {
 app.post('/addJob', function(request, response) {
     if(!request.body) return res.sendStatus(400);
     
-    var aJob = request.body.job;
+    var aJob = request.body.Job;
     jobsArray.push(aJob);
     
     console.log('Received a post request for adding a job!');
