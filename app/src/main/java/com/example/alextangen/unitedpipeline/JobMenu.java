@@ -100,4 +100,10 @@ public class JobMenu extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(this, ManagerChoice.class);
+
+        startActivity(intent);
+    }
 }

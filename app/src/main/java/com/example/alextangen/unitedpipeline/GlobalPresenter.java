@@ -50,6 +50,8 @@ class GlobalPresenter {
         pieceNumber[i] = m;
     }
 
+    public int getNumPieces(int i) { return pieceNumber[i]; }
+
     public String getName(int whichJob) {
         return Names[whichJob];
     }

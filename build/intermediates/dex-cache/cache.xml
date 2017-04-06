@@ -3,30 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
-        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_9c571e913e755e5440b55adff320d62d9fc59edf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b915e6d475ea86310b1219e8ac0f77d91d1ff534">
-        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9d3605c03ecd7d1e1f81414b8a631314e11a76b6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/alextangen/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jar="/home/csugrads/tange045/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.8.0_624cd95a8a76a0006219e41f446feace9d3d88ae/classes.dex" />
+        <dex dex="/home/csugrads/tange045/StudioProjects/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.8.0_9e411a11a3e7eedcbb54fdc149a22722ee223083/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/csugrads/tange045/StudioProjects/unitedpiping_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f009dcb0af7a484bcfc22d4ccd85b94728ac01a7">
+        <dex dex="/home/csugrads/tange045/StudioProjects/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f8f9f12d50f3392af4c003f27cc00c5babcb0143/classes.dex" />
     </item>
 
 </items>

@@ -24,6 +24,8 @@ import java.net.URL;
 
 public class RequestManager {
 
+    //GlobalPresenter globs;
+
     private Job job;
 
     public RequestManager() {
@@ -40,6 +42,7 @@ public class RequestManager {
     }
 
     public void addJob(Job job) {
+        //globs = globs.getInstance();
         JSONObject jsonJob = null;
         Gson gson = new Gson();
         String jobString = gson.toJson(job);
