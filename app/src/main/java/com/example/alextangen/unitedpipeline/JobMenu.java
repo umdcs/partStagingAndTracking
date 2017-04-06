@@ -34,7 +34,7 @@ public class JobMenu extends AppCompatActivity {
 
         globs = globs.getInstance();
 
-        whichJob = globs.getJobNumber(name);
+        whichJob = globs.getJobNumber(name, pieceCountInt);
         //returns -1 if first not in the array already
         System.out.println("Job Number = " + whichJob);
 
@@ -51,6 +51,7 @@ public class JobMenu extends AppCompatActivity {
             System.out.println("New Job");
             System.out.println("At location number: " + whichJobNumber);
             globs.setName(name, whichJobNumber);
+            globs.setNumPieces(pieceCountInt, whichJobNumber);
             currentJob = new Job(pieceCountInt);
             globs.addJob(currentJob);
             //jobNumber = globs.getJobNumber(name);

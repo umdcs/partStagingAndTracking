@@ -14,6 +14,7 @@ class GlobalPresenter {
     private Model model;
 
     String[] Names = new String[10];
+    int[] pieceNumber = new int[10];
 
     int j;
 
@@ -50,13 +51,17 @@ class GlobalPresenter {
         j++;
     }
 
+    public void setNumPieces(int m, int i) {
+        pieceNumber[i] = m;
+    }
+
     public String getName(int whichJob) {
         return Names[whichJob];
     }
 
-    public int getJobNumber(String name) {
+    public int getJobNumber(String name, int numPieces) {
         for (int k = 0; k < j; k++) {
-            if(name.equals(Names[k])) {
+            if(name.equals(Names[k]) && (numPieces == pieceNumber[k])) {
                 return k;
             }
         }
