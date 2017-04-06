@@ -25,6 +25,7 @@ public class Job{
         pieces = new Piece[numPieces]; //pieces is the array of all pieces for this job
         for(int i=0; i<numPieces; i++) {
             pieces[i] = new Piece(); //initialize the desired number of pieces
+            /*
             System.out.println("Now in Job constructor");
             System.out.println("Material received on piece[" + i + "] = " + pieces[i].getMatlReceived());
             System.out.println("Start Fabrication on piece[" + i + "] = " + pieces[i].getStartFab());
@@ -33,6 +34,7 @@ public class Job{
             System.out.println("Start Painting/Coating on piece[" + i + "] = " + pieces[i].getStartCoat());
             System.out.println("End Painting/Coating on piece[" + i + "] = " + pieces[i].getEndCoat());
             System.out.println("Ship Ready on piece[" + i + "] = " + pieces[i].getShipRdy());
+            */
         }
 
 
@@ -130,6 +132,7 @@ public class Job{
             System.out.println("Start Painting/Coating on piece[" + j + "] = " + pieces[j].getStartCoat());
             System.out.println("End Painting/Coating on piece[" + j + "] = " + pieces[j].getEndCoat());
             System.out.println("Ship Ready on piece[" + j + "] = " + pieces[j].getShipRdy());
+            System.out.println("/n");
 
         }
         return pieces;

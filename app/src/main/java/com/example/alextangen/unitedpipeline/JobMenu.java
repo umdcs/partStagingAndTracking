@@ -15,7 +15,7 @@ public class JobMenu extends AppCompatActivity {
     Job[] jobsArray = new Job[10];
     Integer whichJob;
     String whichJobString;
-    int whichJobNumber;
+    Integer whichJobNumber;
     GlobalPresenter globs;
 
     @Override
@@ -35,23 +35,33 @@ public class JobMenu extends AppCompatActivity {
         globs = globs.getInstance();
 
         whichJob = globs.getJobNumber(name);
+        //returns -1 if first not in the array already
         System.out.println("Job Number = " + whichJob);
+
+
 
         if(whichJob >=0) {
             System.out.println("Job already existed");
             currentJob = globs.getJob(whichJob);
+            whichJobString = whichJob.toString();
         }
         else {
+            //whichJobNumber = current vacant location
+            whichJobNumber = globs.getNumJobs();
             System.out.println("New Job");
+            System.out.println("At location number: " + whichJobNumber);
+            globs.setName(name, whichJobNumber);
             currentJob = new Job(pieceCountInt);
             globs.addJob(currentJob);
             //jobNumber = globs.getJobNumber(name);
-            whichJob = globs.getNumJobs() - 1;
-            globs.setName(name, whichJob);
+            //whichJob = globs.getNumJobs() - 1;
+            //globs.setName(name, whichJob);
+            //globs.setName(name, whichJobNumber);
             //whichJob = globs.getJobNumber(name);
+            whichJobString = whichJobNumber.toString();
         }
 
-        whichJobString = whichJob.toString();
+        //whichJobString = whichJobNumber.toString();
 
 
         /*

@@ -15,7 +15,7 @@ class GlobalPresenter {
 
     String[] Names = new String[10];
 
-    int i;
+    int j;
 
     static GlobalPresenter getInstance() {
         return ourInstance;
@@ -24,6 +24,7 @@ class GlobalPresenter {
     //Model model;
 
     ProgressBar prog;
+    int numJobs = 0;
 
     public GlobalPresenter() {
 
@@ -34,18 +35,19 @@ class GlobalPresenter {
         //this.View = view;
         model = new Model();
 
-        i = 0;
+        j = 0;
     }
 
     public void addJob(Job job) { model.addJob(job); }
     //public int getJobNumber(String name) {return model.getJobNumber(name);}
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
     //public void setName(String name, int whichJob) { model.setName(name, whichJob);}
+    public void getNumber() { model.getNumJobs(); }
 
 
     public void setName(String name, int i) {
         Names[i] = name;
-        i++;
+        j++;
     }
 
     public String getName(int whichJob) {
@@ -53,15 +55,18 @@ class GlobalPresenter {
     }
 
     public int getJobNumber(String name) {
-        for (int j = 0; j < i; j++) {
-            if(name == Names[j]) {
-                return j;
+        for (int k = 0; k < j; k++) {
+            if(name.equals(Names[k])) {
+                return k;
             }
         }
         return -1;
     }
 
-    public int getNumJobs() {return model.getNumJobs();}
+    public int getNumJobs() {
+        numJobs = model.getNumJobs();
+        return model.getNumJobs();
+    }
 
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}
     public void lbHours(int jobNum, int Selection, double hours) {model.lbHours(jobNum, Selection, hours);}

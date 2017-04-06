@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/csugrads/tange045/StudioProjects/unitedpiping_android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
-        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_9c571e913e755e5440b55adff320d62d9fc59edf/classes.dex" />
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/home/csugrads/tange045/StudioProjects/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4cc8d465d3eaf728ed8157463a91ffcc8a8f298b/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/csugrads/tange045/StudioProjects/unitedpiping_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="53f29652fdb5186ad64e2c932ee8c60e07319ca9">
-        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9d3605c03ecd7d1e1f81414b8a631314e11a76b6/classes.dex" />
+        sha1="3597ddc8397e7f8ba1106bb1075964af5798d0e3">
+        <dex dex="/home/csugrads/tange045/StudioProjects/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f8f9f12d50f3392af4c003f27cc00c5babcb0143/classes.dex" />
     </item>
 
 </items>
