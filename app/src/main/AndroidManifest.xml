@@ -18,7 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewJob" />
-        <activity android:name=".JobProgress"></activity>
+        <activity android:name=".JobMenu" />
+        <activity android:name=".JobProgress" />
+        <activity android:name=".JobHours"></activity>
     </application>
 
 </manifest>
