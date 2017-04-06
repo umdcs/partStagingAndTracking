@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class JobProgress extends AppCompatActivity {
 
-    //private Job[] jobsArray = new Job[10];
     Job currentJob;
     ProgressBar prg;
     Spinner spins;

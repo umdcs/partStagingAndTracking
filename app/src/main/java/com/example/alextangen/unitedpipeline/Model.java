@@ -37,26 +37,6 @@ public class Model {
     public Job getJob(int whichJob) {
         return jobs[whichJob];
     }
-    /*
-
-    public void setName(String name, int i) {
-        Names[i] = name;
-        i++;
-    }
-
-    public String getName(int whichJob) {
-        return Names[whichJob];
-    }
-
-    public int getJobNumber(String name) {
-        for (int j = 0; j < i; j++) {
-            if(name == this.getName(j)) {
-                return j;
-            }
-        }
-        return -1;
-    }
-    */
 
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int selection) {

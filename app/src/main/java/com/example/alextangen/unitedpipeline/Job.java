@@ -13,7 +13,6 @@ public class Job{
 
     private Piece[] pieces;
     Boolean goodToGo;
-    int whatItWas;
 
     private String[] Names = new String[10];
     private int i = 0;
@@ -23,23 +22,12 @@ public class Job{
 
     public Job(int numPieces) {
         pieces = new Piece[numPieces]; //pieces is the array of all pieces for this job
-        for(int i=0; i<numPieces; i++) {
+        for (int i = 0; i < numPieces; i++) {
             pieces[i] = new Piece(); //initialize the desired number of pieces
-            /*
-            System.out.println("Now in Job constructor");
-            System.out.println("Material received on piece[" + i + "] = " + pieces[i].getMatlReceived());
-            System.out.println("Start Fabrication on piece[" + i + "] = " + pieces[i].getStartFab());
-            System.out.println("End Fabrication on piece[" + i + "] = " + pieces[i].getEndFab());
-            System.out.println("xRay on piece[" + i + "] = "+ pieces[i].getXRay());
-            System.out.println("Start Painting/Coating on piece[" + i + "] = " + pieces[i].getStartCoat());
-            System.out.println("End Painting/Coating on piece[" + i + "] = " + pieces[i].getEndCoat());
-            System.out.println("Ship Ready on piece[" + i + "] = " + pieces[i].getShipRdy());
-            */
+
+            pfHoursTotal = 0;
+            lbHoursTotal = 0;
         }
-
-
-        pfHoursTotal = 0;
-        lbHoursTotal = 0;
     }
 
     public void setMaterialsReceived(int number) {
@@ -137,28 +125,6 @@ public class Job{
         }
         return pieces;
     }
-
-    /*
-
-    public void setName(String name) {
-        Names[i] = name;
-        i++;
-    }
-
-    public String getName(int whichJob) {
-        return Names[whichJob];
-    }
-
-    public int getJob(String name) {
-        for (int j = 0; j < i; j++) {
-            if(name == this.getName(j)) {
-                return j;
-            }
-        }
-        return -1;
-    }
-
-    */
 
     public int getPieceProgress(int number) {
         int thisProgress;

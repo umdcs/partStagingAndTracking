@@ -29,20 +29,15 @@ class GlobalPresenter {
 
     public GlobalPresenter() {
 
-        //AppCompatActivity View;
-        //Model model;
         int mData;
 
-        //this.View = view;
         model = new Model();
 
         j = 0;
     }
 
     public void addJob(Job job) { model.addJob(job); }
-    //public int getJobNumber(String name) {return model.getJobNumber(name);}
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
-    //public void setName(String name, int whichJob) { model.setName(name, whichJob);}
     public void getNumber() { model.getNumJobs(); }
 
 

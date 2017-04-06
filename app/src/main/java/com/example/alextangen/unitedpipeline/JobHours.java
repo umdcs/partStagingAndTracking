@@ -22,9 +22,10 @@ public class JobHours extends AppCompatActivity {
     GlobalPresenter globs;
     //ProgressBar prg;
     Spinner spins;
-    //TextView tracker;
+    TextView shows;
     EditText pipers;
     EditText laborers;
+    Button back;
     String name;
     String pieceCount;
     String pipeString;
@@ -48,8 +49,9 @@ public class JobHours extends AppCompatActivity {
 
         pipers = (EditText) findViewById(R.id.Pipes);
         laborers = (EditText) findViewById(R.id.LBS);
-
+        shows = (TextView) findViewById(R.id.shows);
         carryOn = (Button) findViewById(R.id.allDone);
+        back = (Button) findViewById(R.id.back);
 
         globs = globs.getInstance();
 
@@ -63,6 +65,8 @@ public class JobHours extends AppCompatActivity {
         pieceCount = intent.getStringExtra("howMany");
         pieceCountInt = Integer.parseInt(pieceCount);
         System.out.println("pieceCount = " + pieceCountInt);
+
+        //currentJob = globs.getJob(whichJobNumber);
 
 
         for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
@@ -80,6 +84,9 @@ public class JobHours extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int what, long longer) {
                 selection = spins.getSelectedItemPosition();
+
+                shows.setText("Pipe Fitter hours  on piece # " + selection + " = "+ globs.getPfHours(jobNum, selection) + "\n" +
+                        "Laborer hours on piece # " + selection + " = " + globs.getLbHours(jobNum, selection));
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -87,9 +94,12 @@ public class JobHours extends AppCompatActivity {
             }
         });
 
+        //shows.setText("Pipe Fitter hours  on piece # " + selection + " = "+ globs.getPfHours(jobNum, selection) + "\n" +
+        //       "Laborer hours on piece # " + selection + " = " + globs.getLbHours(jobNum, selection));
+
     }
     public void carryThisOn(View view) {
-        Intent intent = new Intent(this, JobMenu.class);
+        //Intent intent = new Intent(this, JobMenu.class);
         pipeString = pipers.getText().toString();
         pfHours = Double.parseDouble(pipeString);
         lbString = laborers.getText().toString();
@@ -99,11 +109,22 @@ public class JobHours extends AppCompatActivity {
         System.out.println("pipefitter hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getPfHours(jobNum, spins.getSelectedItemPosition()));
         System.out.println("laborer hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getLbHours(jobNum, spins.getSelectedItemPosition()));
 
+        shows.setText("Pipe Fitter hours  on piece # " + selection + " = "+ globs.getPfHours(jobNum, selection) + "\n" +
+                "Laborer hours on piece # " + selection + " = " + globs.getLbHours(jobNum, selection));
+
+        //intent.putExtra("who", name);
+        //intent.putExtra("howMany", pieceCount);
+
+        //startActivity(intent);
+
+    }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(this, JobMenu.class);
         intent.putExtra("who", name);
         intent.putExtra("howMany", pieceCount);
 
         startActivity(intent);
-
     }
 }
 
