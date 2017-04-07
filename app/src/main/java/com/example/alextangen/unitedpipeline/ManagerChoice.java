@@ -24,6 +24,7 @@ public class ManagerChoice extends AppCompatActivity {
         editor = (EditText) findViewById(R.id.editor);
         sb = new StringBuilder();
 
+
         if(globs.getNumJobs() > 0) {
 
             for (int m = 0; m < globs.getNumJobs(); m++) {
@@ -39,7 +40,8 @@ public class ManagerChoice extends AppCompatActivity {
             text.setText("No jobs to display");
         }
 
-        whichJob = editor.getText().toString();
+        //whichJob = editor.getText().toString();
+        //System.out.println("whichJob = " + whichJob);
 
     }
 
@@ -51,7 +53,10 @@ public class ManagerChoice extends AppCompatActivity {
 
     public void existingJob(View view) {
         Intent editJob = new Intent(this, EditJobMenu.class);
+        whichJob = editor.getText().toString();
         editJob.putExtra("whichJob", whichJob);
+        System.out.println("whichJob = " + whichJob);
+
 
         startActivity(editJob);
     }

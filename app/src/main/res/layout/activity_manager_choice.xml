@@ -14,13 +14,12 @@
         android:text="Add New Job"
         android:onClick="newJob"/>
 
-    <Button
-        android:id="@+id/oldJob"
+    <EditText
+        android:id="@+id/editor"
         android:layout_below="@+id/newJob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit an existing job"
-        android:onClick="existingJob" />
+        android:hint="Enter Job Number (if loading existing job): " />
 
     <TextView
         android:maxLines="6"
@@ -28,16 +27,18 @@
         android:id="@+id/viewer"
         android:layout_width="match_parent"
         android:layout_height="225dp"
-        android:layout_below="@+id/oldJob"
+        android:layout_below="@+id/editor"
         android:hint="Current Jobs:"
         android:textSize="18sp"/>
 
-    <EditText
-        android:id="@+id/editor"
+    <Button
+        android:id="@+id/oldJob"
         android:layout_below="@+id/viewer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Job Number (if loading existing job): "/>
+        android:text="Edit an existing job"
+        android:onClick="existingJob" />
+
 
 
 </RelativeLayout>
