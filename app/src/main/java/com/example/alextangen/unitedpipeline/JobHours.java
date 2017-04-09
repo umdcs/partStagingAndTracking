@@ -57,9 +57,13 @@ public class JobHours extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
+        whichJobString = intent.getStringExtra("whichJob");
+
+        whichJobNumber = Integer.parseInt(whichJobString);
+
         //whichJobString = intent.getStringExtra("whichJob");
         //whichJobNumber = Integer.parseInt(whichJobString);
-        whichJobNumber = globs.getNumJobs() - 1;
+        //whichJobNumber = globs.getNumJobs() - 1;
         //name = intent.getStringExtra("who");
         //System.out.println("Name = " + name);
         //pieceCount = intent.getStringExtra("howMany");
