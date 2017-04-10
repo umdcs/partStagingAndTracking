@@ -15,12 +15,14 @@ public class Job{
     Boolean goodToGo;
 
     private String[] Names = new String[10];
+    private int id;
     private int i = 0;
     private double pfHoursTotal;
     private double lbHoursTotal;
     public String newString;
 
     public Job(int numPieces) {
+        id = 0;
         pieces = new Piece[numPieces]; //pieces is the array of all pieces for this job
         for (int i = 0; i < numPieces; i++) {
             pieces[i] = new Piece(); //initialize the desired number of pieces
@@ -29,6 +31,11 @@ public class Job{
             lbHoursTotal = 0;
         }
     }
+
+    // public methods to create/store/update/access pieces and tally man hours
+
+    public int getID() { return id; }
+    public void setID(int id) { this.id = id; }
 
     public void setMaterialsReceived(int number) {
         // all of these if statements need to be called by jobs, not by the pieces array
@@ -156,5 +163,4 @@ public class Job{
         return lbHoursTotal;
     }
 
-    // public methods to create/store/update/access pieces and tally man hours
 }

@@ -32,6 +32,15 @@ public class Model {
         }
     }
 
+    public Job getJobByID(int id) {
+        for (int i = 0; i > MAX_JOBS; i++) {
+            if (jobs[i].getID() == id) {
+                return jobs[i];
+            }
+        }
+        return null;
+    }
+
     public int getNumJobs() {
         return numJobs;
     }
