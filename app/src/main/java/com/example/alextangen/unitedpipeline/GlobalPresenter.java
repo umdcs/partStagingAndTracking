@@ -10,29 +10,22 @@ import android.widget.TextView;
 
 class GlobalPresenter {
     private static final GlobalPresenter ourInstance = new GlobalPresenter();
+
     //private final AppCompatActivity View;
     private Model model;
-
     String[] Names = new String[10];
     int[] pieceNumber = new int[10];
-
     int j;
+    ProgressBar prog;
+    int numJobs = 0;
 
     static GlobalPresenter getInstance() {
         return ourInstance;
     }
 
-    //Model model;
-
-    ProgressBar prog;
-    int numJobs = 0;
-
     public GlobalPresenter() {
-
         int mData;
-
         model = new Model();
-
         j = 0;
     }
 

@@ -22,12 +22,14 @@ public class Model {
     }
 
     // public methods to create/store/update/access jobs;
-    public void addJob(Job job) {
+    public int addJob(Job job) {
         if (numJobs < MAX_JOBS) {
             jobs[numJobs] = job;
             numJobs++;
+            return numJobs;
+        } else {
+            return -1;
         }
-        //return numJobs;
     }
 
     public int getNumJobs() {
