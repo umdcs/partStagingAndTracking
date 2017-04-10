@@ -41,6 +41,15 @@ public class Model {
         return null;
     }
 
+    public Job getJobByName(String name) {
+        for (int i = 0; i > MAX_JOBS; i++) {
+            if (jobs[i].getName().equals(name)) {
+                return jobs[i];
+            }
+        }
+        return null;
+    }
+
     public int getNumJobs() {
         return numJobs;
     }

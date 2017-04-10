@@ -15,6 +15,7 @@ public class Job{
     Boolean goodToGo;
 
     private String[] Names = new String[10];
+    private String name;
     private int id;
     private int i = 0;
     private double pfHoursTotal;
@@ -22,6 +23,7 @@ public class Job{
     public String newString;
 
     public Job(int numPieces) {
+        name = "";
         id = 0;
         pieces = new Piece[numPieces]; //pieces is the array of all pieces for this job
         for (int i = 0; i < numPieces; i++) {
@@ -33,6 +35,9 @@ public class Job{
     }
 
     // public methods to create/store/update/access pieces and tally man hours
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
     public int getID() { return id; }
     public void setID(int id) { this.id = id; }
