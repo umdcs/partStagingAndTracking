@@ -38,7 +38,7 @@ class GlobalPresenter {
 
     public void addJob(Job job) { model.addJob(job); }
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
-    public void getNumber() { model.getNumJobs(); }
+    public int getNumJobs() { return model.getNumJobs(); }
 
 
     public void setName(String name, int i) {
@@ -63,11 +63,6 @@ class GlobalPresenter {
             }
         }
         return -1;
-    }
-
-    public int getNumJobs() {
-        numJobs = model.getNumJobs();
-        return model.getNumJobs();
     }
 
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}

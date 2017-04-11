@@ -15,12 +15,16 @@ public class Job{
     Boolean goodToGo;
 
     private String[] Names = new String[10];
+    private String name;
+    private int id;
     private int i = 0;
     private double pfHoursTotal;
     private double lbHoursTotal;
     public String newString;
 
     public Job(int numPieces) {
+        name = "";
+        id = 0;
         pieces = new Piece[numPieces]; //pieces is the array of all pieces for this job
         for (int i = 0; i < numPieces; i++) {
             pieces[i] = new Piece(); //initialize the desired number of pieces
@@ -30,80 +34,82 @@ public class Job{
         }
     }
 
-    public void setMaterialsReceived(int number) {
+    // public methods to create/store/update/access pieces and tally man hours
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public int getID() { return id; }
+    public void setID(int id) { this.id = id; }
+
+    public void setMaterialsReceived(int pieceNum) {
         // all of these if statements need to be called by jobs, not by the pieces array
-        if(pieces[number].getMatlReceived() == false) {
-            pieces[number].setMatlRcvd(true);
+        if(pieces[pieceNum].getMatlReceived() == false) {
+            pieces[pieceNum].setMatlRcvd(true);
             goodToGo = true;
         }
         else {
-            pieces[number].setMatlRcvd(false);
+            pieces[pieceNum].setMatlRcvd(false);
             goodToGo = false;
         }
     }
-
-    public void setStartedFab(int number) {
-        if((pieces[number].getStartFab() == false) && pieces[number].getMatlReceived() == true) {
-            pieces[number].setStartFab(true);
+    public void setStartedFab(int pieceNum) {
+        if((pieces[pieceNum].getStartFab() == false) && pieces[pieceNum].getMatlReceived() == true) {
+            pieces[pieceNum].setStartFab(true);
             goodToGo = true;
         }
         else {
-            pieces[number].setStartFab(false);
+            pieces[pieceNum].setStartFab(false);
             goodToGo = false;
         }
     }
-
-    public void setFinishedFab(int number) {
-        if((pieces[number].getEndFab() == false) && pieces[number].getStartFab() == true) {
-            pieces[number].setEndFab(true);
+    public void setFinishedFab(int pieceNum) {
+        if((pieces[pieceNum].getEndFab() == false) && pieces[pieceNum].getStartFab() == true) {
+            pieces[pieceNum].setEndFab(true);
             goodToGo = true;
         }
         else {
-            pieces[number].setEndFab(false);
+            pieces[pieceNum].setEndFab(false);
             goodToGo = false;
         }
     }
-
-    public void setXRayReady(int number) {
-        if((pieces[number].getXRay() == false) && pieces[number].getEndFab() == true) {
-            pieces[number].setxRay(true);
+    public void setXRayReady(int pieceNum) {
+        if((pieces[pieceNum].getXRay() == false) && pieces[pieceNum].getEndFab() == true) {
+            pieces[pieceNum].setxRay(true);
             goodToGo = true;
         }
         else {
-            pieces[number].setxRay(false);
+            pieces[pieceNum].setxRay(false);
             goodToGo = false;
         }
     }
-
-    public void setStartedCoating(int number) {
-        if((pieces[number].getStartCoat() == false) && pieces[number].getXRay() == true) {
-            pieces[number].setStartCoat(true);
+    public void setStartedCoating(int pieceNum) {
+        if((pieces[pieceNum].getStartCoat() == false) && pieces[pieceNum].getXRay() == true) {
+            pieces[pieceNum].setStartCoat(true);
             goodToGo = true;
         }
         else {
-            pieces[number].setStartCoat(false);
+            pieces[pieceNum].setStartCoat(false);
             goodToGo = false;
         }
     }
-
-    public void setFinishedCoating(int number) {
-        if((pieces[number].getEndCoat() == false) && pieces[number].getStartCoat() == true) {
-            pieces[number].setEndCoat(true);
+    public void setFinishedCoating(int pieceNum) {
+        if((pieces[pieceNum].getEndCoat() == false) && pieces[pieceNum].getStartCoat() == true) {
+            pieces[pieceNum].setEndCoat(true);
             goodToGo = true;
         }
         else {
-            pieces[number].setEndCoat(false);
+            pieces[pieceNum].setEndCoat(false);
             goodToGo = false;
         }
     }
-
-    public void setReadyToShip(int number) {
-        if((pieces[number].getShipRdy() == false) && pieces[number].getEndCoat() == true) {
-            pieces[number].setShipRdy(true);
+    public void setReadyToShip(int pieceNum) {
+        if((pieces[pieceNum].getShipRdy() == false) && pieces[pieceNum].getEndCoat() == true) {
+            pieces[pieceNum].setShipRdy(true);
             goodToGo = true;
         }
         else {
-            pieces[number].setShipRdy(false);
+            pieces[pieceNum].setShipRdy(false);
             goodToGo = false;
         }
     }
@@ -126,33 +132,22 @@ public class Job{
         return pieces;
     }
 
-    public int getPieceProgress(int number) {
-        int thisProgress;
-            thisProgress = pieces[number].getProgress();
-            return thisProgress;
+    public int getPieceProgress(int pieceNum) { return pieces[pieceNum].getProgress(); }
+    public String getPieceString(int pieceNum) { return pieces[pieceNum].getThisString(); }
+
+    public void setPfHoursTotal(int pieceNum, double hours) {
+        pieces[pieceNum].addPfHours(hours);
+    }
+    public void setLbHoursTotal(int pieceNum, double hours) {
+        pieces[pieceNum].addLbHours(hours);
     }
 
-    public String getPieceString(int number) {
-        //String newString;
-        newString = pieces[number].getThisString();
-        return newString;
-    }
-
-    public void setPfHoursTotal(int piece, double hours) {
-        pieces[piece].addPfHours(hours);
-    }
-
-    public void setLbHoursTotal(int piece, double hours) {
-        pieces[piece].addLbHours(hours);
-    }
-
-    public double getPfHoursTotal(int piece) {
-        pfHoursTotal = pieces[piece].getPfHours();
+    public double getPfHoursTotal(int pieceNum) {
+        pfHoursTotal = pieces[pieceNum].getPfHours();
         return pfHoursTotal;
     }
-
-    public double getLbHoursTotal(int piece) {
-        lbHoursTotal = pieces[piece].getLbHours();
+    public double getLbHoursTotal(int pieceNum) {
+        lbHoursTotal = pieces[pieceNum].getLbHours();
         return lbHoursTotal;
     }
 

@@ -24,13 +24,33 @@ public class Model {
     }
 
     // public methods to create/store/update/access jobs;
-    public void addJob(Job job) {
+    public int addJob(Job job) {
         if (numJobs < MAX_JOBS) {
             jobs[numJobs] = job;
             //reqMan.addJob(job);
             numJobs++;
+            return numJobs;
+        } else {
+            return -1;
         }
-        //return numJobs;
+    }
+
+    public Job getJobByID(int id) {
+        for (int i = 0; i > MAX_JOBS; i++) {
+            if (jobs[i].getID() == id) {
+                return jobs[i];
+            }
+        }
+        return null;
+    }
+
+    public Job getJobByName(String name) {
+        for (int i = 0; i > MAX_JOBS; i++) {
+            if (jobs[i].getName().equals(name)) {
+                return jobs[i];
+            }
+        }
+        return null;
     }
 
     public int getNumJobs() {

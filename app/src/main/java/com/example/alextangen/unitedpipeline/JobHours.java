@@ -17,7 +17,6 @@ public class JobHours extends AppCompatActivity {
     //private Job[] jobsArray = new Job[10];
     Bundle bn;
     Job currentJob;
-    //Presenter presenter;
     GlobalPresenter globs;
     //ProgressBar prg;
     Spinner spins;
