@@ -48,6 +48,15 @@ app.get('/getJobByID', function(request, response) {
     response.end();
 });
 
+/* getJobInfo will be used to send an array with Job ID's and
+   the Job names. This will be used to display the current jobs
+   that are on the server. Then as the user wants to update or view
+   specific jobs, will the job be requested from the server */
+app.get('/getJobInfo', function(request, response) {
+    console.log('Received a get request for the names of jobs!');
+    response.end();
+});
+
 app.post('/addJob', function(request, response) {
     if(!request.body) return res.sendStatus(400);
     
@@ -58,7 +67,7 @@ app.post('/addJob', function(request, response) {
     response.end();
 });
 
-/* This request will be sent a Job to update, and an index
+/* updateJob will be sent a Job to update, and an index
    where this job is located (to be updated). From this, 
    the job can be updated easily without touching other data */
 app.post('/updateJob', function(request, response) {
