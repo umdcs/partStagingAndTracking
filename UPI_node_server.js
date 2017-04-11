@@ -51,6 +51,12 @@ app.get('/getJobByID', function(request, response) {
     response.end();
 });
 
+app.get('/getJobHours', function(request, response) {
+    response.send(jobHours[0]); //0 is placeholder for jobID
+    console.log('Received a get request for man hour!');
+    response.end();
+});
+
 app.post('/addJob', function(request, response) {
     if(!request.body) return res.sendStatus(400);
     
@@ -61,10 +67,18 @@ app.post('/addJob', function(request, response) {
     response.end();
 });
 
-//To be manager only  
-app.get('/getJobHours', function(request, response) {
-    response.send(jobHours[0]); //0 is placeholder for jobID;
-    console.log('Recieved a get request for man hours!');
+/* This request will be sent a Job to update, and an index
+   where this job is located (to be updated). From this, 
+   the job can be updated easily without touching other data */
+app.post('/updateJob', function(request, response) {
+    if(!request.body) return res.sendStatus(400);
+
+    var update = request.body.Job;
+    var indexToUpdate = request.body.Index;
+
+    jobsArray[indexToUpdate] = update;
+
+    console.log('Received a post request for updating a job!');
     response.end();
 });
 
