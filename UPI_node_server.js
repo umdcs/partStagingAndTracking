@@ -53,6 +53,15 @@ app.get('/getJobByID', function(request, response) {
    that are on the server. Then as the user wants to update or view
    specific jobs, will the job be requested from the server */
 app.get('/getJobInfo', function(request, response) {
+    var jobsInfoArray = [];
+    var jobInfo;
+    
+    for(var i = 0; i < jobsArray.length; ++i) {
+	jobInfo = { jobID: "", jobName: "" };
+	jobsInfoArray.push[jobInfo];
+    }
+
+    response.send(jobsInfoArray);
     console.log('Received a get request for the names of jobs!');
     response.end();
 });
