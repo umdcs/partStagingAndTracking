@@ -4,9 +4,6 @@
 
 var jobsArray = [];
 
-var jobHours = [];
-//End Variables
-
 var express = require('express');
 
 var bodyParser = require('body-parser');
@@ -48,12 +45,6 @@ app.get('/getJobByID', function(request, response) {
     //Then send back the job corresponding to the ID
     response.send(jobsArray[0]); //0 for now, will search for job ID later
     console.log('Received a get request for a job by ID!');
-    response.end();
-});
-
-app.get('/getJobHours', function(request, response) {
-    response.send(jobHours[0]); //0 is placeholder for jobID
-    console.log('Received a get request for man hour!');
     response.end();
 });
 
