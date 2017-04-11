@@ -135,25 +135,21 @@ public class Job{
     public int getPieceProgress(int pieceNum) { return pieces[pieceNum].getProgress(); }
     public String getPieceString(int pieceNum) { return pieces[pieceNum].getThisString(); }
 
-    public void setPfHoursTotal(int pieceNum, double hours) {
+    public void setPfHours(int pieceNum, double hours) {
         pieces[pieceNum].addPfHours(hours);
+        pfHoursTotal += hours;
     }
-    public void setLbHoursTotal(int pieceNum, double hours) {
+    public void setLbHours(int pieceNum, double hours) {
         pieces[pieceNum].addLbHours(hours);
+        lbHoursTotal += hours;
     }
 
-    public double getPfHoursTotal(int pieceNum) {
-        pfHoursTotal = pieces[pieceNum].getPfHours();
-        return pfHoursTotal;
-    }
-    public double getLbHoursTotal(int pieceNum) {
-        lbHoursTotal = pieces[pieceNum].getLbHours();
-        return lbHoursTotal;
-    }
+    public double getPfHours(int pieceNum) { return pieces[pieceNum].getPfHours(); }
+    public double getLbHours(int pieceNum) { return pieces[pieceNum].getLbHours(); }
 
-    public int getNumPieces() {
-        return pieces.length;
-    }
+    public double getPfHoursTotal() { return pfHoursTotal; }
+    public double getLbHoursTotal() { return lbHoursTotal; }
 
-    // public methods to create/store/update/access pieces and tally man hours
+    public int getNumPieces() { return pieces.length; }
+
 }

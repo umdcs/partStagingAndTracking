@@ -106,22 +106,22 @@ public class Model {
 
     public void pfHours(int jobNum, int Selection, double hours) {
         Job job = jobs[jobNum];
-        job.setPfHoursTotal(Selection, hours);
+        job.setPfHours(Selection, hours);
     }
 
     public void lbHours(int jobNum, int Selection, double hours) {
         Job job = jobs[jobNum];
-        job.setLbHoursTotal(Selection, hours);
+        job.setLbHours(Selection, hours);
     }
 
     public double getPfHours(int jobNum, int Selection) {
         Job job = jobs[jobNum];
-        return job.getPfHoursTotal(Selection);
+        return job.getPfHours(Selection);
     }
 
     public double getLbHours(int jobNum, int Selection) {
         Job job = jobs[jobNum];
-        return job.getLbHoursTotal(Selection);
+        return job.getLbHours(Selection);
     }
 
     public int getNumPieces(int jobNum) {
