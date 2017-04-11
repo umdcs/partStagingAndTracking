@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alextangen.unitedpipeline">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewJob" />
-        <activity android:name=".JobProgress"></activity>
+        <activity android:name=".NewJobMenu" />
+        <activity android:name=".JobProgress" />
+        <activity android:name=".JobHours" />
+        <activity android:name=".ManagerChoice" />
+        <activity android:name=".EditJobMenu"></activity>
     </application>
 
 </manifest>
