@@ -9,42 +9,31 @@ import android.widget.TextView;
  */
 
 class GlobalPresenter {
-    private static final GlobalPresenter ourInstance = new GlobalPresenter();
 
+    private static final GlobalPresenter ourInstance = new GlobalPresenter();
     //private final AppCompatActivity View;
     private Model model;
     String[] Names = new String[10];
     int[] pieceNumber = new int[10];
     int j;
-    ProgressBar prog;
-    int numJobs = 0;
-
-    static GlobalPresenter getInstance() {
-        return ourInstance;
-    }
 
     public GlobalPresenter() {
-        int mData;
         model = new Model();
         j = 0;
     }
 
+    static GlobalPresenter getInstance() { return ourInstance; }
+
     public void addJob(Job job) { model.addJob(job); }
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
-    public void getNumber() { model.getNumJobs(); }
+    public int getNumJobs() { return model.getNumJobs(); }
 
+    public String getName(int whichJob) { return Names[whichJob]; }
+    public void setNumPieces(int m, int i) { pieceNumber[i] = m; }
 
     public void setName(String name, int i) {
         Names[i] = name;
         j++;
-    }
-
-    public void setNumPieces(int m, int i) {
-        pieceNumber[i] = m;
-    }
-
-    public String getName(int whichJob) {
-        return Names[whichJob];
     }
 
     public int getJobNumber(String name, int numPieces) {
@@ -56,16 +45,10 @@ class GlobalPresenter {
         return -1;
     }
 
-    public int getNumJobs() {
-        numJobs = model.getNumJobs();
-        return model.getNumJobs();
-    }
-
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}
     public void lbHours(int jobNum, int Selection, double hours) {model.lbHours(jobNum, Selection, hours);}
     public double getPfHours(int jobNum, int Selection) {return model.getPfHours(jobNum, Selection);}
     public double getLbHours(int jobNum, int Selection) {return model.getLbHours(jobNum, Selection);}
-
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.matlRcvd(jobNum, prog, tracker, Selection); }
     public void startFab(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startFab(jobNum, prog, tracker, Selection); }
@@ -74,7 +57,6 @@ class GlobalPresenter {
     public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startCoat(jobNum, prog, tracker, Selection); }
     public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.endCoat(jobNum, prog, tracker, Selection); }
     public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.shipRdy(jobNum, prog, tracker, Selection); }
-
 
 }
 
