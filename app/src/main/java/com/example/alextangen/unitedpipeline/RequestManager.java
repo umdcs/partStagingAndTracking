@@ -29,7 +29,7 @@ public class RequestManager {
     private Job job;
 
     public RequestManager() {
-        job = new Job(1);
+        //globs = globs.getInstance();
     }
 
     public void getAllJobs() {
@@ -39,6 +39,28 @@ public class RequestManager {
     public void getJobByID(int id) {
         String uri = "http://131.212.41.37:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
+    }
+
+    //public  void postImportantInformation(int jobNum) {
+    public void postImportantInformation(Job job) {
+        String name = job.getName();
+        System.out.println("Name = " + name);
+        //String name = globs.getName(jobNum);
+        //String uri = "http://131.212.41.37:8090/importantInfo/";
+        String uri = "http://10.0.0.2:8090/importantInfo";
+        Integer ID = job.getID();
+        JSONObject jsonInfo = new JSONObject();
+        Gson gson = new Gson();
+        String importantString = gson.toJson(job);
+        try {
+            jsonInfo.put("name", name);
+            jsonInfo.put("ID", ID);
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        new HTTPAsyncTask().execute(uri, "POST", jsonInfo.toString());
     }
 
     public void addJob(Job job) {

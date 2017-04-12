@@ -43,6 +43,8 @@ public class NewJob extends AppCompatActivity {
         name = whoFor.getText().toString();
 
         currentJob = new Job(pieceCountInt);
+        currentJob.setName(whoFor.getText().toString());
+        currentJob.setID(globs.getNumJobs());
         globs.addJob(currentJob);
         whichJobNumber = globs.getNumJobs() - 1;
         System.out.println("New Job");
@@ -50,6 +52,7 @@ public class NewJob extends AppCompatActivity {
         globs.setName(name, whichJobNumber);
         globs.setNumPieces(pieceCountInt, whichJobNumber);
         //currentJob = new Job(pieceCountInt);
+        globs.postImportantStuff(whichJobNumber);
 
 
 

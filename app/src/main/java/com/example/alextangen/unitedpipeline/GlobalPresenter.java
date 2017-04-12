@@ -13,12 +13,15 @@ class GlobalPresenter {
 
     private Model model;
 
+    private RequestManager requestManager;
+
     String[] Names = new String[10];
     int[] pieceNumber = new int[10];
     int j;
 
     public GlobalPresenter() {
         model = new Model();
+        requestManager = new RequestManager();
         j = 0;
     }
 
@@ -64,6 +67,14 @@ class GlobalPresenter {
     public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startCoat(jobNum, prog, tracker, Selection); }
     public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.endCoat(jobNum, prog, tracker, Selection); }
     public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.shipRdy(jobNum, prog, tracker, Selection); }
+
+
+
+    //Server Communication stuff
+    public void postImportantStuff(int jobNumber) {
+        requestManager.postImportantInformation(model.getJob(jobNumber));
+        //requestManager.postImportantInformation(jobNumber);
+    }
 
 }
 
