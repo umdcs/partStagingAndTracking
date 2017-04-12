@@ -29,6 +29,15 @@
         <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/pre-dexed/debug/classes_be90149f72a52ea045d263c3a89baded8a12fb17.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_9c571e913e755e5440b55adff320d62d9fc59edf/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/alextangen/.android/build-cache/b3e0e39e37739bd31dd59a3b76b711e2ebecc7b4/output/jars/classes.jar"
         jumboMode="false"
@@ -90,6 +99,15 @@
         revision="25.0.2"
         sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
         <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/pre-dexed/debug/classes_12b711c4a8542548656e7a4228f21d2772b75a1c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1928f65ae000411385458711c7e5ba774ab717a5">
+        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9d3605c03ecd7d1e1f81414b8a631314e11a76b6/classes.dex" />
     </item>
     <item
         is-multidex="false"
