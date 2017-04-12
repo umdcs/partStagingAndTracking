@@ -230,23 +230,23 @@ public class Piece {
                 progress = 80;
                 thisString = "Coating Complete";
             }
-            else if ((endCoat == false) && (startCoat == true)) {
+            else if (startCoat == true) {
                 progress = 60;
                 thisString = "Coating Started";
             }
-            else if ((endCoat == false) && (startCoat == false) && (xRay == true)) {
+            else if (xRay == true) {
                 progress = 50;
                 thisString = "X-Ray Ready";
             }
-            else if ((endCoat == false) && (startCoat == false) && (xRay == false) && (endFab == true)) {
+            else if (endFab == true) {
                 progress = 40;
                 thisString = "Fabrication Complete";
             }
-            else if ((endCoat == false) && (startCoat == false) && (xRay == false) && (endFab == false) && (startFab == true)) {
+            else if (startFab == true) {
                 progress = 20;
                 thisString = "Fabrication Started";
             }
-            else if ((endCoat == false) && (startCoat == false) && (xRay == false) && (endFab == false) && (startFab == false) && (matlRcvd == true)) {
+            else if (matlRcvd == true) {
                 progress = 10;
                 thisString = "Materials Received";
             }
