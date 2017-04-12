@@ -17,4 +17,16 @@ public class JobUnitTest {
         assertThat(testJob.getID(), is(0));
         assertThat(testJob.getNumPieces(), is(3));
     }
+
+    @Test
+    public void pieceCreator() {
+        Piece testPiece = new Piece();
+        assertThat(testPiece.getMatlReceived(), is(false));
+        assertThat(testPiece.getStartFab(), is(false));
+        assertThat(testPiece.getEndFab(),is(false));
+        assertThat(testPiece.getXRay(), is(false));
+        assertThat(testPiece.getStartCoat(), is(false));
+        assertThat(testPiece.getEndCoat(), is(false));
+        assertThat(testPiece.getShipRdy(), is(false));
+    }
 }
