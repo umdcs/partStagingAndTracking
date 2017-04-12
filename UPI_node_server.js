@@ -83,9 +83,9 @@ app.post('/updateJob', function(request, response) {
     if(!request.body) return res.sendStatus(400);
 
     var update = request.body.Job;
-    var indexToUpdate = request.body.Index;
+    var IDToUpdate = request.body.ID;
 
-    jobsArray[indexToUpdate] = update;
+    jobsArray[IDToUpdate] = update;
 
     console.log('Received a post request for updating a job!');
     response.end();
