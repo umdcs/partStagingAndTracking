@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class JobMenu extends AppCompatActivity {
+public class NewJobMenu extends AppCompatActivity {
 
     String name;
     String pieceCount;
@@ -24,43 +24,48 @@ public class JobMenu extends AppCompatActivity {
         setContentView(R.layout.activity_job_menu);
         Intent intent = getIntent();
 
-        //whichJobString = intent.getStringExtra("whichJob");
-        //whichJobNumber = Integer.parseInt(whichJobString);
-        name = intent.getStringExtra("who");
-        System.out.println("Name = " + name);
-        pieceCount = intent.getStringExtra("howMany");
-        pieceCountInt = Integer.parseInt(pieceCount);
-        System.out.println("pieceCount = " + pieceCountInt);
-
         globs = globs.getInstance();
 
-        whichJob = globs.getJobNumber(name, pieceCountInt);
+        //whichJobString = intent.getStringExtra("whichJob");
+        //whichJobNumber = Integer.parseInt(whichJobString);
+        whichJobNumber = globs.getNumJobs() - 1;
+        //name = intent.getStringExtra("who");
+        //System.out.println("Name = " + name);
+        //pieceCount = intent.getStringExtra("howMany");
+        //pieceCountInt = Integer.parseInt(pieceCount);
+        //System.out.println("pieceCount = " + pieceCountInt);
+
+        //globs = globs.getInstance();
+
+        //whichJob = globs.getJobNumber(name, pieceCountInt);
         //returns -1 if first not in the array already
-        System.out.println("Job Number = " + whichJob);
+        //System.out.println("Job Number = " + whichJob);
 
 
 
+        /*
         if(whichJob >=0) {
             System.out.println("Job already existed");
             currentJob = globs.getJob(whichJob);
             whichJobString = whichJob.toString();
         }
         else {
+        */
             //whichJobNumber = current vacant location
-            whichJobNumber = globs.getNumJobs();
-            System.out.println("New Job");
-            System.out.println("At location number: " + whichJobNumber);
-            globs.setName(name, whichJobNumber);
-            globs.setNumPieces(pieceCountInt, whichJobNumber);
-            currentJob = new Job(pieceCountInt);
-            globs.addJob(currentJob);
+            //whichJobNumber = globs.getNumJobs();
+            //System.out.println("New Job");
+            //System.out.println("At location number: " + whichJobNumber);
+            //globs.setName(name, whichJobNumber);
+            //globs.setNumPieces(pieceCountInt, whichJobNumber);
+            //currentJob = new Job(pieceCountInt);
+            //globs.addJob(currentJob);
             //jobNumber = globs.getJobNumber(name);
             //whichJob = globs.getNumJobs() - 1;
             //globs.setName(name, whichJob);
             //globs.setName(name, whichJobNumber);
             //whichJob = globs.getJobNumber(name);
             whichJobString = whichJobNumber.toString();
-        }
+        //}
 
         //whichJobString = whichJobNumber.toString();
 
@@ -85,8 +90,8 @@ public class JobMenu extends AppCompatActivity {
         Intent intent = new Intent(this, JobProgress.class);
 
         intent.putExtra("whichJob", whichJobString);
-        intent.putExtra("who", name);
-        intent.putExtra("howMany", pieceCount);
+        //intent.putExtra("who", name);
+        //intent.putExtra("howMany", pieceCount);
 
         startActivity(intent);
     }
@@ -95,8 +100,14 @@ public class JobMenu extends AppCompatActivity {
         Intent intent = new Intent(this, JobHours.class);
 
         intent.putExtra("whichJob", whichJobString);
-        intent.putExtra("who", name);
-        intent.putExtra("howMany", pieceCount);
+        //intent.putExtra("who", name);
+        //intent.putExtra("howMany", pieceCount);
+
+        startActivity(intent);
+    }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(this, ManagerChoice.class);
 
         startActivity(intent);
     }

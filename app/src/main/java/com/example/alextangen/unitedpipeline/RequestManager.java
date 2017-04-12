@@ -24,6 +24,8 @@ import java.net.URL;
 
 public class RequestManager {
 
+    //GlobalPresenter globs;
+
     private Job job;
 
     public RequestManager() {
@@ -31,15 +33,16 @@ public class RequestManager {
     }
 
     public void getAllJobs() {
-        new HTTPAsyncTask().execute("http://10.0.2.2:8080/getAllJobs", "GET");
+        new HTTPAsyncTask().execute("http://131.212.41.37:8090/getAllJobs", "GET");
     }
 
     public void getJobByID(int id) {
-        String uri = "http://10.0.2.2:8080/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://131.212.41.37:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
     public void addJob(Job job) {
+        //globs = globs.getInstance();
         JSONObject jsonJob = null;
         Gson gson = new Gson();
         String jobString = gson.toJson(job);
@@ -50,7 +53,7 @@ public class RequestManager {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        new HTTPAsyncTask().execute("http://10.0.2.2:8080/addJob", "POST", jsonJob.toString());
+        new HTTPAsyncTask().execute("http://131.212.41.37:8090/addJob", "POST", jsonJob.toString());
     }
 
     /** Handles HTTP messages by using a separate thread */

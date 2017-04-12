@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,7 +17,6 @@ public class JobHours extends AppCompatActivity {
     //private Job[] jobsArray = new Job[10];
     Bundle bn;
     Job currentJob;
-    //Presenter presenter;
     GlobalPresenter globs;
     //ProgressBar prg;
     Spinner spins;
@@ -59,17 +57,22 @@ public class JobHours extends AppCompatActivity {
         ArrayList list = new ArrayList();
 
         whichJobString = intent.getStringExtra("whichJob");
+
         whichJobNumber = Integer.parseInt(whichJobString);
-        name = intent.getStringExtra("who");
-        System.out.println("Name = " + name);
-        pieceCount = intent.getStringExtra("howMany");
-        pieceCountInt = Integer.parseInt(pieceCount);
-        System.out.println("pieceCount = " + pieceCountInt);
+
+        //whichJobString = intent.getStringExtra("whichJob");
+        //whichJobNumber = Integer.parseInt(whichJobString);
+        //whichJobNumber = globs.getNumJobs() - 1;
+        //name = intent.getStringExtra("who");
+        //System.out.println("Name = " + name);
+        //pieceCount = intent.getStringExtra("howMany");
+        //pieceCountInt = Integer.parseInt(pieceCount);
+        //System.out.println("pieceCount = " + pieceCountInt);
 
         //currentJob = globs.getJob(whichJobNumber);
 
 
-        for (int i = 0; (i < Integer.parseInt(pieceCount)); i++) {
+        for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
             list.add("Piece # " + i);
         }
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
@@ -99,7 +102,7 @@ public class JobHours extends AppCompatActivity {
 
     }
     public void carryThisOn(View view) {
-        //Intent intent = new Intent(this, JobMenu.class);
+        //Intent intent = new Intent(this, NewJobMenu.class);
         pipeString = pipers.getText().toString();
         pfHours = Double.parseDouble(pipeString);
         lbString = laborers.getText().toString();
@@ -120,9 +123,9 @@ public class JobHours extends AppCompatActivity {
     }
 
     public void goBack(View view) {
-        Intent intent = new Intent(this, JobMenu.class);
-        intent.putExtra("who", name);
-        intent.putExtra("howMany", pieceCount);
+        Intent intent = new Intent(this, NewJobMenu.class);
+        //intent.putExtra("who", name);
+        //intent.putExtra("howMany", pieceCount);
 
         startActivity(intent);
     }

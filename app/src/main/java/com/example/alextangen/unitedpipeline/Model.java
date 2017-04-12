@@ -24,13 +24,33 @@ public class Model {
     }
 
     // public methods to create/store/update/access jobs;
-    public void addJob(Job job) {
+    public int addJob(Job job) {
         if (numJobs < MAX_JOBS) {
             jobs[numJobs] = job;
             //reqMan.addJob(job);
             numJobs++;
+            return numJobs;
+        } else {
+            return -1;
         }
-        //return numJobs;
+    }
+
+    public Job getJobByID(int id) {
+        for (int i = 0; i > MAX_JOBS; i++) {
+            if (jobs[i].getID() == id) {
+                return jobs[i];
+            }
+        }
+        return null;
+    }
+
+    public Job getJobByName(String name) {
+        for (int i = 0; i > MAX_JOBS; i++) {
+            if (jobs[i].getName().equals(name)) {
+                return jobs[i];
+            }
+        }
+        return null;
     }
 
     public int getNumJobs() {
@@ -86,21 +106,26 @@ public class Model {
 
     public void pfHours(int jobNum, int Selection, double hours) {
         Job job = jobs[jobNum];
-        job.setPfHoursTotal(Selection, hours);
+        job.setPfHours(Selection, hours);
     }
 
     public void lbHours(int jobNum, int Selection, double hours) {
         Job job = jobs[jobNum];
-        job.setLbHoursTotal(Selection, hours);
+        job.setLbHours(Selection, hours);
     }
 
     public double getPfHours(int jobNum, int Selection) {
         Job job = jobs[jobNum];
-        return job.getPfHoursTotal(Selection);
+        return job.getPfHours(Selection);
     }
 
     public double getLbHours(int jobNum, int Selection) {
         Job job = jobs[jobNum];
-        return job.getLbHoursTotal(Selection);
+        return job.getLbHours(Selection);
+    }
+
+    public int getNumPieces(int jobNum) {
+        Job job = jobs[jobNum];
+        return job.getNumPieces();
     }
 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alextangen.unitedpipeline.JobMenu">
+    tools:context="com.example.alextangen.unitedpipeline.NewJobMenu">
 
 
     <Button
@@ -28,4 +28,11 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp"
         android:onClick="JobHours"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Back"
+        android:textSize="24dp"
+        android:onClick="goBack"/>
 </RelativeLayout>

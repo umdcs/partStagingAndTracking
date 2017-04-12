@@ -3,7 +3,6 @@ package com.example.alextangen.unitedpipeline;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +13,11 @@ public class NewJob extends AppCompatActivity {
     EditText whoFor;
     EditText howMany;
     Button carryOn;
+    Integer whichJobNumber;
+    String name;
+    int pieceCountInt;
+    Job currentJob;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +32,29 @@ public class NewJob extends AppCompatActivity {
     }
 
     public void nextActivity(View view) {
+        Intent intent = new Intent(this, NewJobMenu.class);
 
-        RequestManager reqMan = new RequestManager();
-        reqMan.addJob(new Job(2));
+        //intent.putExtra("who", whoFor.getText().toString());
+        //intent.putExtra("howMany", howMany.getText().toString());
 
-        Intent intent = new Intent(this, JobMenu.class);
+        //whichJobNumber = globs.getNumJobs();
 
-        intent.putExtra("who", whoFor.getText().toString());
-        intent.putExtra("howMany", howMany.getText().toString());
+        pieceCountInt = Integer.parseInt(howMany.getText().toString());
+        name = whoFor.getText().toString();
+
+        currentJob = new Job(pieceCountInt);
+        globs.addJob(currentJob);
+        whichJobNumber = globs.getNumJobs() - 1;
+        System.out.println("New Job");
+        System.out.println("At location number: " + whichJobNumber);
+        globs.setName(name, whichJobNumber);
+        globs.setNumPieces(pieceCountInt, whichJobNumber);
+        //currentJob = new Job(pieceCountInt);
+
+
+
+
+        intent.putExtra("whichJob", whichJobNumber.toString());
 
         startActivity(intent);
     }
