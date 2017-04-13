@@ -192,6 +192,21 @@ public class RequestManager {
                 /* Take resulting string from doInBackground & extract JSON object */
                 Log.d("Result: ", result);
                 JSONObject jsonData = new JSONObject(result);
+
+                //add function to notify presenter that job is complete if the whichRequest number is 1 (Get important info) or 2 (get Job by id)
+                /*
+                if(whichRequest == 1) {
+                    globs.notifiyUpdateInfo(result)
+                }
+                else if(whichRequest == 2) {
+                    Job job;
+                    job = gson.fromJson(result, Job.class)
+
+                    globs.notifyJobReceived(job);
+                }
+
+                 */
+
                 System.out.println("Json Data: " + jsonData.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
