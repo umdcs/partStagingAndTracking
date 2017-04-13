@@ -42,60 +42,57 @@ public class Job{
     public void setID(int id) { this.id = id; }
 
     public void setMaterialsReceived(int pieceNum) {
-        // all of these if statements need to be called by jobs, not by the pieces array
-        if(pieces[pieceNum].getMatlReceived() == false) {
-            pieces[pieceNum].setMatlRcvd(true);
-        }
-        else {
-            pieces[pieceNum].setMatlRcvd(false);
-        }
+        pieces[pieceNum].setMatlRcvd(true);
+        pieces[pieceNum].setStartFab(false);
+        pieces[pieceNum].setEndFab(false);
+        pieces[pieceNum].setxRay(false);
+        pieces[pieceNum].setStartCoat(false);
+        pieces[pieceNum].setEndCoat(false);
+        pieces[pieceNum].setShipRdy(false);
     }
     public void setStartedFab(int pieceNum) {
-        if((pieces[pieceNum].getStartFab() == false) && pieces[pieceNum].getMatlReceived() == true) {
+        if(pieces[pieceNum].getMatlReceived() == true) {
             pieces[pieceNum].setStartFab(true);
-        }
-        else {
-            pieces[pieceNum].setStartFab(false);
+            pieces[pieceNum].setEndFab(false);
+            pieces[pieceNum].setxRay(false);
+            pieces[pieceNum].setStartCoat(false);
+            pieces[pieceNum].setEndCoat(false);
+            pieces[pieceNum].setShipRdy(false);
         }
     }
     public void setFinishedFab(int pieceNum) {
-        if((pieces[pieceNum].getEndFab() == false) && pieces[pieceNum].getStartFab() == true) {
+        if(pieces[pieceNum].getStartFab() == true) {
             pieces[pieceNum].setEndFab(true);
-        }
-        else {
-            pieces[pieceNum].setEndFab(false);
+            pieces[pieceNum].setxRay(false);
+            pieces[pieceNum].setStartCoat(false);
+            pieces[pieceNum].setEndCoat(false);
+            pieces[pieceNum].setShipRdy(false);
         }
     }
     public void setXRayReady(int pieceNum) {
-        if((pieces[pieceNum].getXRay() == false) && pieces[pieceNum].getEndFab() == true) {
+        if(pieces[pieceNum].getEndFab() == true) {
             pieces[pieceNum].setxRay(true);
-        }
-        else {
-            pieces[pieceNum].setxRay(false);
+            pieces[pieceNum].setStartCoat(false);
+            pieces[pieceNum].setEndCoat(false);
+            pieces[pieceNum].setShipRdy(false);
         }
     }
     public void setStartedCoating(int pieceNum) {
-        if((pieces[pieceNum].getStartCoat() == false) && pieces[pieceNum].getXRay() == true) {
+        if (pieces[pieceNum].getXRay() == true) {
             pieces[pieceNum].setStartCoat(true);
-        }
-        else {
-            pieces[pieceNum].setStartCoat(false);
+            pieces[pieceNum].setEndCoat(false);
+            pieces[pieceNum].setShipRdy(false);
         }
     }
     public void setFinishedCoating(int pieceNum) {
-        if((pieces[pieceNum].getEndCoat() == false) && pieces[pieceNum].getStartCoat() == true) {
+        if(pieces[pieceNum].getStartCoat() == true) {
             pieces[pieceNum].setEndCoat(true);
-        }
-        else {
-            pieces[pieceNum].setEndCoat(false);
+            pieces[pieceNum].setShipRdy(false);
         }
     }
     public void setReadyToShip(int pieceNum) {
-        if((pieces[pieceNum].getShipRdy() == false) && pieces[pieceNum].getEndCoat() == true) {
+        if(pieces[pieceNum].getEndCoat() == true) {
             pieces[pieceNum].setShipRdy(true);
-        }
-        else {
-            pieces[pieceNum].setShipRdy(false);
         }
     }
 
