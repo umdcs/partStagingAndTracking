@@ -26,11 +26,14 @@ public class RequestManager {
 
     GlobalPresenter globs;
 
+    String[] gotFromServer;
+
     private Job job;
     String myURI = "http://10.0.0.2:8090";
 
     public RequestManager() {
         globs = globs.getInstance();
+        gotFromServer = new String[10];
     }
 
     public void getAllJobs() {
@@ -96,9 +99,15 @@ public class RequestManager {
         }
 
         new HTTPAsyncTask().execute("http://10.0.2.2:8090/updateJob", "POST", jobObject.toString());
-
-
     }
+
+    public void getImportantInfo() {
+        new HTTPAsyncTask().execute("http://10.0.2.2:8090/getImportantInfo", "GET");
+
+        //return
+    }
+
+
 
     /** Handles HTTP messages by using a separate thread */
     private class HTTPAsyncTask extends AsyncTask<String, Integer, String> {
@@ -181,8 +190,9 @@ public class RequestManager {
         protected void onPostExecute(String result) {
             try {
                 /* Take resulting string from doInBackground & extract JSON object */
+                Log.d("Result: ", result);
                 JSONObject jsonData = new JSONObject(result);
-                System.out.println("Json Data:  " + jsonData.toString());
+                System.out.println("Json Data: " + jsonData.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

@@ -34,6 +34,7 @@ public class ManagerChoice extends AppCompatActivity {
             }
 
             text.setText("Current Jobs: \n" + sb);
+            globs.getImportantInfo();
         }
 
         else {

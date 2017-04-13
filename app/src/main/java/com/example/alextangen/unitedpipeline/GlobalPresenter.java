@@ -82,5 +82,7 @@ class GlobalPresenter {
         requestManager.editJob(model.getJob(jobNumber));
     }
 
+    public void getImportantInfo() {requestManager.getImportantInfo();}
+
 }
 
