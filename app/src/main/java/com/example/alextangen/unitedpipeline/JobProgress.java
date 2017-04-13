@@ -64,17 +64,6 @@ public class JobProgress extends AppCompatActivity {
 
         whichJobNumber = Integer.parseInt(whichJob);
 
-        //whichJob = intent.getStringExtra("whichJob");
-        //System.out.println("Job number = " + whichJob);
-        //whichJobNumber = Integer.parseInt(whichJob);
-        //whichJobNumber = globs.getNumJobs() - 1;
-        //name = intent.getStringExtra("who");
-        //System.out.println("Name = " + name);
-        //pieceCount = intent.getStringExtra("howMany");
-        //pieceCountInt = Integer.parseInt(pieceCount);
-        //System.out.println("pieceCount = " + pieceCountInt);
-
-        //globs.getJob(whichJobNumber).getNumPieces();
         for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
             list.add("Piece # " + i);
         }

@@ -12,7 +12,6 @@ import java.io.Serializable;
 public class Job{
 
     private Piece[] pieces;
-    Boolean goodToGo;
 
     private String[] Names = new String[10];
     private String name;
@@ -46,71 +45,57 @@ public class Job{
         // all of these if statements need to be called by jobs, not by the pieces array
         if(pieces[pieceNum].getMatlReceived() == false) {
             pieces[pieceNum].setMatlRcvd(true);
-            goodToGo = true;
         }
         else {
             pieces[pieceNum].setMatlRcvd(false);
-            goodToGo = false;
         }
     }
     public void setStartedFab(int pieceNum) {
         if((pieces[pieceNum].getStartFab() == false) && pieces[pieceNum].getMatlReceived() == true) {
             pieces[pieceNum].setStartFab(true);
-            goodToGo = true;
         }
         else {
             pieces[pieceNum].setStartFab(false);
-            goodToGo = false;
         }
     }
     public void setFinishedFab(int pieceNum) {
         if((pieces[pieceNum].getEndFab() == false) && pieces[pieceNum].getStartFab() == true) {
             pieces[pieceNum].setEndFab(true);
-            goodToGo = true;
         }
         else {
             pieces[pieceNum].setEndFab(false);
-            goodToGo = false;
         }
     }
     public void setXRayReady(int pieceNum) {
         if((pieces[pieceNum].getXRay() == false) && pieces[pieceNum].getEndFab() == true) {
             pieces[pieceNum].setxRay(true);
-            goodToGo = true;
         }
         else {
             pieces[pieceNum].setxRay(false);
-            goodToGo = false;
         }
     }
     public void setStartedCoating(int pieceNum) {
         if((pieces[pieceNum].getStartCoat() == false) && pieces[pieceNum].getXRay() == true) {
             pieces[pieceNum].setStartCoat(true);
-            goodToGo = true;
         }
         else {
             pieces[pieceNum].setStartCoat(false);
-            goodToGo = false;
         }
     }
     public void setFinishedCoating(int pieceNum) {
         if((pieces[pieceNum].getEndCoat() == false) && pieces[pieceNum].getStartCoat() == true) {
             pieces[pieceNum].setEndCoat(true);
-            goodToGo = true;
         }
         else {
             pieces[pieceNum].setEndCoat(false);
-            goodToGo = false;
         }
     }
     public void setReadyToShip(int pieceNum) {
         if((pieces[pieceNum].getShipRdy() == false) && pieces[pieceNum].getEndCoat() == true) {
             pieces[pieceNum].setShipRdy(true);
-            goodToGo = true;
         }
         else {
             pieces[pieceNum].setShipRdy(false);
-            goodToGo = false;
         }
     }
 
