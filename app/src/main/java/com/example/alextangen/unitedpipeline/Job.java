@@ -14,7 +14,7 @@ public class Job{
     private Piece[] pieces;
     Boolean goodToGo;
 
-    private String[] Names = new String[10];
+    //private String[] Names = new String[10];
     private String name;
     private int id;
     //private int i = 0;

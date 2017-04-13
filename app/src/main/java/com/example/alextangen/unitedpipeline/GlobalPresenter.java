@@ -30,6 +30,8 @@ class GlobalPresenter {
     }
 
     public void addJob(Job job) { model.addJob(job); }
+    public void addJobToServer(Job job) { requestManager.addJob(job);}
+
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
 
     public int getNumJobs() { return model.getNumJobs(); }

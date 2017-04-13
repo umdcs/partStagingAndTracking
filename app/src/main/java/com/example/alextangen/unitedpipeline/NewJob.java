@@ -46,6 +46,7 @@ public class NewJob extends AppCompatActivity {
         currentJob.setName(whoFor.getText().toString());
         currentJob.setID(globs.getNumJobs());
         globs.addJob(currentJob);
+        globs.addJobToServer(currentJob);
         whichJobNumber = globs.getNumJobs() - 1;
         System.out.println("New Job");
         System.out.println("At location number: " + whichJobNumber);

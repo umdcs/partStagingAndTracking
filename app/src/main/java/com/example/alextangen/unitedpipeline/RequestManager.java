@@ -76,7 +76,8 @@ public class RequestManager {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        new HTTPAsyncTask().execute("http://131.212.41.37:8090/addJob", "POST", jsonJob.toString());
+        //new HTTPAsyncTask().execute("http://131.212.41.37:8090/addJob", "POST", jsonJob.toString());
+        new HTTPAsyncTask().execute("http://10.0.2.2:8090/addJob", "POST", jsonJob.toString());
     }
 
     /** Handles HTTP messages by using a separate thread */
