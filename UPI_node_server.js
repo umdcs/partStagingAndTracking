@@ -4,7 +4,10 @@
 
 var jobsArray = [];
 
-var jobsInfoArray = [];
+var jobsInfoArray = { 
+    'lastUpdated' : 0,
+    'jobArray' : []
+}
 
 var express = require('express');
 
@@ -92,30 +95,31 @@ app.post('/importantInfo', function(request,response) {
     //var aJob = request.body.Job;
 
     var info = {"name" : request.body.name, "ID" : request.body.ID}
-    jobsInfoArray.push(info);
+    jobsInfoArray.jobArray.push(info);
 
-    response.write("Success");
+    //response.write("Success");
     console.log('Pushed Name and ID onto jobsInfoArray');
     response.end();
 });
 
 app.get('/getImportantInfo', function(request,response) {
-    
+    /*
     response.writeHead(200, {'Content-Type': 'text/html'});
     
     response.write('<!DOCTYPE html><head><title>Job Information</title></head><body>');
     response.write('<H1>Names and Numbers</H1>');
     response.write('JSON Data:');
     
-    /* You could output any JavaScript data here... */
+    /* You could output any JavaScript data here... *
     response.write(JSON.stringify(jobsInfoArray));
-    response.write('</body></html>');
+    response.write('</body></html>'); */
     
-    
+    //response.send(jobsInfoArray);
     //response.write(jobsInfoArray); 
 
     console.log('Received request to get important job information');
-    response.end();
+    response.json(jobsInfoArray);
+    //response.end();
 });
 
 app.post('/updateJob', function(request, response) {
