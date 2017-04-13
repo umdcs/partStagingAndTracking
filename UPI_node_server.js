@@ -122,7 +122,7 @@ app.post('/updateJob', function(request, response) {
     if(!request.body) return res.sendStatus(400);
 
     var update = request.body.Job;
-    var indexToUpdate = request.body.Index;
+    var indexToUpdate = request.body.ID;
 
     jobsArray[indexToUpdate] = update;
 
