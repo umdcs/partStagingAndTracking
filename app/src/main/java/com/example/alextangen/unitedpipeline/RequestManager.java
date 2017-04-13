@@ -24,12 +24,13 @@ import java.net.URL;
 
 public class RequestManager {
 
-    //GlobalPresenter globs;
+    GlobalPresenter globs;
 
     private Job job;
+    String myURI = "http://10.0.0.2:8090";
 
     public RequestManager() {
-        //globs = globs.getInstance();
+        globs = globs.getInstance();
     }
 
     public void getAllJobs() {
@@ -47,14 +48,14 @@ public class RequestManager {
         System.out.println("Name = " + name);
         //String name = globs.getName(jobNum);
         //String uri = "http://131.212.41.37:8090/importantInfo/";
-        String uri = "http://10.0.0.2:8090/importantInfo";
+        String uri = "http://10.0.2.2:8090/importantInfo";
         Integer ID = job.getID();
         JSONObject jsonInfo = new JSONObject();
         Gson gson = new Gson();
         String importantString = gson.toJson(job);
         try {
             jsonInfo.put("name", name);
-            jsonInfo.put("ID", ID);
+            jsonInfo.put("ID", ID.toString());
         }
         catch (JSONException e) {
             e.printStackTrace();
@@ -134,12 +135,15 @@ public class RequestManager {
                 while ((line = br.readLine()) != null) {
                     sb.append(line);
                 }
+                System.out.println("sb = " + sb.toString());
                 return sb.toString();
 
             } catch (MalformedURLException e) {
+                System.out.println("MalformedURLException");
                 e.printStackTrace();
                 return null;
             } catch (IOException e) {
+                System.out.println("Had an IOExcpetion");
                 e.printStackTrace();
                 return null;
             } finally {
@@ -157,6 +161,7 @@ public class RequestManager {
             try {
                 /* Take resulting string from doInBackground & extract JSON object */
                 JSONObject jsonData = new JSONObject(result);
+                System.out.println("Json Data:  " + jsonData.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
