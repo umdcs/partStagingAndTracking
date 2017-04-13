@@ -26,10 +26,10 @@ public class JobProgress extends AppCompatActivity {
     Button startCoat;
     Button finishedCoat;
     Button readyShip;
-    String name;
-    String pieceCount;
-    int pieceCountInt;
-    int jobNumber;
+    //String name;
+    //String pieceCount;
+    //int pieceCountInt;
+    //int jobNumber;
     String whichJob;
     int whichJobNumber;
     int jobNum;
@@ -157,5 +157,15 @@ public class JobProgress extends AppCompatActivity {
             }
         });
 }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(this, NewJobMenu.class);
+        //intent.putExtra("who", name);
+        //intent.putExtra("howMany", pieceCount);
+
+        globs.serverEditJob(jobNum);
+
+        startActivity(intent);
+    }
 
 }

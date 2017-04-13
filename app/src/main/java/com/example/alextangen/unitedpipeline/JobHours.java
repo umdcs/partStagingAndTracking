@@ -31,9 +31,9 @@ public class JobHours extends AppCompatActivity {
     Button carryOn;
     double pfHours;
     double lbHours;
-    int pieceCountInt;
-    int jobNumber;
-    int whichJob = 0;
+    //int pieceCountInt;
+    //int jobNumber;
+    //int whichJob = 0;
     String whichJobString;
     int whichJobNumber;
     int jobNum;
@@ -126,6 +126,8 @@ public class JobHours extends AppCompatActivity {
         Intent intent = new Intent(this, NewJobMenu.class);
         //intent.putExtra("who", name);
         //intent.putExtra("howMany", pieceCount);
+
+        globs.serverEditJob(jobNum);
 
         startActivity(intent);
     }

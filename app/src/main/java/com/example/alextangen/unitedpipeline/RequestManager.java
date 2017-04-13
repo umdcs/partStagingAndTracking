@@ -55,7 +55,8 @@ public class RequestManager {
         String importantString = gson.toJson(job);
         try {
             jsonInfo.put("name", name);
-            jsonInfo.put("ID", ID.toString());
+            //jsonInfo.put("ID", ID.toString());
+            jsonInfo.put("ID", ID);
         }
         catch (JSONException e) {
             e.printStackTrace();
@@ -78,6 +79,25 @@ public class RequestManager {
         }
         //new HTTPAsyncTask().execute("http://131.212.41.37:8090/addJob", "POST", jsonJob.toString());
         new HTTPAsyncTask().execute("http://10.0.2.2:8090/addJob", "POST", jsonJob.toString());
+    }
+
+    public void editJob(Job job) {
+        Integer ID = job.getID();
+        JSONObject jobObject = null;
+        Gson gson = new Gson();
+        String jobString = gson.toJson(job);
+        Log.d("DEBUG", jobString);
+        try {
+            jobObject = new JSONObject();
+            jobObject.put("Job", jobString);
+            jobObject.put("ID", ID);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        new HTTPAsyncTask().execute("http://10.0.2.2:8090/updateJob", "POST", jobObject.toString());
+
+
     }
 
     /** Handles HTTP messages by using a separate thread */
