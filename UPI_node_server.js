@@ -4,7 +4,7 @@
 
 var jobsArray = [];
 
-var jobsInfoArray = { 
+var jobsInfoArray = {
     'lastUpdated' : 0,
     'jobArray' : []
 }
@@ -25,17 +25,22 @@ app.use(bodyParser.json()); // support json encoded bodies
 
 app.get('/', function(request, response) {
     response.writeHead(200, {'Content-Type': 'text/html'});
-    
-    response.write('<!DOCTYPE html><head><title>Basic Manager Dashboard</title></head><body>');
+
+    response.write('<!DOCTYPE html><head><title>Dashboard</title></head><body>');
     response.write('<H1>Manager Dashboard</H1>');
-    response.write('JSON Data:');
-    
+    response.write('Current Jobs:');
+    response.write('<script language="javascript" type="text/javascript">');
+    response.write('for(var i = 0; i < jobsInfoArray.length; i++) { document.write("Job " +i+ ": name: " +jobsInfoArray.jobArray[i].name+ "<br />");}');
+    response.write('</script>');
+    response.write('</body><html>');
+    //response.write('JSON Data:');
+
     /* You could output any JavaScript data here... */
-    response.write(JSON.stringify(jobsArray, null, 4));
-    response.write('</body></html>');
-    
+    //response.write(JSON.stringify(jobsArray, null, 4));
+    //response.write('</body></html>');
+
     response.end();
-   
+
     console.log('Received dashboard request!');
 });
 
@@ -62,7 +67,7 @@ app.get('/getJobByID', function(request, response) {
 app.get('/getJobInfo', function(request, response) {
     var jobsInfoArray = [];
     var jobInfo;
-    
+
     for(var i = 0; i < jobsArray.length; ++i) {
 	jobInfo = { "jobID" : "", "jobName" : "" };
 	jobsInfoArray.push[jobInfo];
@@ -76,17 +81,17 @@ app.get('/getJobInfo', function(request, response) {
 
 app.post('/addJob', function(request, response) {
     if(!request.body) return res.sendStatus(400);
-    
+
     var aJob = request.body.Job;
     jobsArray.push(aJob);
-    
+
     console.log('Received a post request for adding a job!');
     response.end();
 });
 
 
 /* updateJob will be sent a Job to update, and an index
-   where this job is located (to be updated). From this, 
+   where this job is located (to be updated). From this,
    the job can be updated easily without touching other data */
 
 app.post('/importantInfo', function(request,response) {
@@ -105,17 +110,17 @@ app.post('/importantInfo', function(request,response) {
 app.get('/getImportantInfo', function(request,response) {
     /*
     response.writeHead(200, {'Content-Type': 'text/html'});
-    
+
     response.write('<!DOCTYPE html><head><title>Job Information</title></head><body>');
     response.write('<H1>Names and Numbers</H1>');
     response.write('JSON Data:');
-    
+
     /* You could output any JavaScript data here... *
     response.write(JSON.stringify(jobsInfoArray));
     response.write('</body></html>'); */
-    
+
     //response.send(jobsInfoArray);
-    //response.write(jobsInfoArray); 
+    //response.write(jobsInfoArray);
 
     console.log('Received request to get important job information');
     response.json(jobsInfoArray);
