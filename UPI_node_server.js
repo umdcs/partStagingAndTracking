@@ -45,9 +45,25 @@ app.get('/getAllJobs', function(request, response) {
     response.end();
 });
 
+/* getJobByID should take in one paramater, the ID, and search through the jobsInfoArray
+   to find find the array element that we wish to find, from there it should take that index
+   and grab the job (the same index) from the jobsArray. That data should then be written as
+   a JSON string and sent back to the application. */
 app.get('/getJobByID', function(request, response) {
     //An ID should be sent up with request, so a specific job can be grabbed
     //Then send back the job corresponding to the ID
+/*
+	for(int i=0; i<jobsInfoArray.length(); i++) {
+	if(jobsInfoArray.getID(i) == (Parameter that comes in)) {
+	response.write(jobsArray[i];
+	OR
+	response.send(jobsArray[i];
+	console.log('Found job')
+	}
+	}
+	response.send('Job not found');
+	response.end();
+ */
     response.send(jobsArray[0]); //0 for now, will search for job ID later
     console.log('Received a get request for a job by ID!');
     response.end();
