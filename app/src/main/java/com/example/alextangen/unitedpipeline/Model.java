@@ -20,7 +20,7 @@ public class Model {
     public Model() {
         jobs = new Job[MAX_JOBS];
         numJobs = 0;
-        reqMan = new RequestManager();
+        //reqMan = new RequestManager();
     }
 
     // public methods to create/store/update/access jobs;
