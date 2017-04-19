@@ -14,6 +14,29 @@
         android:textAlignment="center" />
 
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:indeterminate="false"
+        android:maxHeight="75dp"
+        android:minHeight="50dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:progressTint="@color/maroon"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tracker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingTop="25dp"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/matRec"
@@ -70,29 +93,5 @@
         android:textColor="@color/white"
         android:text="Ready to Ship"
         android:textSize="20sp" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminate="false"
-        android:maxHeight="75dp"
-        android:minHeight="50dp"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:progressTint="@color/maroon"
-        android:visibility="visible"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/tracker"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:paddingRight="50dp"
-        android:paddingLeft="50dp"
-        android:paddingTop="25dp"
-        android:textSize="16sp"/>
 
 </LinearLayout>
