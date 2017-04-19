@@ -19,6 +19,7 @@
         android:id="@+id/matRec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Materials Recieved"
         android:textSize="20sp" />
 
@@ -26,6 +27,7 @@
         android:id="@+id/sFab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Started Fab"
         android:textSize="20sp" />
 
@@ -33,6 +35,7 @@
         android:id="@+id/eFab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Finished Fab"
         android:textSize="20sp" />
 
@@ -40,6 +43,7 @@
         android:id="@+id/xray"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="xRay Ready"
         android:textSize="20sp" />
 
@@ -47,6 +51,7 @@
         android:id="@+id/scoat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Started Painting/Coating"
         android:textSize="20sp" />
 
@@ -54,6 +59,7 @@
         android:id="@+id/ecoat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Finshed Coating"
         android:textSize="20sp" />
 
@@ -61,6 +67,7 @@
         android:id="@+id/ship"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Ready to Ship"
         android:textSize="20sp" />
 
@@ -75,7 +82,7 @@
         android:paddingTop="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:progressTint="@android:color/holo_green_light"
+        android:progressTint="@color/maroon"
         android:visibility="visible"
         tools:visibility="visible" />
 

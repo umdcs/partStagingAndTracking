@@ -12,21 +12,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_23ee0f901a1d2ec185f5227058c7f85e4df4e776\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="7a1c071389f3912fc28e8dea25c3058e67de288f">
         <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_39de5880ade6f67bcce39c89c434bbda516401ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_23ee0f901a1d2ec185f5227058c7f85e4df4e776\classes.dex" />
     </item>
 
 </items>

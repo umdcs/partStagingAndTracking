@@ -11,6 +11,7 @@
         android:id="@+id/newJob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Add New Job"
         android:onClick="newJob"/>
 
@@ -36,6 +37,7 @@
         android:layout_below="@+id/viewer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Edit an existing job"
         android:onClick="existingJob" />
 
