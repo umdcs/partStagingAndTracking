@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void continueAsClient(View view) {
         // triggers new activity in the role of a client
+        Intent clientIntent = new Intent(this, ClientView.class);
+        startActivity(clientIntent);
     }
 
     public void continueAsManager(View view) {
         // triggers new activity in the role of a manager
-
-        //Intent managerIntent = new Intent(this, NewJob.class);
         Intent managerIntent = new Intent(this, ManagerChoice.class);
         startActivity(managerIntent);
     }
