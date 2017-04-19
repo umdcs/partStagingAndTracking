@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <EditText
+        android:id="@+id/job_selection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="@string/select_job"/>
+        android:hint="@string/select_job"/>
 
     <TextView
         android:id="@+id/job_list"
@@ -18,5 +19,11 @@
         android:maxLines="6"
         android:scrollbars="vertical"
         android:textSize="18sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Progress"
+        android:onClick="viewProgress"/>
 
 </LinearLayout>

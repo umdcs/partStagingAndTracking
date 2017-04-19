@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void continueAsClient(View view) {
         // triggers new activity in the role of a client
+        System.out.println("LOG: Inside continueAsClient");
         Intent clientIntent = new Intent(this, ClientView.class);
+        System.out.println("LOG: Intent created");
         startActivity(clientIntent);
     }
 

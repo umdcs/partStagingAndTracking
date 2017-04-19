@@ -17,12 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ClientView" />
         <activity android:name=".NewJob" />
         <activity android:name=".NewJobMenu" />
         <activity android:name=".JobProgress" />
         <activity android:name=".JobHours" />
         <activity android:name=".ManagerChoice" />
-        <activity android:name=".EditJobMenu"></activity>
+        <activity android:name=".EditJobMenu">
+        </activity>
     </application>
 
 </manifest>

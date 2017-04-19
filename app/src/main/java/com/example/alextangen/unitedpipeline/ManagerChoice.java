@@ -40,9 +40,6 @@ public class ManagerChoice extends AppCompatActivity {
             text.setText("No jobs to display");
         }
 
-        //whichJob = editor.getText().toString();
-        //System.out.println("whichJob = " + whichJob);
-
     }
 
     public void newJob(View view) {
