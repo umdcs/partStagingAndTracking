@@ -21,6 +21,7 @@
         <activity android:name=".NewJob" />
         <activity android:name=".NewJobMenu" />
         <activity android:name=".JobProgress" />
+        <activity android:name=".JobProgressClient" />
         <activity android:name=".JobHours" />
         <activity android:name=".ManagerChoice" />
         <activity android:name=".EditJobMenu">
