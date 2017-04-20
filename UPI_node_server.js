@@ -5,7 +5,8 @@
 var jobsArray = [];
 
 var jobsInfoArray = { 
-    'lastUpdated' : 0,
+    //'lastUpdated' : 0,
+    //'host' : 'UPI',
     'jobArray' : []
 }
 
@@ -40,7 +41,9 @@ app.get('/', function(request, response) {
 });
 
 app.get('/getAllJobs', function(request, response) {
-    response.send(jobsArray);
+    if(!request.body) return res.sendStatus(400);
+
+    response.send(jobsArray.length);
     console.log('Received a get request for all jobs!');
     response.end();
 });
@@ -49,7 +52,7 @@ app.get('/getAllJobs', function(request, response) {
    to find find the array element that we wish to find, from there it should take that index
    and grab the job (the same index) from the jobsArray. That data should then be written as
    a JSON string and sent back to the application. */
-app.get('/getJobByID', function(request, response) {
+app.get('/getJobByID/:idNumber', function(request, response) {
     //An ID should be sent up with request, so a specific job can be grabbed
     //Then send back the job corresponding to the ID
 /*
@@ -64,7 +67,9 @@ app.get('/getJobByID', function(request, response) {
 	response.send('Job not found');
 	response.end();
  */
-    response.send(jobsArray[0]); //0 for now, will search for job ID later
+    if(!request.body) return res.sendStatus(400);
+    var id = request.params.idNumber;
+    response.send(jobsArray[id]); 
     console.log('Received a get request for a job by ID!');
     response.end();
 });
@@ -110,8 +115,10 @@ app.post('/importantInfo', function(request,response) {
 
     //var aJob = request.body.Job;
 
-    var info = {"name" : request.body.name, "ID" : request.body.ID}
+    //var info = {"name" : request.body.name, "ID" : request.body.ID}
+    var info = {"name" : request.body.name, "ID" : request.body.ID};
     jobsInfoArray.jobArray.push(info);
+    //lastUpdated++;
 
     //response.write("Success");
     console.log('Pushed Name and ID onto jobsInfoArray');
@@ -135,6 +142,7 @@ app.get('/getImportantInfo', function(request,response) {
 
     console.log('Received request to get important job information');
     response.json(jobsInfoArray);
+    //response.send(jobsInfoArray);
     //response.end();
 });
 
