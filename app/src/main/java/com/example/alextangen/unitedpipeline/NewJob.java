@@ -76,7 +76,7 @@ public class NewJob extends AppCompatActivity {
         //globs.setNumPieces(pieceCountInt, whichJobNumber);
         //currentJob = new Job(pieceCountInt);
 
-        globs.postImportantStuff(whichJobNumber);
+        globs.postImportantStuff(currentJob);
 
 
         System.out.println("Attempting to get job from server");

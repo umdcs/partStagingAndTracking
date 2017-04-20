@@ -118,8 +118,8 @@ class GlobalPresenter {
     }
 
     //Server Communication stuff
-    public void postImportantStuff(int jobNumber) {
-        requestManager.postImportantInformation(model.getJob(jobNumber));
+    public void postImportantStuff(Job currentJob) {
+        requestManager.postImportantInformation(currentJob);
         //requestManager.postImportantInformation(jobNumber);
     }
 
@@ -137,7 +137,7 @@ class GlobalPresenter {
     public void notifyJobReceived(Job job) {
         if(job != null) {
             System.out.println("Received a job from the server");
-            editJobMenu.setCurrentJob(job);
+            //editJobMenu.setCurrentJob(job);
             currentJob = job;
             //jobProgress.CurrentJobProgress(job);
         }

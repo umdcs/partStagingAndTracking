@@ -62,7 +62,7 @@ public class JobHours extends AppCompatActivity {
 
         whichJobString = intent.getStringExtra("whichJob");
 
-        whichJobNumber = Integer.parseInt(whichJobString);
+        //whichJobNumber = Integer.parseInt(whichJobString);
 
         //whichJobString = intent.getStringExtra("whichJob");
         //whichJobNumber = Integer.parseInt(whichJobString);
@@ -90,7 +90,8 @@ public class JobHours extends AppCompatActivity {
         spins = (Spinner) findViewById(R.id.spins);
         spins.setAdapter(spinnerArrayAdapter);
 
-        jobNum = whichJobNumber;
+        //jobNum = whichJobNumber;
+        jobNum = 0;
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

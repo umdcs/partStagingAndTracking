@@ -41,26 +41,28 @@ public class RequestManager {
     public void getAllJobs() {
         whichRequest = 3;
         //System.out.println("Now in the requestManager getAllJobs function");
-        //new HTTPAsyncTask().execute("http://131.212.41.37:8090/getAllJobs", "GET");
-        new HTTPAsyncTask().execute("http://10.0.2.2:8090/getAllJobs", "GET");
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/getAllJobs", "GET");
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/getAllJobs", "GET");
     }
 
     public void getJobByID(int id) {
         whichRequest = 2;
-        //String uri = "http://131.212.41.37:8090/getJobByID/".concat(Integer.toString(id));
-        String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
     public void getJobByIdProgress(int id) {
         //whichRequest = 3;
-        String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
     public void getJobByIdHours(int id) {
         //whichRequest = 4;
-        String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
@@ -71,8 +73,8 @@ public class RequestManager {
         String name = job.getName();
         System.out.println("Name = " + name);
         //String name = globs.getName(jobNum);
-        //String uri = "http://131.212.41.37:8090/importantInfo/";
-        String uri = "http://10.0.2.2:8090/importantInfo";
+        String uri = "http://131.212.41.37:3316/importantInfo/";
+        //String uri = "http://10.0.2.2:8090/importantInfo";
         Integer ID = job.getID();
         JSONObject jsonInfo = null;
         Gson gson = new Gson();
@@ -103,8 +105,8 @@ public class RequestManager {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //new HTTPAsyncTask().execute("http://131.212.41.37:8090/addJob", "POST", jsonJob.toString());
-        new HTTPAsyncTask().execute("http://10.0.2.2:8090/addJob", "POST", jsonJob.toString());
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/addJob", "POST", jsonJob.toString());
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/addJob", "POST", jsonJob.toString());
     }
 
     public void editJob(Job job) {
@@ -122,13 +124,15 @@ public class RequestManager {
             e.printStackTrace();
         }
 
-        new HTTPAsyncTask().execute("http://10.0.2.2:8090/updateJob", "POST", jobObject.toString());
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/updateJob", "POST", jobObject.toString());
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/updateJob", "POST", jobObject.toString());
+
     }
 
     public void getImportantInfo() {
         whichRequest = 1;
-        new HTTPAsyncTask().execute("http://10.0.2.2:8090/getImportantInfo", "GET");
-
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/getImportantInfo", "GET");
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/getImportantInfo", "GET");
         //return
     }
 
@@ -219,8 +223,7 @@ public class RequestManager {
                 globs = globs.getInstance();
                 System.out.println("\n \n \n \n \n ");
                 Log.d("Result: ", result);
-                JSONObject jsonData = new JSONObject(result);
-
+                //JSONObject jsonData = new JSONObject(result);
                 //add function to notify presenter that job is complete if the whichRequest number is 1 (Get important info) or 2 (get Job by id)
 
                 if(whichRequest == 1 && result != null) {
@@ -241,8 +244,8 @@ public class RequestManager {
                 }
 
 
-                System.out.println("Json Data: " + jsonData.toString());
-            } catch (JSONException e) {
+                //System.out.println("Json Data: " + jsonData.toString());
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
