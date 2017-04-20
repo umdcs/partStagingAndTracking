@@ -53,6 +53,8 @@ public class JobHours extends AppCompatActivity {
 
         globs = globs.getInstance();
 
+        currentJob = globs.getCurrentJob();
+
         setJobHours();
 
         Intent intent = getIntent();
@@ -73,9 +75,9 @@ public class JobHours extends AppCompatActivity {
 
         //currentJob = globs.getJob(whichJobNumber);
 
-        System.out.println("Attempting to get job from server for Hours");
-        globs.getJobFromServerForProgress(whichJobNumber);
-        System.out.println("Didn't fail getting job");
+        //System.out.println("Attempting to get job from server for Hours");
+        //globs.getJobFromServerForProgress(whichJobNumber);
+        //System.out.println("Didn't fail getting job");
 
 
         //for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
@@ -133,17 +135,19 @@ public class JobHours extends AppCompatActivity {
         globs.setJobH(this);
     }
 
+    /*
     public void CurrentJobHours(Job job) {
         System.out.println("Received a job from the presenter");
         currentJob = job;
     }
+    */
 
     public void goBack(View view) {
         Intent intent = new Intent(this, NewJobMenu.class);
         //intent.putExtra("who", name);
         //intent.putExtra("howMany", pieceCount);
 
-        globs.serverEditJob(jobNum);
+        globs.serverEditJob(currentJob);
 
         startActivity(intent);
     }

@@ -21,6 +21,8 @@ class GlobalPresenter {
 
     private Model model;
 
+    private Job currentJob;
+
     private RequestManager requestManager;
 
     String[] Names = new String[10];
@@ -108,8 +110,8 @@ class GlobalPresenter {
         //requestManager.postImportantInformation(jobNumber);
     }
 
-    public void serverEditJob(int jobNumber) {
-        requestManager.editJob(model.getJob(jobNumber));
+    public void serverEditJob(Job currentJob) {
+        requestManager.editJob(currentJob);
     }
 
     public void getImportantInfo() {requestManager.getImportantInfo();}
@@ -123,10 +125,17 @@ class GlobalPresenter {
         if(job != null) {
             System.out.println("Received a job from the server");
             editJobMenu.setCurrentJob(job);
+            currentJob = job;
             //jobProgress.CurrentJobProgress(job);
         }
     }
 
+    public Job getCurrentJob() {
+        model.setCurrentJob(currentJob);
+        return currentJob;
+    }
+
+    /*
     public void notifyJobProgressReceived(Job job) {
         if(job != null) {
             System.out.println("Received a job for jobProgress");
@@ -140,6 +149,7 @@ class GlobalPresenter {
             jobHours.CurrentJobHours(job);
         }
     }
+    */
 
 
 

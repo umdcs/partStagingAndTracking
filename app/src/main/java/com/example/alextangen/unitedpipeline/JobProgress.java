@@ -55,6 +55,8 @@ public class JobProgress extends AppCompatActivity {
 
         globs = GlobalPresenter.getInstance();
 
+        currentJob = globs.getCurrentJob();
+
         setJobProgress();
         //currentJob = globs.getJob(0);
 
@@ -66,9 +68,9 @@ public class JobProgress extends AppCompatActivity {
 
         whichJobNumber = Integer.parseInt(whichJob);
 
-        System.out.println("Attempting to get job from server");
-        globs.getJobFromServerForProgress(whichJobNumber);
-        System.out.println("Didn't fail getting job");
+        //System.out.println("Attempting to get job from server");
+        //globs.getJobFromServerForProgress(whichJobNumber);
+        //System.out.println("Didn't fail getting job");
 ;
         //for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
         System.out.println("Current Job pieces = " + currentJob.getNumPieces());
@@ -82,6 +84,7 @@ public class JobProgress extends AppCompatActivity {
         spins.setAdapter(spinnerArrayAdapter);
 
         jobNum = whichJobNumber;
+        System.out.println("jobNum = " + jobNum);
         //currentJob = globs.getJob(jobNum);
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -160,7 +163,9 @@ public class JobProgress extends AppCompatActivity {
         //intent.putExtra("who", name);
         //intent.putExtra("howMany", pieceCount);
 
-        globs.serverEditJob(jobNum);
+        System.out.println("jobNum in post function = " + jobNum);
+
+        globs.serverEditJob(globs.getCurrentJob());
 
         startActivity(intent);
     }
@@ -168,10 +173,11 @@ public class JobProgress extends AppCompatActivity {
     public void setJobProgress() {
         globs.setJobP(this);
     }
-
+    /*
     public void CurrentJobProgress(Job job) {
         System.out.println("Received a job from the presenter");
         currentJob = job;
     }
+    */
 
 }

@@ -231,6 +231,7 @@ public class RequestManager {
                     globs.notifyJobReceived(job);
                 }
 
+                /*
                 else if(whichRequest == 3) {
                     Job job;
                     Gson gson = new Gson();
@@ -246,6 +247,7 @@ public class RequestManager {
 
                     globs.notifyJobHoursReceived(job);
                 }
+                */
 
 
                 System.out.println("Json Data: " + jsonData.toString());
