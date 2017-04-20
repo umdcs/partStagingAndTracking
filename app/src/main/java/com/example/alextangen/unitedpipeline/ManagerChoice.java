@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ManagerChoice extends AppCompatActivity {
 
     GlobalPresenter globs;
@@ -14,6 +17,8 @@ public class ManagerChoice extends AppCompatActivity {
     EditText editor;
     String whichJob;
     StringBuilder sb;
+    String name;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +29,12 @@ public class ManagerChoice extends AppCompatActivity {
         editor = (EditText) findViewById(R.id.editor);
         sb = new StringBuilder();
 
+        globs.setManagerChoice(this);
 
+        globs.getImportantInfo();
+
+
+        /*
         if(globs.getNumJobs() > 0) {
 
             for (int m = 0; m < globs.getNumJobs(); m++) {
@@ -40,10 +50,24 @@ public class ManagerChoice extends AppCompatActivity {
         else {
             text.setText("No jobs to display");
         }
+        */
 
         //whichJob = editor.getText().toString();
         //System.out.println("whichJob = " + whichJob);
 
+    }
+
+    public void setJobsText(String result) {
+        try {
+            JSONObject jsonData = new JSONObject(result);
+            name = jsonData.optString("name");
+            id = jsonData.optString("ID");
+            //text.setText("Name: " + name + "ID: " + id);
+        }
+        catch(JSONException e) {
+            e.printStackTrace();
+        }
+        text.setText(result);
     }
 
     public void newJob(View view) {

@@ -11,6 +11,8 @@ import android.widget.TextView;
 class GlobalPresenter {
     private static final GlobalPresenter ourInstance = new GlobalPresenter();
 
+    private ManagerChoice managerChoice;
+
     private Model model;
 
     private RequestManager requestManager;
@@ -72,6 +74,9 @@ class GlobalPresenter {
 
 
 
+    public void setManagerChoice(ManagerChoice manChoice) {
+        managerChoice = manChoice;
+    }
     //Server Communication stuff
     public void postImportantStuff(int jobNumber) {
         requestManager.postImportantInformation(model.getJob(jobNumber));
@@ -86,6 +91,7 @@ class GlobalPresenter {
 
     public void notifyUpdateInfo(String result) {
         System.out.println("Now in the notifyUpdateInfo function, Result = " + result);
+        managerChoice.setJobsText(result);
     }
 
 
