@@ -53,6 +53,8 @@ public class JobHours extends AppCompatActivity {
 
         globs = globs.getInstance();
 
+        setJobHours();
+
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
 
@@ -71,8 +73,13 @@ public class JobHours extends AppCompatActivity {
 
         //currentJob = globs.getJob(whichJobNumber);
 
+        System.out.println("Attempting to get job from server for Hours");
+        globs.getJobFromServerForProgress(whichJobNumber);
+        System.out.println("Didn't fail getting job");
 
-        for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
+
+        //for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
+        for (int i = 0; i < currentJob.getNumPieces(); i++) {
             list.add("Piece # " + i);
         }
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
@@ -120,6 +127,15 @@ public class JobHours extends AppCompatActivity {
 
         //startActivity(intent);
 
+    }
+
+    public void setJobHours() {
+        globs.setJobH(this);
+    }
+
+    public void CurrentJobHours(Job job) {
+        System.out.println("Received a job from the presenter");
+        currentJob = job;
     }
 
     public void goBack(View view) {

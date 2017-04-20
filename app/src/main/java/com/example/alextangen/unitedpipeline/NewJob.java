@@ -50,8 +50,8 @@ public class NewJob extends AppCompatActivity {
         whichJobNumber = globs.getNumJobs() - 1;
         System.out.println("New Job");
         System.out.println("At location number: " + whichJobNumber);
-        globs.setName(name, whichJobNumber);
-        globs.setNumPieces(pieceCountInt, whichJobNumber);
+        //globs.setName(name, whichJobNumber);
+        //globs.setNumPieces(pieceCountInt, whichJobNumber);
         //currentJob = new Job(pieceCountInt);
         globs.postImportantStuff(whichJobNumber);
 

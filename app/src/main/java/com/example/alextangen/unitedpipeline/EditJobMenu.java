@@ -25,6 +25,7 @@ public class EditJobMenu extends AppCompatActivity {
         Intent intent = getIntent();
 
         globs = globs.getInstance();
+        setEditJobMenu();
 
         whichJobString = intent.getStringExtra("whichJob");
         System.out.println(whichJobString);
@@ -32,8 +33,22 @@ public class EditJobMenu extends AppCompatActivity {
 
         currentJob = globs.getJob(whichJobNumber);
 
+        System.out.println("Attempting to get job from server");
+        globs.getJobFromServer(whichJobNumber);
+        System.out.println("Didn't fail getting job");
+
         whichJobString = whichJobNumber.toString();
     }
+
+    public void setEditJobMenu() {
+        globs.setEditJob(this);
+    }
+
+    public void setCurrentJob(Job job) {
+        System.out.println("Received a job from the presenter");
+        currentJob = job;
+    }
+
 
     public void JobProgress(View view) {
         Intent intent = new Intent(this, JobProgress.class);

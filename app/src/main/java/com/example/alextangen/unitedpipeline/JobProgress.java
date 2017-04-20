@@ -54,6 +54,8 @@ public class JobProgress extends AppCompatActivity {
         readyShip = (Button) findViewById(R.id.ship);
 
         globs = GlobalPresenter.getInstance();
+
+        setJobProgress();
         //currentJob = globs.getJob(0);
 
 
@@ -64,18 +66,13 @@ public class JobProgress extends AppCompatActivity {
 
         whichJobNumber = Integer.parseInt(whichJob);
 
-        //whichJob = intent.getStringExtra("whichJob");
-        //System.out.println("Job number = " + whichJob);
-        //whichJobNumber = Integer.parseInt(whichJob);
-        //whichJobNumber = globs.getNumJobs() - 1;
-        //name = intent.getStringExtra("who");
-        //System.out.println("Name = " + name);
-        //pieceCount = intent.getStringExtra("howMany");
-        //pieceCountInt = Integer.parseInt(pieceCount);
-        //System.out.println("pieceCount = " + pieceCountInt);
-
-        //globs.getJob(whichJobNumber).getNumPieces();
-        for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
+        System.out.println("Attempting to get job from server");
+        globs.getJobFromServerForProgress(whichJobNumber);
+        System.out.println("Didn't fail getting job");
+;
+        //for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
+        System.out.println("Current Job pieces = " + currentJob.getNumPieces());
+        for(int i = 0; i < currentJob.getNumPieces(); i++) {
             list.add("Piece # " + i);
         }
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
@@ -85,7 +82,7 @@ public class JobProgress extends AppCompatActivity {
         spins.setAdapter(spinnerArrayAdapter);
 
         jobNum = whichJobNumber;
-        currentJob = globs.getJob(jobNum);
+        //currentJob = globs.getJob(jobNum);
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -166,6 +163,15 @@ public class JobProgress extends AppCompatActivity {
         globs.serverEditJob(jobNum);
 
         startActivity(intent);
+    }
+
+    public void setJobProgress() {
+        globs.setJobP(this);
+    }
+
+    public void CurrentJobProgress(Job job) {
+        System.out.println("Received a job from the presenter");
+        currentJob = job;
     }
 
 }

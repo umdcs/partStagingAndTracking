@@ -13,6 +13,12 @@ class GlobalPresenter {
 
     private ManagerChoice managerChoice;
 
+    private EditJobMenu editJobMenu;
+
+    private JobProgress jobProgress;
+
+    private JobHours jobHours;
+
     private Model model;
 
     private RequestManager requestManager;
@@ -35,6 +41,12 @@ class GlobalPresenter {
     public void addJobToServer(Job job) { requestManager.addJob(job);}
 
     public Job getJob(int whichJob) { return model.getJob(whichJob);}
+
+    public void getJobFromServer(int whichJob) { requestManager.getJobByID(whichJob);}
+
+    public void getJobFromServerForProgress(int whichJob) { requestManager.getJobByIdProgress(whichJob);}
+
+    public void getJobFromServerForHours(int whichJob) { requestManager.getJobByIdHours(whichJob);}
 
     public int getNumJobs() { return model.getNumJobs(); }
 
@@ -77,6 +89,19 @@ class GlobalPresenter {
     public void setManagerChoice(ManagerChoice manChoice) {
         managerChoice = manChoice;
     }
+
+    public void setEditJob(EditJobMenu edits) {
+        editJobMenu = edits;
+    }
+
+    public void setJobP(JobProgress progress) {
+        jobProgress = progress;
+    }
+
+    public void setJobH(JobHours hours) {
+        jobHours = hours;
+    }
+
     //Server Communication stuff
     public void postImportantStuff(int jobNumber) {
         requestManager.postImportantInformation(model.getJob(jobNumber));
@@ -93,6 +118,29 @@ class GlobalPresenter {
         System.out.println("Now in the notifyUpdateInfo function, Result = " + result);
         managerChoice.setJobsText(result);
     }
+
+    public void notifyJobReceived(Job job) {
+        if(job != null) {
+            System.out.println("Received a job from the server");
+            editJobMenu.setCurrentJob(job);
+            //jobProgress.CurrentJobProgress(job);
+        }
+    }
+
+    public void notifyJobProgressReceived(Job job) {
+        if(job != null) {
+            System.out.println("Received a job for jobProgress");
+            jobProgress.CurrentJobProgress(job);
+        }
+    }
+
+    public void notifyJobHoursReceived(Job job) {
+        if(job != null) {
+            System.out.println("Received a job for jobHours");
+            jobHours.CurrentJobHours(job);
+        }
+    }
+
 
 
 }

@@ -44,7 +44,20 @@ public class RequestManager {
 
     public void getJobByID(int id) {
         whichRequest = 2;
-        String uri = "http://131.212.41.37:8090/getJobByID/".concat(Integer.toString(id));
+        //String uri = "http://131.212.41.37:8090/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
+        new HTTPAsyncTask().execute(uri, "GET");
+    }
+
+    public void getJobByIdProgress(int id) {
+        whichRequest = 3;
+        String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
+        new HTTPAsyncTask().execute(uri, "GET");
+    }
+
+    public void getJobByIdHours(int id) {
+        whichRequest = 4;
+        String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
@@ -209,15 +222,31 @@ public class RequestManager {
                 if(whichRequest == 1 && result != null) {
                     globs.notifyUpdateInfo(result);
                 }
-                /*
+
                 else if(whichRequest == 2) {
                     Job job;
-                    job = gson.fromJson(result, Job.class)
+                    Gson gson = new Gson();
+                    job = gson.fromJson(result, Job.class);
 
                     globs.notifyJobReceived(job);
                 }
 
-                 */
+                else if(whichRequest == 3) {
+                    Job job;
+                    Gson gson = new Gson();
+                    job = gson.fromJson(result, Job.class);
+
+                    globs.notifyJobProgressReceived(job);
+                }
+
+                else if(whichRequest == 4) {
+                    Job job;
+                    Gson gson = new Gson();
+                    job = gson.fromJson(result, Job.class);
+
+                    globs.notifyJobHoursReceived(job);
+                }
+
 
                 System.out.println("Json Data: " + jsonData.toString());
             } catch (JSONException e) {
