@@ -27,7 +27,7 @@ app.get('/', function(request, response) {
     response.writeHead(200, {'Content-Type': 'text/html'});
 
     response.write('<!DOCTYPE html><head><title>Dashboard</title></head><body>');
-    response.write('<H1>Manager Dashboard</H1>');
+    response.write('<H1><center>Manager Dashboard</center></H1>');
     response.write('Current Jobs:');
     response.write('<script language="javascript" type="text/javascript">');
     response.write('for(var i = 0; i < jobsInfoArray.length; i++) { document.write("Job " +i+ ": name: " +jobsInfoArray.jobArray[i].name+ "<br />");}');
