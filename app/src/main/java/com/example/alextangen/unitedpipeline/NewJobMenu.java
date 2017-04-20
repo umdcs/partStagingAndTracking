@@ -26,8 +26,9 @@ public class NewJobMenu extends AppCompatActivity {
 
         globs = globs.getInstance();
 
-        whichJobNumber = globs.getNumJobs() - 1;
-        whichJobString = whichJobNumber.toString();
+        whichJobString = intent.getStringExtra("whichJob");
+        //whichJobNumber = globs.getNumJobs() - 1;
+        //whichJobString = whichJobNumber.toString();
     }
 
     public void JobProgress(View view) {

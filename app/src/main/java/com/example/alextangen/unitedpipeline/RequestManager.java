@@ -39,7 +39,10 @@ public class RequestManager {
     }
 
     public void getAllJobs() {
-        new HTTPAsyncTask().execute("http://131.212.41.37:8090/getAllJobs", "GET");
+        whichRequest = 3;
+        System.out.println("Now in the requestManager getAllJobs function");
+        //new HTTPAsyncTask().execute("http://131.212.41.37:8090/getAllJobs", "GET");
+        new HTTPAsyncTask().execute("http://10.0.2.2:8090/getAllJobs/", "GET");
     }
 
     public void getJobByID(int id) {
@@ -50,13 +53,13 @@ public class RequestManager {
     }
 
     public void getJobByIdProgress(int id) {
-        whichRequest = 3;
+        //whichRequest = 3;
         String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
     public void getJobByIdHours(int id) {
-        whichRequest = 4;
+        //whichRequest = 4;
         String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
@@ -231,23 +234,10 @@ public class RequestManager {
                     globs.notifyJobReceived(job);
                 }
 
-                /*
                 else if(whichRequest == 3) {
-                    Job job;
-                    Gson gson = new Gson();
-                    job = gson.fromJson(result, Job.class);
-
-                    globs.notifyJobProgressReceived(job);
+                    System.out.println("Resulting number: " + result);
+                    globs.sendNumber(result);
                 }
-
-                else if(whichRequest == 4) {
-                    Job job;
-                    Gson gson = new Gson();
-                    job = gson.fromJson(result, Job.class);
-
-                    globs.notifyJobHoursReceived(job);
-                }
-                */
 
 
                 System.out.println("Json Data: " + jsonData.toString());

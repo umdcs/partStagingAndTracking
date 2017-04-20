@@ -31,7 +31,7 @@ public class EditJobMenu extends AppCompatActivity {
         System.out.println(whichJobString);
         whichJobNumber = Integer.parseInt(whichJobString);
 
-        currentJob = globs.getJob(whichJobNumber);
+        //currentJob = globs.getJob(whichJobNumber);
 
         System.out.println("Attempting to get job from server");
         globs.getJobFromServer(whichJobNumber);

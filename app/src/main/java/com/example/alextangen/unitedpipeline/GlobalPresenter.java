@@ -15,6 +15,8 @@ class GlobalPresenter {
 
     private EditJobMenu editJobMenu;
 
+    private NewJob thisNewJob;
+
     private JobProgress jobProgress;
 
     private JobHours jobHours;
@@ -50,7 +52,16 @@ class GlobalPresenter {
 
     public void getJobFromServerForHours(int whichJob) { requestManager.getJobByIdHours(whichJob);}
 
-    public int getNumJobs() { return model.getNumJobs(); }
+    public void getNumJobs() {
+        //return model.getNumJobs();
+        System.out.println("Now in the globs getNumJobs function");
+        requestManager.getAllJobs();
+    }
+
+    public void sendNumber(String nextPostion) {
+        System.out.println("Now in the sendNumber function. Position = " + nextPostion);
+        thisNewJob.neededID(nextPostion);
+    }
 
     public void setNumPieces(int m, int i) { pieceNumber[i] = m; }
         public int getNumPieces(int i) { return pieceNumber[i]; }
@@ -91,6 +102,8 @@ class GlobalPresenter {
     public void setManagerChoice(ManagerChoice manChoice) {
         managerChoice = manChoice;
     }
+
+    public void setNewJob(NewJob newJob) { thisNewJob = newJob;}
 
     public void setEditJob(EditJobMenu edits) {
         editJobMenu = edits;
