@@ -40,9 +40,9 @@ public class RequestManager {
 
     public void getAllJobs() {
         whichRequest = 3;
-        System.out.println("Now in the requestManager getAllJobs function");
+        //System.out.println("Now in the requestManager getAllJobs function");
         //new HTTPAsyncTask().execute("http://131.212.41.37:8090/getAllJobs", "GET");
-        new HTTPAsyncTask().execute("http://10.0.2.2:8090/getAllJobs/", "GET");
+        new HTTPAsyncTask().execute("http://10.0.2.2:8090/getAllJobs", "GET");
     }
 
     public void getJobByID(int id) {
@@ -199,6 +199,7 @@ public class RequestManager {
                 return null;
             } catch (IOException e) {
                 System.out.println("Had an IOExcpetion");
+                e.getMessage();
                 e.printStackTrace();
                 return null;
             } finally {
