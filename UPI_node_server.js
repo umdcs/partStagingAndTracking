@@ -4,10 +4,7 @@
 
 var jobsArray = [];
 
-var jobsInfoArray = {
-    'lastUpdated' : 0,
-    'jobArray' : []
-}
+var jobsInfoArray = [];
 
 var express = require('express');
 
@@ -101,7 +98,7 @@ app.post('/importantInfo', function(request,response) {
     //var aJob = request.body.Job;
 
     var info = {"name" : request.body.name, "ID" : request.body.ID}
-    jobsInfoArray.jobArray.push(info);
+    jobsInfoArray.push(info);
 
     //response.write("Success");
     console.log('Pushed Name and ID onto jobsInfoArray');
