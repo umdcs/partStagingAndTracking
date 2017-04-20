@@ -41,10 +41,9 @@ app.get('/', function(request, response) {
 });
 
 app.get('/getAllJobs', function(request, response) {
-    if(!request.body) return res.sendStatus(400);
-
-    response.send(jobsArray.length);
+    //if(!request.body) return res.sendStatus(400);
     console.log('Received a get request for all jobs!');
+    response.write(jobsArray.length);
     response.end();
 });
 
