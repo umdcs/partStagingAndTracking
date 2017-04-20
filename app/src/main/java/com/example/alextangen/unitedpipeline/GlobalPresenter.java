@@ -84,5 +84,10 @@ class GlobalPresenter {
 
     public void getImportantInfo() {requestManager.getImportantInfo();}
 
+    public void notifyUpdateInfo(String result) {
+        System.out.println("Now in the notifyUpdateInfo function, Result = " + result);
+    }
+
+
 }
 

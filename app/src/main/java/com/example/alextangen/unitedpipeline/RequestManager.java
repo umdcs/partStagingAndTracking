@@ -28,6 +28,8 @@ public class RequestManager {
 
     String[] gotFromServer;
 
+    int whichRequest;
+
     private Job job;
     String myURI = "http://10.0.0.2:8090";
 
@@ -41,24 +43,28 @@ public class RequestManager {
     }
 
     public void getJobByID(int id) {
+        whichRequest = 2;
         String uri = "http://131.212.41.37:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
     //public  void postImportantInformation(int jobNum) {
     public void postImportantInformation(Job job) {
+        whichRequest = 0;
+        System.out.println("Now in postImportantInformation");
         String name = job.getName();
         System.out.println("Name = " + name);
         //String name = globs.getName(jobNum);
         //String uri = "http://131.212.41.37:8090/importantInfo/";
         String uri = "http://10.0.2.2:8090/importantInfo";
         Integer ID = job.getID();
-        JSONObject jsonInfo = new JSONObject();
+        JSONObject jsonInfo = null;
         Gson gson = new Gson();
         String importantString = gson.toJson(job);
+        Log.d("Debug importantString: ", importantString);
         try {
+            jsonInfo = new JSONObject();
             jsonInfo.put("name", name);
-            //jsonInfo.put("ID", ID.toString());
             jsonInfo.put("ID", ID);
         }
         catch (JSONException e) {
@@ -70,6 +76,7 @@ public class RequestManager {
 
     public void addJob(Job job) {
         //globs = globs.getInstance();
+        whichRequest = 0;
         JSONObject jsonJob = null;
         Gson gson = new Gson();
         String jobString = gson.toJson(job);
@@ -85,6 +92,7 @@ public class RequestManager {
     }
 
     public void editJob(Job job) {
+        whichRequest = 0;
         Integer ID = job.getID();
         JSONObject jobObject = null;
         Gson gson = new Gson();
@@ -102,6 +110,7 @@ public class RequestManager {
     }
 
     public void getImportantInfo() {
+        whichRequest = 1;
         new HTTPAsyncTask().execute("http://10.0.2.2:8090/getImportantInfo", "GET");
 
         //return
@@ -190,14 +199,17 @@ public class RequestManager {
         protected void onPostExecute(String result) {
             try {
                 /* Take resulting string from doInBackground & extract JSON object */
+                globs = globs.getInstance();
+                System.out.println("\n \n \n \n \n ");
                 Log.d("Result: ", result);
                 JSONObject jsonData = new JSONObject(result);
 
                 //add function to notify presenter that job is complete if the whichRequest number is 1 (Get important info) or 2 (get Job by id)
-                /*
-                if(whichRequest == 1) {
-                    globs.notifiyUpdateInfo(result)
+
+                if(whichRequest == 1 && result != null) {
+                    globs.notifyUpdateInfo(result);
                 }
+                /*
                 else if(whichRequest == 2) {
                     Job job;
                     job = gson.fromJson(result, Job.class)
