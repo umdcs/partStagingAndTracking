@@ -10,7 +10,7 @@ var express = require('express');
 
 var bodyParser = require('body-parser');
 
-var app = express();
+var app = express()
 
 var path = require("path");
 
@@ -24,21 +24,7 @@ app.use(bodyParser.json()); // support json encoded bodies
 
 app.get('/', function(request, response) {
     response.sendFile(path.join(__dirname + '/managerDashboard.html'));
-    // response.writeHead(200, {'Content-Type': 'text/html'});
-    //
-    // response.write('<!DOCTYPE html><head><title>Dashboard</title></head><body>');
-    // response.write('<H1><center>Manager Dashboard</center></H1>');
-    // response.write('Current Jobs:');
-    // response.write('<script language="javascript" type="text/javascript">');
-    // response.write('for(var i = 0; i < jobsInfoArray.length; i++) { document.write("Job " +i+ ": name: " +jobsInfoArray.jobArray[i].name+ "<br />");}');
-    // response.write('</script>');
-    // response.write('</body><html>');
-    // //response.write('JSON Data:');
-    //
-    // /* You could output any JavaScript data here... */
-    // //response.write(JSON.stringify(jobsArray, null, 4));
-    // //response.write('</body></html>');
-    //
+
     console.log('Received dashboard request!');
 });
 
