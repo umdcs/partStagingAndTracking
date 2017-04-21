@@ -1,12 +1,13 @@
 <html>
 <head>
+  <script scr="UPI_node_server.js"></script>
   <title>Dashboard</title>
 </head>
   <body>
     <H1><center>Manager Dashboard</center></H1>
     Current Jobs:
-    <script src="/__dirname/UPI_node_server.js" type="text/javascript"></script>
-    <script language="javascript" type="text/javascript">
+    <script scr="UPI_node_server.js">
+    getJobsInfoArray();
     for(var i = 0; i < jobsInfoArray.length; i++) {
       document.write("Client: " +jobsInfoArray[i].name+ " ID: " +jobsInfoArray[i].ID+ "<br />");
     }

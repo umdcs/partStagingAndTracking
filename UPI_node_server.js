@@ -73,7 +73,9 @@ app.post('/addJob', function(request, response) {
     response.end();
 });
 
-
+function getJobsInfoArray() {
+  alert(window.jobsInfoArray);
+}
 /* updateJob will be sent a Job to update, and an index
    where this job is located (to be updated). From this,
    the job can be updated easily without touching other data */
