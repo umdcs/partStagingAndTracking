@@ -10,8 +10,19 @@
         android:id="@+id/newJob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Add New Job"
         android:onClick="newJob"/>
+
+    <Button
+        android:id="@+id/oldJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="existingJob"
+        android:text="Edit selected job"
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/editor"
@@ -28,16 +39,8 @@
         android:layout_height="225dp"
         android:layout_below="@+id/editor"
         android:hint="Current Jobs:"
-        android:textSize="18sp"/>
-
-    <Button
-        android:id="@+id/oldJob"
-        android:layout_below="@+id/viewer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edit an existing job"
-        android:onClick="existingJob" />
-
+        android:textSize="18sp"
+        android:layout_above="@+id/oldJob" />
 
 
 </RelativeLayout>
