@@ -1,5 +1,6 @@
 package com.example.alextangen.unitedpipeline;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,11 +44,12 @@ public class JobProgressClient extends AppCompatActivity {
 
             for (int i = 0; i < currentJob.getNumPieces(); i++) {
                 progArray[i] = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
-                progArray[i].setScaleY(3);
+                //LinearLayout.LayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 29));
                 progArray[i].setIndeterminate(false);
+                progArray[i].setMinimumHeight(50);
                 progArray[i].setPadding(20,20,20,20);
+                progArray[i].setScaleY(3);
                 progArray[i].setProgress(currentJob.getPieceProgress(i));
-                System.out.println("Piece progress = " + currentJob.getPieceProgress(i));
                 progArray[i].setVisibility(View.VISIBLE);
                 layout.addView(progArray[i]);
             }
