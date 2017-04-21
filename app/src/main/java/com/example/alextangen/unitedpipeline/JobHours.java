@@ -99,9 +99,12 @@ public class JobHours extends AppCompatActivity {
     }
 
     public void goBack(View view) {
-        Intent intent = new Intent(this, NewJobMenu.class);
+        Intent intent = new Intent(this, EditJobMenu.class);
 
         globs.serverEditJob(currentJob);
+
+        intent.putExtra("whichJob", whichJobString);
+        System.out.println("whichJob = " + whichJobString);
 
         startActivity(intent);
     }

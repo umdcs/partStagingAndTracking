@@ -19,6 +19,7 @@ public class ManagerChoice extends AppCompatActivity {
     StringBuilder sb;
     String name;
     String id;
+    int WhichJobInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +56,11 @@ public class ManagerChoice extends AppCompatActivity {
     public void existingJob(View view) {
         Intent editJob = new Intent(this, EditJobMenu.class);
         whichJob = editor.getText().toString();
+        WhichJobInt = Integer.parseInt(whichJob);
         editJob.putExtra("whichJob", whichJob);
         System.out.println("whichJob = " + whichJob);
+
+        //globs.getCurrentJob(WhichJobInt);
 
 
         startActivity(editJob);

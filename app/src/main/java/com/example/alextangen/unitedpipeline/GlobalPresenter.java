@@ -105,13 +105,14 @@ class GlobalPresenter {
     public void notifyJobReceived(Job job) {
         if(job != null) {
             System.out.println("Received a job from the server");
-            currentJob = job;
+            model.setCurrentJob(job);
+            //currentJob = job;
         }
     }
 
     public Job getCurrentJob() {
-        model.setCurrentJob(currentJob);
-        return currentJob;
+        return model.getCurrentJob();
+        //return currentJob;
     }
 
 }
