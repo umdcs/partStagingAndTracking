@@ -9,70 +9,18 @@ import android.widget.TextView;
 
 public class Model {
 
-    private static final int MAX_JOBS = 10; // just a placeholder for now
-    //private Job[] jobs;
-    //private String[] Names = new String[10];
     Job currentJob;
-    //int i;
     private int numJobs;
-    private RequestManager reqMan;
-    //int pieceNum = 0;
     GlobalPresenter globs;
 
     public Model() {
         globs = globs.getInstance();
-        //currentJob = globs.getCurrentJob();
-        //jobs = new Job[MAX_JOBS];
         numJobs = 0;
-
-        //reqMan = new RequestManager();
     }
 
     public void setCurrentJob(Job job) {
-        //currentJob = globs.getCurrentJob();
         currentJob = job;
     }
-
-    // public methods to create/store/update/access jobs;
-    /*
-    public int addJob(Job job) {
-        if (numJobs < MAX_JOBS) {
-            jobs[numJobs] = job;
-            //reqMan.addJob(job);
-            numJobs++;
-            return numJobs;
-        } else {
-            return -1;
-        }
-    }
-    */
-    /*
-    public Job getJobByID(int id) {
-        for (int i = 0; i > MAX_JOBS; i++) {
-            if (jobs[i].getID() == id) {
-                return jobs[i];
-            }
-        }
-        return null;
-    }
-
-    public Job getJobByName(String name) {
-        for (int i = 0; i > MAX_JOBS; i++) {
-            if (jobs[i].getName().equals(name)) {
-                return jobs[i];
-            }
-        }
-        return null;
-    }
-
-    public int getNumJobs() {
-        return numJobs;
-    }
-
-    public Job getJob(int whichJob) {
-        return jobs[whichJob];
-    }
-    */
 
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int selection) {

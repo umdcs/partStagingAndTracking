@@ -14,28 +14,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class JobHours extends AppCompatActivity {
-    //private Job[] jobsArray = new Job[10];
-    Bundle bn;
     Job currentJob;
     GlobalPresenter globs;
-    //ProgressBar prg;
     Spinner spins;
     TextView shows;
     EditText pipers;
     EditText laborers;
     Button back;
-    String name;
-    String pieceCount;
     String pipeString;
     String lbString;
     Button carryOn;
     double pfHours;
     double lbHours;
-    //int pieceCountInt;
-    //int jobNumber;
-    //int whichJob = 0;
     String whichJobString;
-    int whichJobNumber;
     int jobNum;
     int selection = 0;
 
@@ -62,25 +53,6 @@ public class JobHours extends AppCompatActivity {
 
         whichJobString = intent.getStringExtra("whichJob");
 
-        //whichJobNumber = Integer.parseInt(whichJobString);
-
-        //whichJobString = intent.getStringExtra("whichJob");
-        //whichJobNumber = Integer.parseInt(whichJobString);
-        //whichJobNumber = globs.getNumJobs() - 1;
-        //name = intent.getStringExtra("who");
-        //System.out.println("Name = " + name);
-        //pieceCount = intent.getStringExtra("howMany");
-        //pieceCountInt = Integer.parseInt(pieceCount);
-        //System.out.println("pieceCount = " + pieceCountInt);
-
-        //currentJob = globs.getJob(whichJobNumber);
-
-        //System.out.println("Attempting to get job from server for Hours");
-        //globs.getJobFromServerForProgress(whichJobNumber);
-        //System.out.println("Didn't fail getting job");
-
-
-        //for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
         for (int i = 0; i < currentJob.getNumPieces(); i++) {
             list.add("Piece # " + i);
         }
@@ -107,12 +79,8 @@ public class JobHours extends AppCompatActivity {
             }
         });
 
-        //shows.setText("Pipe Fitter hours  on piece # " + selection + " = "+ globs.getPfHours(jobNum, selection) + "\n" +
-        //       "Laborer hours on piece # " + selection + " = " + globs.getLbHours(jobNum, selection));
-
     }
     public void carryThisOn(View view) {
-        //Intent intent = new Intent(this, NewJobMenu.class);
         pipeString = pipers.getText().toString();
         pfHours = Double.parseDouble(pipeString);
         lbString = laborers.getText().toString();
@@ -124,29 +92,14 @@ public class JobHours extends AppCompatActivity {
 
         shows.setText("Pipe Fitter hours  on piece # " + selection + " = "+ globs.getPfHours(jobNum, selection) + "\n" +
                 "Laborer hours on piece # " + selection + " = " + globs.getLbHours(jobNum, selection));
-
-        //intent.putExtra("who", name);
-        //intent.putExtra("howMany", pieceCount);
-
-        //startActivity(intent);
-
     }
 
     public void setJobHours() {
         globs.setJobH(this);
     }
 
-    /*
-    public void CurrentJobHours(Job job) {
-        System.out.println("Received a job from the presenter");
-        currentJob = job;
-    }
-    */
-
     public void goBack(View view) {
         Intent intent = new Intent(this, NewJobMenu.class);
-        //intent.putExtra("who", name);
-        //intent.putExtra("howMany", pieceCount);
 
         globs.serverEditJob(currentJob);
 

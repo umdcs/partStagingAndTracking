@@ -32,29 +32,6 @@ public class ManagerChoice extends AppCompatActivity {
         globs.setManagerChoice(this);
 
         globs.getImportantInfo();
-
-
-        /*
-        if(globs.getNumJobs() > 0) {
-
-            for (int m = 0; m < globs.getNumJobs(); m++) {
-                sb.append("Job Number: " + m + " ");
-                sb.append(globs.getName(m) + " with " + globs.getNumPieces(m) + " pieces");
-                sb.append("\n");
-            }
-
-            text.setText("Current Jobs: \n" + sb);
-            globs.getImportantInfo();
-        }
-
-        else {
-            text.setText("No jobs to display");
-        }
-        */
-
-        //whichJob = editor.getText().toString();
-        //System.out.println("whichJob = " + whichJob);
-
     }
 
     public void setJobsText(String result) {
@@ -62,7 +39,6 @@ public class ManagerChoice extends AppCompatActivity {
             JSONObject jsonData = new JSONObject(result);
             name = jsonData.optString("name");
             id = jsonData.optString("ID");
-            //text.setText("Name: " + name + "ID: " + id);
         }
         catch(JSONException e) {
             e.printStackTrace();
