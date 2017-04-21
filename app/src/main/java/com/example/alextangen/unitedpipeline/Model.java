@@ -22,6 +22,8 @@ public class Model {
         currentJob = job;
     }
 
+    public Job getCurrentJob() { return currentJob;}
+
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int selection) {
         //Job job = jobs[jobNum];
