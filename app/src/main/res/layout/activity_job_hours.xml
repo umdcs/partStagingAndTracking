@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:spinnerMode="dropdown"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
     <EditText
         android:layout_below="@id/spins"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/Pipes"
         android:inputType="numberDecimal"
-        android:hint="Enter Pipe Fitter Hours: "/>
+        android:hint="Enter Pipe Fitter Hours: "
+        android:textSize="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -28,31 +30,34 @@
         android:id="@+id/LBS"
         android:inputType="numberDecimal"
         android:hint="Enter Laborer Hours: "
-        android:layout_below="@id/Pipes"/>
+        android:layout_below="@id/Pipes"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/allDone"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:text="Save"
         android:layout_below="@id/LBS"
-        android:onClick="carryThisOn"/>
+        android:onClick="carryThisOn"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/shows"
         android:layout_below="@+id/allDone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:textSize="18sp"/>
+        android:textSize="20sp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back"
         android:textColor="@color/white"
         android:text="Back"
-        android:layout_below="@+id/shows"
-        android:onClick="goBack" />
+        android:layout_alignParentBottom="true"
+        android:onClick="goBack"
+        android:textSize="20sp" />
 
 </RelativeLayout>
