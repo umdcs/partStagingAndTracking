@@ -41,16 +41,16 @@ class GlobalPresenter {
         return ourInstance;
     }
 
-    public void addJob(Job job) { model.addJob(job); }
+    //public void addJob(Job job) { model.addJob(job); }
     public void addJobToServer(Job job) { requestManager.addJob(job);}
 
-    public Job getJob(int whichJob) { return model.getJob(whichJob);}
+    //public Job getJob(int whichJob) { return model.getJob(whichJob);}
 
     public void getJobFromServer(int whichJob) { requestManager.getJobByID(whichJob);}
 
-    public void getJobFromServerForProgress(int whichJob) { requestManager.getJobByIdProgress(whichJob);}
+    //public void getJobFromServerForProgress(int whichJob) { requestManager.getJobByIdProgress(whichJob);}
 
-    public void getJobFromServerForHours(int whichJob) { requestManager.getJobByIdHours(whichJob);}
+    //public void getJobFromServerForHours(int whichJob) { requestManager.getJobByIdHours(whichJob);}
 
     public void getNumJobs() {
         //return model.getNumJobs();
@@ -63,18 +63,21 @@ class GlobalPresenter {
         thisNewJob.neededID(nextPostion);
     }
 
-    public void setNumPieces(int m, int i) { pieceNumber[i] = m; }
-        public int getNumPieces(int i) { return pieceNumber[i]; }
+    //public void setNumPieces(int m, int i) { pieceNumber[i] = m; }
+    //public int getNumPieces(int i) { return pieceNumber[i]; }
 
+    /*
     public String getName(int whichJob) { return Names[whichJob]; }
     public void setName(String name, int i) {
         Names[i] = name;
         j++;
     }
+    */
 
-    public Job getJobByID(int id) { return model.getJobByID(id); }
-    public Job getJobByName(String name) { return model.getJobByName(name); }
+    //public Job getJobByID(int id) { return model.getJobByID(id); }
+    //public Job getJobByName(String name) { return model.getJobByName(name); }
 
+    /*
     public int getJobNumber(String name, int numPieces) {
         for (int k = 0; k < j; k++) {
             if(name.equals(Names[k]) && (numPieces == pieceNumber[k])) {
@@ -83,6 +86,7 @@ class GlobalPresenter {
         }
         return -1;
     }
+    */
 
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}
     public void lbHours(int jobNum, int Selection, double hours) {model.lbHours(jobNum, Selection, hours);}
