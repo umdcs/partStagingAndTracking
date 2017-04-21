@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ManagerChoice extends AppCompatActivity {
 
     GlobalPresenter globs;
@@ -14,6 +17,9 @@ public class ManagerChoice extends AppCompatActivity {
     EditText editor;
     String whichJob;
     StringBuilder sb;
+    String name;
+    String id;
+    int WhichJobInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,25 +30,21 @@ public class ManagerChoice extends AppCompatActivity {
         editor = (EditText) findViewById(R.id.editor);
         sb = new StringBuilder();
 
+        globs.setManagerChoice(this);
 
-        if(globs.getNumJobs() > 0) {
+        globs.getImportantInfo();
+    }
 
-            for (int m = 0; m < globs.getNumJobs(); m++) {
-                sb.append("Job Number: " + m + " ");
-                sb.append(globs.getName(m) + " with " + globs.getNumPieces(m) + " pieces");
-                sb.append("\n");
-            }
-
-            text.setText("Current Jobs: \n" + sb);
+    public void setJobsText(String result) {
+        try {
+            JSONObject jsonData = new JSONObject(result);
+            name = jsonData.optString("name");
+            id = jsonData.optString("ID");
         }
-
-        else {
-            text.setText("No jobs to display");
+        catch(JSONException e) {
+            e.printStackTrace();
         }
-
-        //whichJob = editor.getText().toString();
-        //System.out.println("whichJob = " + whichJob);
-
+        text.setText(result);
     }
 
     public void newJob(View view) {
@@ -54,8 +56,11 @@ public class ManagerChoice extends AppCompatActivity {
     public void existingJob(View view) {
         Intent editJob = new Intent(this, EditJobMenu.class);
         whichJob = editor.getText().toString();
+        WhichJobInt = Integer.parseInt(whichJob);
         editJob.putExtra("whichJob", whichJob);
         System.out.println("whichJob = " + whichJob);
+
+        //globs.getCurrentJob(WhichJobInt);
 
 
         startActivity(editJob);

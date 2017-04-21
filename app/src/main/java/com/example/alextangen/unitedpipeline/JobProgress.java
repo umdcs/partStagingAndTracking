@@ -26,10 +26,6 @@ public class JobProgress extends AppCompatActivity {
     Button startCoat;
     Button finishedCoat;
     Button readyShip;
-    String name;
-    String pieceCount;
-    int pieceCountInt;
-    int jobNumber;
     String whichJob;
     int whichJobNumber;
     int jobNum;
@@ -62,8 +58,10 @@ public class JobProgress extends AppCompatActivity {
         readyShip.setVisibility(View.GONE);
 
         globs = GlobalPresenter.getInstance();
-        //currentJob = globs.getJob(0);
 
+        currentJob = globs.getCurrentJob();
+
+        setJobProgress();
 
         Intent intent = getIntent();
         ArrayList list = new ArrayList();
@@ -72,7 +70,8 @@ public class JobProgress extends AppCompatActivity {
 
         whichJobNumber = Integer.parseInt(whichJob);
 
-        for (int i = 0; i < globs.getJob(whichJobNumber).getNumPieces(); i++) {
+        System.out.println("Current Job pieces = " + currentJob.getNumPieces());
+        for(int i = 0; i < currentJob.getNumPieces(); i++) {
             list.add("Piece # " + i);
         }
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
@@ -82,7 +81,7 @@ public class JobProgress extends AppCompatActivity {
         spins.setAdapter(spinnerArrayAdapter);
 
         jobNum = whichJobNumber;
-        currentJob = globs.getJob(jobNum);
+        System.out.println("jobNum = " + jobNum);
 
         spins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -250,5 +249,22 @@ public class JobProgress extends AppCompatActivity {
             }
         });
 }
+
+    public void goBack(View view) {
+        Intent intent = new Intent(this, EditJobMenu.class);
+
+        System.out.println("jobNum in post function = " + jobNum);
+
+        globs.serverEditJob(globs.getCurrentJob());
+
+        intent.putExtra("whichJob", whichJob);
+        System.out.println("whichJob = " + whichJob);
+
+        startActivity(intent);
+    }
+
+    public void setJobProgress() {
+        globs.setJobP(this);
+    }
 
 }

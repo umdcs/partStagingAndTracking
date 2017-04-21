@@ -2,31 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Katia\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\pre-dexed\debug\gson-2.8.0_d6e2864472caab06c2f7170ff72172fb5465a811.jar" />
-    </item>
-    <item
         is-multidex="true"
-        jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="51b957a17e700320f621c63750eb4a8d5ed79c7a">
-        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_39de5880ade6f67bcce39c89c434bbda516401ad\classes.dex" />
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_9c571e913e755e5440b55adff320d62d9fc59edf/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_23ee0f901a1d2ec185f5227058c7f85e4df4e776\classes.dex" />
+        sha1="183bd7bb6dd7a0d0ea98e6496c9313474d4e9337">
+        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9d3605c03ecd7d1e1f81414b8a631314e11a76b6/classes.dex" />
     </item>
 
 </items>
