@@ -4,7 +4,11 @@
 
 var jobsArray = [];
 
-var jobsInfoArray = [];
+var jobsInfoArray = {
+    //'lastUpdated' : 0,
+    //'host' : 'UPI',
+    'jobArray' : []
+}
 
 var express = require('express');
 
@@ -14,7 +18,7 @@ var app = express()
 
 var path = require("path");
 
-app.set("port", 8090);
+app.set("port", 3316);
 
 app.use(bodyParser.urlencoded({ // support encoded bodies
     extended: true
@@ -29,39 +33,37 @@ app.get('/', function(request, response) {
 });
 
 app.get('/getAllJobs', function(request, response) {
-    response.send(jobsArray);
+    if(!request.body) return res.sendStatus(400);
     console.log('Received a get request for all jobs!');
+    response.send(jobsArray.length.toString());
     response.end();
 });
 
-app.get('/getJobByID', function(request, response) {
+/* getJobByID should take in one paramater, the ID, and search through the jobsInfoArray
+   to find find the array element that we wish to find, from there it should take that index
+   and grab the job (the same index) from the jobsArray. That data should then be written as
+   a JSON string and sent back to the application. */
+app.get('/getJobByID/:idNumber', function(request, response) {
     //An ID should be sent up with request, so a specific job can be grabbed
     //Then send back the job corresponding to the ID
-    response.send(jobsArray[0]); //0 for now, will search for job ID later
+    /*
+        for(int i=0; i<jobsInfoArray.length(); i++) {
+        if(jobsInfoArray.getID(i) == (Parameter that comes in)) {
+        response.write(jobsArray[i];
+        OR
+        response.send(jobsArray[i];
+        console.log('Found job')
+        }
+        }
+        response.send('Job not found');
+        response.end();
+    */
+    if(!request.body) return res.sendStatus(400);
+    var id = request.params.idNumber;
+    response.send(jobsArray[id]);
     console.log('Received a get request for a job by ID!');
     response.end();
 });
-
-/* getJobInfo will be used to send an array with Job ID's and
-   the Job names. This will be used to display the current jobs
-   that are on the server. Then as the user wants to update or view
-   specific jobs, will the job be requested from the server */
-
-/*
-app.get('/getJobInfo', function(request, response) {
-    var jobsInfoArray = [];
-    var jobInfo;
-
-    for(var i = 0; i < jobsArray.length; ++i) {
-	jobInfo = { "jobID" : "", "jobName" : "" };
-	jobsInfoArray.push[jobInfo];
-    }
-
-    response.send(jobsInfoArray);
-    console.log('Received a get request for the names of jobs!');
-    response.end();
-});
-*/
 
 app.post('/addJob', function(request, response) {
     if(!request.body) return res.sendStatus(400);
@@ -76,6 +78,7 @@ app.post('/addJob', function(request, response) {
 function getJobsInfoArray() {
   alert(window.jobsInfoArray);
 }
+
 /* updateJob will be sent a Job to update, and an index
    where this job is located (to be updated). From this,
    the job can be updated easily without touching other data */
@@ -83,10 +86,10 @@ function getJobsInfoArray() {
 app.post('/importantInfo', function(request,response) {
     if(!request.body) return response.sendStatus(400);
 
-    //var aJob = request.body.Job;
-
-    var info = {"name" : request.body.name, "ID" : request.body.ID}
-    jobsInfoArray.push(info);
+    //var info = {"name" : request.body.name, "ID" : request.body.ID}
+    var info = {"name" : request.body.name, "ID" : request.body.ID};
+    jobsInfoArray.jobArray.push(info);
+    //lastUpdated++;
 
     //response.write("Success");
     console.log('Pushed Name and ID onto jobsInfoArray');
@@ -94,22 +97,10 @@ app.post('/importantInfo', function(request,response) {
 });
 
 app.get('/getImportantInfo', function(request,response) {
-    /*
-    response.writeHead(200, {'Content-Type': 'text/html'});
-
-    response.write('<!DOCTYPE html><head><title>Job Information</title></head><body>');
-    response.write('<H1>Names and Numbers</H1>');
-    response.write('JSON Data:');
-
-    /* You could output any JavaScript data here... *
-    response.write(JSON.stringify(jobsInfoArray));
-    response.write('</body></html>'); */
-
-    //response.send(jobsInfoArray);
-    //response.write(jobsInfoArray);
 
     console.log('Received request to get important job information');
     response.json(jobsInfoArray);
+    //response.send(jobsInfoArray);
     //response.end();
 });
 
