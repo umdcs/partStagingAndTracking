@@ -13,13 +13,10 @@ public class Job{
 
     private Piece[] pieces;
 
-    private String[] Names = new String[10];
     private String name;
     private int id;
-    //private int i = 0;
     private double pfHoursTotal;
     private double lbHoursTotal;
-    //public String newString;
 
     public Job(int numPieces) {
         name = "";

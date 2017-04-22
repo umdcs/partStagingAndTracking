@@ -14,7 +14,7 @@
         android:textColor="@color/white"
         android:text="View/Update Progress"
         android:textAlignment="center"
-        android:textSize="24dp"
+        android:textSize="20sp"
         android:onClick="JobProgress"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" />
@@ -25,7 +25,7 @@
         android:textColor="@color/white"
         android:text="View/Update Hours"
         android:textAlignment="center"
-        android:textSize="24dp"
+        android:textSize="20sp"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp"
         android:onClick="JobHours"/>
@@ -35,6 +35,6 @@
         android:layout_alignParentBottom="true"
         android:textColor="@color/white"
         android:text="Back"
-        android:textSize="24dp"
+        android:textSize="20sp"
         android:onClick="goBack"/>
 </RelativeLayout>

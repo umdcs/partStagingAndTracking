@@ -9,123 +9,86 @@ import android.widget.TextView;
 
 public class Model {
 
-    private static final int MAX_JOBS = 10; // just a placeholder for now
-    private Job[] jobs;
-    //private String[] Names = new String[10];
-    int i;
+    Job currentJob;
     private int numJobs;
-    private RequestManager reqMan;
-    int pieceNum = 0;
+    GlobalPresenter globs;
 
     public Model() {
-        jobs = new Job[MAX_JOBS];
+        globs = globs.getInstance();
         numJobs = 0;
-        reqMan = new RequestManager();
     }
 
-    // public methods to create/store/update/access jobs;
-    public int addJob(Job job) {
-        if (numJobs < MAX_JOBS) {
-            jobs[numJobs] = job;
-            //reqMan.addJob(job);
-            numJobs++;
-            return numJobs;
-        } else {
-            return -1;
-        }
+    public void setCurrentJob(Job job) {
+        currentJob = job;
     }
 
-    public Job getJobByID(int id) {
-        for (int i = 0; i > MAX_JOBS; i++) {
-            if (jobs[i].getID() == id) {
-                return jobs[i];
-            }
-        }
-        return null;
-    }
-
-    public Job getJobByName(String name) {
-        for (int i = 0; i > MAX_JOBS; i++) {
-            if (jobs[i].getName().equals(name)) {
-                return jobs[i];
-            }
-        }
-        return null;
-    }
-
-    public int getNumJobs() {
-        return numJobs;
-    }
-
-    public Job getJob(int whichJob) {
-        return jobs[whichJob];
-    }
+    public Job getCurrentJob() { return currentJob;}
 
 
     public void matlRcvd(int jobNum, ProgressBar prog, TextView tracker, int selection) {
-        Job job = jobs[jobNum];
-        job.setMaterialsReceived(selection);
-        job.getPieces();
+        //Job job = jobs[jobNum];
+        currentJob.setMaterialsReceived(selection);
+        currentJob.getPieces();
     }
 
     public void startFab(int jobNum, ProgressBar prog, TextView tracker, int selection) {
-        Job job = jobs[jobNum];
-        job.setStartedFab(selection);
-        job.getPieces();
+        //Job job = jobs[jobNum];
+        currentJob.setStartedFab(selection);
+        currentJob.getPieces();
     }
 
     public void endFab(int jobNum, ProgressBar prog, TextView tracker, int selection) {
-        Job job = jobs[jobNum];
-        job.setFinishedFab(selection);
-        job.getPieces();
+        //Job job = jobs[jobNum];
+        currentJob.setFinishedFab(selection);
+        currentJob.getPieces();
     }
 
     public void xRay(int jobNum, ProgressBar prog, TextView tracker, int selection) {
-        Job job = jobs[jobNum];
-        job.setXRayReady(selection);
-        job.getPieces();
+        //Job job = jobs[jobNum];
+        currentJob.setXRayReady(selection);
+        currentJob.getPieces();
     }
 
     public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int selection) {
-        Job job = jobs[jobNum];
-        job.setStartedCoating(selection);
-        job.getPieces();
+        //Job job = jobs[jobNum];
+        currentJob.setStartedCoating(selection);
+        currentJob.getPieces();
     }
 
     public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int selection) {
-        Job job = jobs[jobNum];
-        job.setFinishedCoating(selection);
-        job.getPieces();
+        //Job job = jobs[jobNum];
+        currentJob.setFinishedCoating(selection);
+        currentJob.getPieces();
     }
 
     public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int selection) {
-        Job job = jobs[jobNum];
-        job.setReadyToShip(selection);
-        job.getPieces();
+        //Job job = jobs[jobNum];
+        currentJob.setReadyToShip(selection);
+        currentJob.getPieces();
     }
 
     public void pfHours(int jobNum, int Selection, double hours) {
-        Job job = jobs[jobNum];
-        job.setPfHours(Selection, hours);
+        //Job job = jobs[jobNum];
+        currentJob.setPfHours(Selection, hours);
     }
 
     public void lbHours(int jobNum, int Selection, double hours) {
-        Job job = jobs[jobNum];
-        job.setLbHours(Selection, hours);
+        //Job job = jobs[jobNum];
+        currentJob.setLbHours(Selection, hours);
     }
 
     public double getPfHours(int jobNum, int Selection) {
-        Job job = jobs[jobNum];
-        return job.getPfHours(Selection);
+        //Job job = jobs[jobNum];
+        return currentJob.getPfHours(Selection);
     }
 
     public double getLbHours(int jobNum, int Selection) {
-        Job job = jobs[jobNum];
-        return job.getLbHours(Selection);
+        //Job job = jobs[jobNum];
+        return currentJob.getLbHours(Selection);
     }
 
     public int getNumPieces(int jobNum) {
-        Job job = jobs[jobNum];
-        return job.getNumPieces();
+        //Job job = jobs[jobNum];
+        return currentJob.getNumPieces();
     }
 }

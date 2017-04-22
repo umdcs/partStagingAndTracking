@@ -11,14 +11,27 @@ import android.widget.TextView;
 class GlobalPresenter {
     private static final GlobalPresenter ourInstance = new GlobalPresenter();
 
+    private ManagerChoice managerChoice;
+
+    private EditJobMenu editJobMenu;
+
+    private NewJob thisNewJob;
+
+    private JobProgress jobProgress;
+
+    private JobHours jobHours;
+
     private Model model;
 
-    String[] Names = new String[10];
-    int[] pieceNumber = new int[10];
+    private Job currentJob;
+
+    private RequestManager requestManager;
+
     int j;
 
     public GlobalPresenter() {
         model = new Model();
+        requestManager = new RequestManager();
         j = 0;
     }
 
@@ -26,30 +39,18 @@ class GlobalPresenter {
         return ourInstance;
     }
 
-    public void addJob(Job job) { model.addJob(job); }
-    public Job getJob(int whichJob) { return model.getJob(whichJob);}
+    public void addJobToServer(Job job) { requestManager.addJob(job);}
 
-    public int getNumJobs() { return model.getNumJobs(); }
+    public void getJobFromServer(int whichJob) { requestManager.getJobByID(whichJob);}
 
-    public void setNumPieces(int m, int i) { pieceNumber[i] = m; }
-        public int getNumPieces(int i) { return pieceNumber[i]; }
-
-    public String getName(int whichJob) { return Names[whichJob]; }
-    public void setName(String name, int i) {
-        Names[i] = name;
-        j++;
+    public void getNumJobs() {
+        System.out.println("Now in the globs getNumJobs function");
+        requestManager.getAllJobs();
     }
 
-    public Job getJobByID(int id) { return model.getJobByID(id); }
-    public Job getJobByName(String name) { return model.getJobByName(name); }
-
-    public int getJobNumber(String name, int numPieces) {
-        for (int k = 0; k < j; k++) {
-            if(name.equals(Names[k]) && (numPieces == pieceNumber[k])) {
-                return k;
-            }
-        }
-        return -1;
+    public void sendNumber(String nextPostion) {
+        System.out.println("Now in the sendNumber function. Position = " + nextPostion);
+        thisNewJob.neededID(nextPostion);
     }
 
     public void pfHours(int jobNum, int Selection, double hours) {model.pfHours(jobNum, Selection, hours);}
@@ -64,6 +65,55 @@ class GlobalPresenter {
     public void startCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.startCoat(jobNum, prog, tracker, Selection); }
     public void endCoat(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.endCoat(jobNum, prog, tracker, Selection); }
     public void shipRdy(int jobNum, ProgressBar prog, TextView tracker, int Selection) { model.shipRdy(jobNum, prog, tracker, Selection); }
+
+
+
+    public void setManagerChoice(ManagerChoice manChoice) {
+        managerChoice = manChoice;
+    }
+
+    public void setNewJob(NewJob newJob) { thisNewJob = newJob;}
+
+    public void setEditJob(EditJobMenu edits) {
+        editJobMenu = edits;
+    }
+
+    public void setJobP(JobProgress progress) {
+        jobProgress = progress;
+    }
+
+    public void setJobH(JobHours hours) {
+        jobHours = hours;
+    }
+
+    //Server Communication stuff
+    public void postImportantStuff(Job currentJob) {
+        requestManager.postImportantInformation(currentJob);
+    }
+
+    public void serverEditJob(Job currentJob) {
+        requestManager.editJob(currentJob);
+    }
+
+    public void getImportantInfo() {requestManager.getImportantInfo();}
+
+    public void notifyUpdateInfo(String result) {
+        System.out.println("Now in the notifyUpdateInfo function, Result = " + result);
+        managerChoice.setJobsText(result);
+    }
+
+    public void notifyJobReceived(Job job) {
+        if(job != null) {
+            System.out.println("Received a job from the server");
+            model.setCurrentJob(job);
+            //currentJob = job;
+        }
+    }
+
+    public Job getCurrentJob() {
+        return model.getCurrentJob();
+        //return currentJob;
+    }
 
 }
 

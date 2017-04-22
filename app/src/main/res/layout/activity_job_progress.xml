@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:spinnerMode="dropdown"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
 
     <ProgressBar
@@ -35,7 +36,7 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:paddingTop="25dp"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/matRec"
@@ -93,4 +94,21 @@
         android:text="Ready to Ship"
         android:textSize="20sp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal|center"
+        android:text="Back/Post"
+        android:onClick="goBack"
+        android:textSize="20sp"/>
+    </LinearLayout>
 </LinearLayout>

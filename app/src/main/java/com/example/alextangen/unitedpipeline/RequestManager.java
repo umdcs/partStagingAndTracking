@@ -24,25 +24,77 @@ import java.net.URL;
 
 public class RequestManager {
 
-    //GlobalPresenter globs;
+    GlobalPresenter globs;
+
+    String[] gotFromServer;
+
+    int whichRequest;
 
     private Job job;
+    String myURI = "http://10.0.0.2:8090";
 
     public RequestManager() {
-        job = new Job(1);
+        globs = globs.getInstance();
+        gotFromServer = new String[10];
     }
 
     public void getAllJobs() {
-        new HTTPAsyncTask().execute("http://131.212.41.37:8090/getAllJobs", "GET");
+        whichRequest = 3;
+        //System.out.println("Now in the requestManager getAllJobs function");
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/getAllJobs", "GET");
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/getAllJobs", "GET");
     }
 
     public void getJobByID(int id) {
-        String uri = "http://131.212.41.37:8090/getJobByID/".concat(Integer.toString(id));
+        whichRequest = 2;
+        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
+    }
+
+    public void getJobByIdProgress(int id) {
+        //whichRequest = 3;
+        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
+        new HTTPAsyncTask().execute(uri, "GET");
+    }
+
+    public void getJobByIdHours(int id) {
+        //whichRequest = 4;
+        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
+        new HTTPAsyncTask().execute(uri, "GET");
+    }
+
+    //public  void postImportantInformation(int jobNum) {
+    public void postImportantInformation(Job job) {
+        whichRequest = 0;
+        System.out.println("Now in postImportantInformation");
+        String name = job.getName();
+        System.out.println("Name = " + name);
+        //String name = globs.getName(jobNum);
+        String uri = "http://131.212.41.37:3316/importantInfo/";
+        //String uri = "http://10.0.2.2:8090/importantInfo";
+        Integer ID = job.getID();
+        JSONObject jsonInfo = null;
+        Gson gson = new Gson();
+        String importantString = gson.toJson(job);
+        Log.d("Debug importantString: ", importantString);
+        try {
+            jsonInfo = new JSONObject();
+            jsonInfo.put("name", name);
+            jsonInfo.put("ID", ID);
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        new HTTPAsyncTask().execute(uri, "POST", jsonInfo.toString());
     }
 
     public void addJob(Job job) {
         //globs = globs.getInstance();
+        whichRequest = 0;
         JSONObject jsonJob = null;
         Gson gson = new Gson();
         String jobString = gson.toJson(job);
@@ -53,8 +105,38 @@ public class RequestManager {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        new HTTPAsyncTask().execute("http://131.212.41.37:8090/addJob", "POST", jsonJob.toString());
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/addJob", "POST", jsonJob.toString());
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/addJob", "POST", jsonJob.toString());
     }
+
+    public void editJob(Job job) {
+        whichRequest = 0;
+        Integer ID = job.getID();
+        JSONObject jobObject = null;
+        Gson gson = new Gson();
+        String jobString = gson.toJson(job);
+        Log.d("DEBUG", jobString);
+        try {
+            jobObject = new JSONObject();
+            jobObject.put("Job", jobString);
+            jobObject.put("ID", ID);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/updateJob", "POST", jobObject.toString());
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/updateJob", "POST", jobObject.toString());
+
+    }
+
+    public void getImportantInfo() {
+        whichRequest = 1;
+        //new HTTPAsyncTask().execute("http://10.0.2.2:8090/getImportantInfo", "GET");
+        new HTTPAsyncTask().execute("http://131.212.41.37:3316/getImportantInfo", "GET");
+        //return
+    }
+
+
 
     /** Handles HTTP messages by using a separate thread */
     private class HTTPAsyncTask extends AsyncTask<String, Integer, String> {
@@ -112,12 +194,16 @@ public class RequestManager {
                 while ((line = br.readLine()) != null) {
                     sb.append(line);
                 }
+                System.out.println("sb = " + sb.toString());
                 return sb.toString();
 
             } catch (MalformedURLException e) {
+                System.out.println("MalformedURLException");
                 e.printStackTrace();
                 return null;
             } catch (IOException e) {
+                System.out.println("Had an IOExcpetion");
+                e.getMessage();
                 e.printStackTrace();
                 return null;
             } finally {
@@ -134,8 +220,32 @@ public class RequestManager {
         protected void onPostExecute(String result) {
             try {
                 /* Take resulting string from doInBackground & extract JSON object */
-                JSONObject jsonData = new JSONObject(result);
-            } catch (JSONException e) {
+                globs = globs.getInstance();
+                System.out.println("\n \n \n \n \n ");
+                Log.d("Result: ", result);
+                //JSONObject jsonData = new JSONObject(result);
+                //add function to notify presenter that job is complete if the whichRequest number is 1 (Get important info) or 2 (get Job by id)
+
+                if(whichRequest == 1 && result != null) {
+                    globs.notifyUpdateInfo(result);
+                }
+
+                else if(whichRequest == 2) {
+                    Job job;
+                    Gson gson = new Gson();
+                    job = gson.fromJson(result, Job.class);
+
+                    globs.notifyJobReceived(job);
+                }
+
+                else if(whichRequest == 3) {
+                    System.out.println("Resulting number: " + result);
+                    globs.sendNumber(result);
+                }
+
+
+                //System.out.println("Json Data: " + jsonData.toString());
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
