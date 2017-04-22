@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Katia on 4/19/2017.
  */
@@ -17,10 +20,11 @@ public class ClientView extends AppCompatActivity {
     EditText jobSelection;
     TextView jobList;
     StringBuilder sb;
+    String name;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("LOG: Inside ClientView");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_view);
 
@@ -29,20 +33,13 @@ public class ClientView extends AppCompatActivity {
         jobList = (TextView) findViewById(R.id.job_list);
         sb = new StringBuilder();
 
-        if(globs.getNumJobs() > 0) {
+        globs.setClientView(this);
 
-            for (int m = 0; m < globs.getNumJobs(); m++) {
-                sb.append("Job Number: " + m + " ");
-                sb.append(globs.getName(m) + " with " + globs.getNumPieces(m) + " pieces");
-                sb.append("\n");
-            }
+        globs.getImportantInfo();
+    }
 
-            jobList.setText("Current Jobs:\n" + sb);
-        }
-
-        else {
-            jobList.setText("No jobs to display");
-        }
+    public void setJobsText(String result) {
+        jobList.setText(result);
     }
 
     public void viewProgress(View view) {

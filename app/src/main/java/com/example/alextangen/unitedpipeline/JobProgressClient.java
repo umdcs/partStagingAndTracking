@@ -24,22 +24,15 @@ public class JobProgressClient extends AppCompatActivity {
 
         globs = globs.getInstance();
 
-        currentJob = new Job(3);
-        globs.addJob(currentJob);
-        globs.matlRcvd(0, new ProgressBar(this), new TextView(this), 0);
-        globs.matlRcvd(0, new ProgressBar(this), new TextView(this), 1);
-        globs.matlRcvd(0, new ProgressBar(this), new TextView(this), 2);
-        globs.startFab(0, new ProgressBar(this), new TextView(this), 1);
-        globs.startFab(0, new ProgressBar(this), new TextView(this), 2);
-        globs.endFab(0, new ProgressBar(this), new TextView(this), 2);
+        String selectionString = getIntent().getStringExtra("selection");
+        int selectionNum = Integer.parseInt(selectionString);
 
-        //String selectionString = getIntent().getStringExtra("selection");
-        //int selectionNum = Integer.parseInt(selectionString);
+        globs.getJobFromServer(selectionNum);
+        currentJob = globs.getCurrentJob();
 
-        //currentJob = globs.getJob(selectionNum);
-
-        //if (currentJob != null) {
+        if (currentJob != null) {
             ProgressBar[] progArray = new ProgressBar[currentJob.getNumPieces()];
+
         LinearLayout layout = (LinearLayout) findViewById(R.id.layout);
 
             for (int i = 0; i < currentJob.getNumPieces(); i++) {
@@ -53,7 +46,7 @@ public class JobProgressClient extends AppCompatActivity {
                 progArray[i].setVisibility(View.VISIBLE);
                 layout.addView(progArray[i]);
             }
-        //}
+        }
 
     }
 }
