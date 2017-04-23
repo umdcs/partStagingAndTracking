@@ -30,6 +30,8 @@ public class Piece {
 
         pfHours = 0;
         lbHours = 0;
+
+        thisString = "Not Started";
     }
 
     public boolean getMatlReceived() {

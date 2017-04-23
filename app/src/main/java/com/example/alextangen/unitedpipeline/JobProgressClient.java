@@ -27,8 +27,12 @@ public class JobProgressClient extends AppCompatActivity {
         String selectionString = getIntent().getStringExtra("selection");
         int selectionNum = Integer.parseInt(selectionString);
 
+        globs.setJobProgressClient(this);
         globs.getJobFromServer(selectionNum);
 
+    }
+
+    public void createView() {
         currentJob = globs.getCurrentJob();
 
         if (currentJob != null) {
@@ -41,11 +45,7 @@ public class JobProgressClient extends AppCompatActivity {
                 textArray[i] = new TextView(this);
                 textArray[i].setPadding(50,25,50,25);
                 textArray[i].setTextSize(20);
-                if (currentJob.getPieceString(i) != null) {
-                    textArray[i].setText("Piece " + i + ": " + currentJob.getPieceString(i));
-                } else {
-                    textArray[i].setText("Piece " + i + ": Not Started");
-                }
+                textArray[i].setText("Piece " + i + ": " + currentJob.getPieceString(i));
                 layout.addView(textArray[i]);
 
                 progArray[i] = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
@@ -58,6 +58,5 @@ public class JobProgressClient extends AppCompatActivity {
                 layout.addView(progArray[i]);
             }
         }
-
     }
 }

@@ -13,6 +13,7 @@ class GlobalPresenter {
 
     private ManagerChoice managerChoice;
     private ClientView clientView;
+    private JobProgressClient jobProgressClient;
 
     private EditJobMenu editJobMenu;
 
@@ -72,8 +73,8 @@ class GlobalPresenter {
     public void setManagerChoice(ManagerChoice manChoice) {
         managerChoice = manChoice;
     }
-    public void setClientView(ClientView clientView) { this.clientView = clientView;
-    }
+    public void setClientView(ClientView clientView) { this.clientView = clientView; }
+    public void setJobProgressClient(JobProgressClient jobProgressClient) { this.jobProgressClient = jobProgressClient; }
 
     public void setNewJob(NewJob newJob) { thisNewJob = newJob;}
 
@@ -116,6 +117,7 @@ class GlobalPresenter {
         if(job != null) {
             System.out.println("Received a job from the server");
             model.setCurrentJob(job);
+            jobProgressClient.createView();
             //currentJob = job;
         }
     }
