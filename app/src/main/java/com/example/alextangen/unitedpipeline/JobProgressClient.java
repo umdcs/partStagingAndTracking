@@ -28,16 +28,27 @@ public class JobProgressClient extends AppCompatActivity {
         int selectionNum = Integer.parseInt(selectionString);
 
         globs.getJobFromServer(selectionNum);
+
         currentJob = globs.getCurrentJob();
 
         if (currentJob != null) {
+            TextView[] textArray = new TextView[currentJob.getNumPieces()];
             ProgressBar[] progArray = new ProgressBar[currentJob.getNumPieces()];
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.layout);
+            LinearLayout layout = (LinearLayout) findViewById(R.id.layout);
 
             for (int i = 0; i < currentJob.getNumPieces(); i++) {
+                textArray[i] = new TextView(this);
+                textArray[i].setPadding(50,25,50,25);
+                textArray[i].setTextSize(20);
+                if (currentJob.getPieceString(i) != null) {
+                    textArray[i].setText("Piece " + i + ": " + currentJob.getPieceString(i));
+                } else {
+                    textArray[i].setText("Piece " + i + ": Not Started");
+                }
+                layout.addView(textArray[i]);
+
                 progArray[i] = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
-                //LinearLayout.LayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 29));
                 progArray[i].setIndeterminate(false);
                 progArray[i].setMinimumHeight(50);
                 progArray[i].setPadding(20,20,20,20);
