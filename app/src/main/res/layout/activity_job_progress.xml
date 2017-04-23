@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:spinnerMode="dropdown"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textAlignment="center" />
 
 
     <ProgressBar
@@ -26,6 +25,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:visibility="visible"
         tools:visibility="visible" />
 
@@ -36,63 +36,56 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:paddingTop="25dp"
-        android:textSize="20sp" />
+        android:paddingBottom="25dp" />
 
     <Button
         android:id="@+id/matRec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="Materials Recieved"
-        android:textSize="20sp" />
+        android:text="Materials Recieved" />
 
     <Button
         android:id="@+id/sFab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="Started Fab"
-        android:textSize="20sp" />
+        android:text="Started Fab" />
 
     <Button
         android:id="@+id/eFab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="Finished Fab"
-        android:textSize="20sp" />
+        android:text="Finished Fab"/>
 
     <Button
         android:id="@+id/xray"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="xRay Ready"
-        android:textSize="20sp" />
+        android:text="xRay Ready" />
 
     <Button
         android:id="@+id/scoat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="Started Painting/Coating"
-        android:textSize="20sp" />
+        android:text="Started Painting/Coating" />
 
     <Button
         android:id="@+id/ecoat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="Finshed Coating"
-        android:textSize="20sp" />
+        android:text="Finshed Coating" />
 
     <Button
         android:id="@+id/ship"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="Ready to Ship"
-        android:textSize="20sp" />
+        android:text="Ready to Ship" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,7 +101,6 @@
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal|center"
         android:text="Back/Post"
-        android:onClick="goBack"
-        android:textSize="20sp"/>
+        android:onClick="goBack"/>
     </LinearLayout>
 </LinearLayout>
