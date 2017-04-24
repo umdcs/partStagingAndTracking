@@ -54,13 +54,27 @@ public class ManagerChoice extends AppCompatActivity {
     }
 
     public void existingJob(View view) {
-        Intent editJob = new Intent(this, EditJobMenu.class);
-        whichJob = editor.getText().toString();
-        WhichJobInt = Integer.parseInt(whichJob);
-        editJob.putExtra("whichJob", whichJob);
-        System.out.println("whichJob = " + whichJob);
+        //Intent editJob = new Intent(this, EditJobMenu.class);
+        if(!editor.getText().toString().equals("")) {
+            Intent editJob = new Intent(this, EditJobMenu.class);
+            whichJob = editor.getText().toString();
+            WhichJobInt = Integer.parseInt(whichJob);
+            editJob.putExtra("whichJob", whichJob);
+            System.out.println("whichJob = " + whichJob);
+
+            startActivity(editJob);
+        }
+        else {
+            editor.setHint("Must select Job!");
+        }
 
 
-        startActivity(editJob);
+        //startActivity(editJob);
+    }
+
+    public void clickedBack(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+
+        startActivity(intent);
     }
 }

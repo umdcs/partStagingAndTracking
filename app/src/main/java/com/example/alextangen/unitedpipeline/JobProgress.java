@@ -255,7 +255,9 @@ public class JobProgress extends AppCompatActivity {
 
         System.out.println("jobNum in post function = " + jobNum);
 
-        globs.serverEditJob(globs.getCurrentJob());
+        //globs.serverEditJob(globs.getCurrentJob());
+
+        globs.serverEditJob(currentJob);
 
         intent.putExtra("whichJob", whichJob);
         System.out.println("whichJob = " + whichJob);
