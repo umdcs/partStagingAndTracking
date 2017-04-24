@@ -1,15 +1,15 @@
 <html>
 <head>
-  <script scr="UPI_node_server.js"></script>
+  <script type="text/javascript" src="UPI_node_server.js"></script>
   <title>Dashboard</title>
 </head>
   <body>
     <H1><center>Manager Dashboard</center></H1>
     Current Jobs:
-    <script scr="UPI_node_server.js">
-    getJobsInfoArray();
-    for(var i = 0; i < jobsInfoArray.length; i++) {
-      document.write("Client: " +jobsInfoArray[i].name+ " ID: " +jobsInfoArray[i].ID+ "<br />");
+    <script>
+    var jobArrayLength = getJobArrayLength;
+    for(var i = 0; i < jobArrayLength; i++) {
+      document.write("Client: " +getJobsNameAtIndex(i)+ " ID: " +getJobsIDAtIndex(i)+ "<br />");
     }
     </script>
   </body>

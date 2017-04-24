@@ -75,8 +75,16 @@ app.post('/addJob', function(request, response) {
     response.end();
 });
 
-function getJobsInfoArray() {
-  alert(window.jobsInfoArray);
+function getJobArrayLength() {
+  return jobsInfoArray.jobArray.length;
+}
+
+function getJobsNameAtIndex(i) {
+  return jobsInfoArray.jobArray[i].name;
+}
+
+function getJobsIDAtIndex(i) {
+  return jobsInfoArray.jobArray[i].ID;
 }
 
 /* updateJob will be sent a Job to update, and an index
