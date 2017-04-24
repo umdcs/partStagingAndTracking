@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({ // support encoded bodies
 app.use(bodyParser.json()); // support json encoded bodies
 
 app.get('/', function(request, response) {
-    response.sendFile(path.join(__dirname + '/managerDashboard.html'));
-
+    //response.sendFile(path.join(__dirname + '/managerDashboard.html'));
+    response.sendFile('/managerDashboard.html');
     console.log('Received dashboard request!');
 });
 
@@ -75,16 +75,20 @@ app.post('/addJob', function(request, response) {
     response.end();
 });
 
-function getJobArrayLength() {
-  return jobsInfoArray.jobArray.length;
+var getJobsArrayLength = function() {
+  return jobsInfoArray.jobsArray.length;
 }
 
+// function getJobArrayLength() {
+//   return jobsInfoArray.jobArray.length;
+// }
+
 function getJobsNameAtIndex(i) {
-  return jobsInfoArray.jobArray[i].name;
+  return jobsInfoArray.jobsArray[i].name;
 }
 
 function getJobsIDAtIndex(i) {
-  return jobsInfoArray.jobArray[i].ID;
+  return jobsInfoArray.jobsArray[i].ID;
 }
 
 /* updateJob will be sent a Job to update, and an index
