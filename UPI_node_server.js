@@ -29,10 +29,19 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.get('/', function(request, response) {
     response.writeHead(200, {'Content-Type' : 'text/html'});
     response.write('<H1><center>Manager Dashboard</center></H1>');
-    response.write('<body>Current Jobs: <br />');
+    response.write('<body><div id="left"></div><div id="right"></div><div id="top"></div><div id="bottom"></div>');
+    response.write('<span style="display:inline-block; width: 10;"></span>Current Jobs: <br />');
+    response.write('<style>#top, #bottom, #left, #right { background: #800000; position: fixed; }');
+    response.write('#left, #right { top: 0; bottom: 0; width: 15px; }');
+    response.write('#left { left: 0; }');
+    response.write('#right { right: 0; }');
+    response.write('#top, #bottom { left: 0; right: 0; height: 15px; }');
+    response.write('#top { top: 0; }');
+    response.write('#bottom { bottom: 0; }</style>');
     var i;
     for(i = 0; i < jobsInfoArray.jobArray.length; i++) {
-      response.write('Job ' + i + ': <br/>Client: ' + jobsInfoArray.jobArray[i].name + ', Job ID: ' + jobsInfoArray.jobArray[i].ID + ' <br />');
+      response.write('<span style="display:inline-block; width: 10;"></span>Job ' + i + ': <br/>');
+      response.write('<span style="display:inline-block; width: 10;"></span>Client: ' + jobsInfoArray.jobArray[i].name + ', Job ID: ' + jobsInfoArray.jobArray[i].ID + ' <br />');
     }
     response.write('</body></html>');
     response.end();
