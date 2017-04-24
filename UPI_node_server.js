@@ -83,22 +83,6 @@ app.post('/addJob', function(request, response) {
     response.end();
 });
 
-var getJobsArrayLength = function() {
-  return jobsInfoArray.jobsArray.length;
-}
-
-// function getJobArrayLength() {
-//   return jobsInfoArray.jobArray.length;
-// }
-
-function getJobsNameAtIndex(i) {
-  return jobsInfoArray.jobsArray[i].name;
-}
-
-function getJobsIDAtIndex(i) {
-  return jobsInfoArray.jobsArray[i].ID;
-}
-
 /* updateJob will be sent a Job to update, and an index
    where this job is located (to be updated). From this,
    the job can be updated easily without touching other data */
