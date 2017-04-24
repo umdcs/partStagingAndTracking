@@ -12,8 +12,7 @@
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Who is this job for: "
-        android:textSize="20sp"/>
+        android:hint="Who is this job for: "/>
 
     <EditText
         android:id="@+id/howMany"
@@ -21,8 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/who"
-        android:hint="How many pieces are there: "
-        android:textSize="20sp"/>
+        android:hint="How many pieces are there: "/>
 
 
     <Button
@@ -33,8 +31,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"
         android:text="Continue"
-        android:onClick="nextActivity"
-        android:textSize="20sp"/>
+        android:onClick="nextActivity"/>
 
 
 </RelativeLayout>

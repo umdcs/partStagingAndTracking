@@ -9,15 +9,13 @@
         android:layout_height="wrap_content"
         android:onClick="continueAsClient"
         android:text="@string/client"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textColor="@color/white" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="continueAsManager"
         android:text="@string/manager"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textColor="@color/white" />
 
 </LinearLayout>

@@ -60,8 +60,6 @@ public class ManagerChoice extends AppCompatActivity {
         editJob.putExtra("whichJob", whichJob);
         System.out.println("whichJob = " + whichJob);
 
-        //globs.getCurrentJob(WhichJobInt);
-
 
         startActivity(editJob);
     }

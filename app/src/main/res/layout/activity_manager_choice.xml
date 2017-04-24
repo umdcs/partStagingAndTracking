@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,8 +12,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:text="Add New Job"
-        android:onClick="newJob"
-        android:textSize="20sp"/>
+        android:onClick="newJob"/>
 
     <Button
         android:id="@+id/oldJob"
@@ -24,16 +22,14 @@
         android:layout_alignParentStart="true"
         android:onClick="existingJob"
         android:text="Edit selected job"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/editor"
         android:layout_below="@+id/newJob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Job Number (if loading existing job): "
-        android:textSize="20sp" />
+        android:hint="Enter Job Number (if loading existing job): " />
 
     <TextView
         android:maxLines="6"
@@ -43,7 +39,6 @@
         android:layout_height="225dp"
         android:layout_below="@+id/editor"
         android:hint="Current Jobs:"
-        android:textSize="20sp"
         android:layout_above="@+id/oldJob" />
 
 

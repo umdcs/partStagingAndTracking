@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:spinnerMode="dropdown"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textAlignment="center" />
 
     <EditText
         android:layout_below="@id/spins"
@@ -21,8 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/Pipes"
         android:inputType="numberDecimal"
-        android:hint="Enter Pipe Fitter Hours: "
-        android:textSize="20sp"/>
+        android:hint="Enter Pipe Fitter Hours: "/>
 
     <EditText
         android:layout_width="match_parent"
@@ -30,8 +28,7 @@
         android:id="@+id/LBS"
         android:inputType="numberDecimal"
         android:hint="Enter Laborer Hours: "
-        android:layout_below="@id/Pipes"
-        android:textSize="20sp"/>
+        android:layout_below="@id/Pipes"/>
 
     <Button
         android:id="@+id/allDone"
@@ -40,15 +37,13 @@
         android:textColor="@color/white"
         android:text="Save"
         android:layout_below="@id/LBS"
-        android:onClick="carryThisOn"
-        android:textSize="20sp"/>
+        android:onClick="carryThisOn"/>
 
     <TextView
         android:id="@+id/shows"
         android:layout_below="@+id/allDone"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="20sp"/>
+        android:layout_height="50dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -57,7 +52,6 @@
         android:textColor="@color/white"
         android:text="Back"
         android:layout_alignParentBottom="true"
-        android:onClick="goBack"
-        android:textSize="20sp" />
+        android:onClick="goBack" />
 
 </RelativeLayout>
