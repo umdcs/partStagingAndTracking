@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_23ee0f901a1d2ec185f5227058c7f85e4df4e776\classes.dex" />
+        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_9c571e913e755e5440b55adff320d62d9fc59edf/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b3835375e05dc19b31df8e7cc83b10fa4c7ea38b">
-        <dex dex="C:\Users\Katia\Documents\School\Junior\Junior Spring\Software Engineering\unitedpiping\unitedpiping_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_39de5880ade6f67bcce39c89c434bbda516401ad\classes.dex" />
+        sha1="9a4931e85b274aaf47f6db24de9fcdbedf99623b">
+        <dex dex="/Users/alextangen/repos/github/unitedpiping_android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9d3605c03ecd7d1e1f81414b8a631314e11a76b6/classes.dex" />
     </item>
 
 </items>
