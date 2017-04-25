@@ -43,10 +43,14 @@ public class ClientView extends AppCompatActivity {
     }
 
     public void viewProgress(View view) {
-        Intent viewProgress = new Intent(this, JobProgressClient.class);
-        String selection = jobSelection.getText().toString();
-        viewProgress.putExtra("selection", selection);
-        startActivity(viewProgress);
+        if(!jobSelection.getText().toString().equals("")) {
+            Intent viewProgress = new Intent(this, JobProgressClient.class);
+            String selection = jobSelection.getText().toString();
+            viewProgress.putExtra("selection", selection);
+            startActivity(viewProgress);
+        }
+        else {
+            jobSelection.setHint("Must select a job!");
+        }
     }
-
 }
