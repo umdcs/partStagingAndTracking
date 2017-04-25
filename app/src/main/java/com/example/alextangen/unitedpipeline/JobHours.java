@@ -81,17 +81,31 @@ public class JobHours extends AppCompatActivity {
 
     }
     public void carryThisOn(View view) {
-        pipeString = pipers.getText().toString();
-        pfHours = Double.parseDouble(pipeString);
-        lbString = laborers.getText().toString();
-        lbHours = Double.parseDouble(lbString);
-        globs.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
-        globs.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
-        System.out.println("pipefitter hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getPfHours(jobNum, spins.getSelectedItemPosition()));
-        System.out.println("laborer hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getLbHours(jobNum, spins.getSelectedItemPosition()));
+        if((!pipers.getText().toString().equals("")) && (!laborers.getText().toString().equals(""))) {
+            pipeString = pipers.getText().toString();
+            pfHours = Double.parseDouble(pipeString);
+            lbString = laborers.getText().toString();
+            lbHours = Double.parseDouble(lbString);
+            globs.pfHours(jobNum, spins.getSelectedItemPosition(), pfHours);
+            globs.lbHours(jobNum, spins.getSelectedItemPosition(), lbHours);
+            System.out.println("pipefitter hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getPfHours(jobNum, spins.getSelectedItemPosition()));
+            System.out.println("laborer hours on piece #" + spins.getSelectedItemPosition() + " = " + globs.getLbHours(jobNum, spins.getSelectedItemPosition()));
 
-        shows.setText("Pipe Fitter hours  on piece # " + selection + " = "+ globs.getPfHours(jobNum, selection) + "\n" +
-                "Laborer hours on piece # " + selection + " = " + globs.getLbHours(jobNum, selection));
+            shows.setText("Pipe Fitter hours  on piece # " + selection + " = " + globs.getPfHours(jobNum, selection) + "\n" +
+                    "Laborer hours on piece # " + selection + " = " + globs.getLbHours(jobNum, selection));
+        }
+        else {
+            if((pipers.getText().toString().equals("")) && laborers.getText().toString().equals("")) {
+                pipers.setHint("Please enter a value for Pipe Fitters");
+                laborers.setHint("Please enter a value for Laborers");
+            }
+            else if(pipers.getText().toString().equals("")) {
+                pipers.setHint("Please enter a value for Pipe Fitters");
+            }
+            else {
+                laborers.setHint("Please enter a value for Laborers");
+            }
+        }
     }
 
     public void setJobHours() {
