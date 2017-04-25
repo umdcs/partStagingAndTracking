@@ -29,7 +29,7 @@
         android:layout_below="@+id/newJob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
+        android:inputType="numberSigned"
         android:hint="Enter Job Number (if loading existing job): " />
 
     <TextView
