@@ -41,27 +41,27 @@ public class RequestManager {
     public void getAllJobs() {
         whichRequest = 3;
         //System.out.println("Now in the requestManager getAllJobs function");
-        new HTTPAsyncTask().execute("http://131.212.41.37:3316/getAllJobs", "GET");
+        new HTTPAsyncTask().execute("http://131.212.41.37:3317/getAllJobs", "GET");
         //new HTTPAsyncTask().execute("http://10.0.2.2:8090/getAllJobs", "GET");
     }
 
     public void getJobByID(int id) {
         whichRequest = 2;
-        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://131.212.41.37:3317/getJobByID/".concat(Integer.toString(id));
         //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
     public void getJobByIdProgress(int id) {
         //whichRequest = 3;
-        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://131.212.41.37:3317/getJobByID/".concat(Integer.toString(id));
         //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
 
     public void getJobByIdHours(int id) {
         //whichRequest = 4;
-        String uri = "http://131.212.41.37:3316/getJobByID/".concat(Integer.toString(id));
+        String uri = "http://131.212.41.37:3317/getJobByID/".concat(Integer.toString(id));
         //String uri = "http://10.0.2.2:8090/getJobByID/".concat(Integer.toString(id));
         new HTTPAsyncTask().execute(uri, "GET");
     }
@@ -73,7 +73,7 @@ public class RequestManager {
         String name = job.getName();
         System.out.println("Name = " + name);
         //String name = globs.getName(jobNum);
-        String uri = "http://131.212.41.37:3316/importantInfo/";
+        String uri = "http://131.212.41.37:3317/importantInfo/";
         //String uri = "http://10.0.2.2:8090/importantInfo";
         Integer ID = job.getID();
         JSONObject jsonInfo = null;
@@ -105,7 +105,7 @@ public class RequestManager {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        new HTTPAsyncTask().execute("http://131.212.41.37:3316/addJob", "POST", jsonJob.toString());
+        new HTTPAsyncTask().execute("http://131.212.41.37:3317/addJob", "POST", jsonJob.toString());
         //new HTTPAsyncTask().execute("http://10.0.2.2:8090/addJob", "POST", jsonJob.toString());
     }
 
@@ -125,14 +125,14 @@ public class RequestManager {
         }
 
         //new HTTPAsyncTask().execute("http://10.0.2.2:8090/updateJob", "POST", jobObject.toString());
-        new HTTPAsyncTask().execute("http://131.212.41.37:3316/updateJob", "POST", jobObject.toString());
+        new HTTPAsyncTask().execute("http://131.212.41.37:3317/updateJob", "POST", jobObject.toString());
 
     }
 
     public void getImportantInfo() {
         whichRequest = 1;
         //new HTTPAsyncTask().execute("http://10.0.2.2:8090/getImportantInfo", "GET");
-        new HTTPAsyncTask().execute("http://131.212.41.37:3316/getImportantInfo", "GET");
+        new HTTPAsyncTask().execute("http://131.212.41.37:3317/getImportantInfo", "GET");
         //return
     }
 
