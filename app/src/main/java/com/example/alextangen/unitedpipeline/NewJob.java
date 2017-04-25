@@ -45,31 +45,45 @@ public class NewJob extends AppCompatActivity {
     }
 
     public void nextActivity(View view) {
-        Intent intent = new Intent(this, NewJobMenu.class);
+        if((!whoFor.getText().toString().equals("")) && (!howMany.getText().toString().equals(""))) {
+            Intent intent = new Intent(this, NewJobMenu.class);
 
-        pieceCountInt = Integer.parseInt(howMany.getText().toString());
-        name = whoFor.getText().toString();
+            pieceCountInt = Integer.parseInt(howMany.getText().toString());
+            name = whoFor.getText().toString();
 
-        currentJob = new Job(pieceCountInt);
-        currentJob.setName(whoFor.getText().toString());
-        currentJob.setID(id);
+            currentJob = new Job(pieceCountInt);
+            currentJob.setName(whoFor.getText().toString());
+            currentJob.setID(id);
 
-        whichJobNumber = id;
+            whichJobNumber = id;
 
-        globs.addJobToServer(currentJob);
-        //code to get what number the new job is at on the server
-        globs.getNumJobs();
+            globs.addJobToServer(currentJob);
+            //code to get what number the new job is at on the server
+            globs.getNumJobs();
 
-        System.out.println("New Job");
+            System.out.println("New Job");
 
-        globs.postImportantStuff(currentJob);
+            globs.postImportantStuff(currentJob);
 
-        System.out.println("Attempting to get job from server");
-        globs.getJobFromServer(whichJobNumber);
-        System.out.println("Didn't fail getting job");
+            System.out.println("Attempting to get job from server");
+            globs.getJobFromServer(whichJobNumber);
+            System.out.println("Didn't fail getting job");
 
-        intent.putExtra("whichJob", whichJobNumber.toString());
+            intent.putExtra("whichJob", whichJobNumber.toString());
 
-        startActivity(intent);
+            startActivity(intent);
+        }
+        else {
+            if((whoFor.getText().toString().equals("")) && (howMany.getText().toString().equals(""))) {
+                whoFor.setHint("Please enter who this job is for:");
+                howMany.setHint("Please enter the number of pieces:");
+            }
+            else if(whoFor.getText().toString().equals("")) {
+                whoFor.setHint("Please enter who this job is for:");
+            }
+            else {
+                howMany.setHint("Please enter the number of pieces:");
+            }
+        }
     }
 }
