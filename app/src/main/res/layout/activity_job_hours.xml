@@ -32,8 +32,9 @@
 
     <Button
         android:id="@+id/allDone"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Save"
         android:layout_below="@id/LBS"
         android:onClick="carryThisOn"/>
@@ -42,15 +43,15 @@
         android:id="@+id/shows"
         android:layout_below="@+id/allDone"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="18sp"/>
+        android:layout_height="50dp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/back"
+        android:textColor="@color/white"
         android:text="Back"
-        android:layout_below="@+id/shows"
+        android:layout_alignParentBottom="true"
         android:onClick="goBack" />
 
 </RelativeLayout>

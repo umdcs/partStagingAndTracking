@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,9 +11,9 @@
         android:id="@+id/progressButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="View/Update Progress"
         android:textAlignment="center"
-        android:textSize="24dp"
         android:onClick="JobProgress"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" />
@@ -22,9 +21,9 @@
         android:layout_below="@+id/progressButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="View/Update Hours"
         android:textAlignment="center"
-        android:textSize="24dp"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp"
         android:onClick="JobHours"/>
@@ -32,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
         android:text="Back"
-        android:textSize="24dp"
         android:onClick="goBack"/>
 </RelativeLayout>

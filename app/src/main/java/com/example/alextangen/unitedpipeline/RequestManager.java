@@ -131,6 +131,7 @@ public class RequestManager {
 
     public void getImportantInfo() {
         whichRequest = 1;
+        System.out.println("whichRequest = " + whichRequest);
         //new HTTPAsyncTask().execute("http://10.0.2.2:8090/getImportantInfo", "GET");
         new HTTPAsyncTask().execute("http://131.212.41.37:3317/getImportantInfo", "GET");
         //return
@@ -226,6 +227,7 @@ public class RequestManager {
                 //JSONObject jsonData = new JSONObject(result);
                 //add function to notify presenter that job is complete if the whichRequest number is 1 (Get important info) or 2 (get Job by id)
 
+                System.out.println("onPostExecute - whichRequest = " + whichRequest);
                 if(whichRequest == 1 && result != null) {
                     globs.notifyUpdateInfo(result);
                 }

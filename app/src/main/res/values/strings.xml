@@ -3,4 +3,5 @@
     <string name="app_name">United Piping</string>
     <string name="client">Continue As Client</string>
     <string name="manager">Continue As Manager</string>
+    <string name="select_job">Select a job:</string>
 </resources>
