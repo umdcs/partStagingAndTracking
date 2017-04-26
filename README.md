@@ -1,4 +1,17 @@
 # United Piping Node Server 
+Node.js server running on http://akka.d.umn.edu:3317 (131.212.41.37:3317)
+
+This server stores all job data for the United Piping Android Application.
+
+This server can be used in conjunction with the android application available at: 
+https://github.umn.edu.umdcs4531/unitedpiping_android
+
+
+
+
+
+
+
 <<<<<<< HEAD
 
 Testing
