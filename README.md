@@ -7,7 +7,9 @@ This server can be used in conjunction with the android application available at
 https://github.umn.edu.umdcs4531/unitedpiping_android
 
 Default page displays each jobs's name and id
+
 /getAllJobs returns the total number of jobs currently stored on the server
+
 /getImportantInfo dumps the json data for each job
 
 
